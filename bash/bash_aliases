@@ -1,0 +1,53 @@
+# Pour 'apt'
+alias Upd='sudo apt update'
+alias Upg='sudo apt upgrade'
+alias Ins='sudo apt install'
+alias Del='sudo apt --purge remove'
+alias AddRepo='sudo add-apt-repository' 
+alias DelRepo='sudo add-apt-repository --remove' 
+alias Ar='sudo apt-get autoremove'
+alias Ac='sudo apt-get autoclean'
+alias Search='apt search'
+alias List='apt list -a '
+alias Show='apt show'
+
+# Extraction & compression des archives tar et bzip2.
+alias ETarG='tar -zxvf ' # Extraire Gzip.
+alias CTarG='tar -zcvf ' # Compresser dans un Gzip.
+alias ETarB='tar -jxvf ' # Extraire Bzip2.
+alias CTarB='tar -jcvf ' # Compresser dans un Bzip2.
+
+# Pour XAMPP/LAMPP
+alias XOn='sudo /opt/lampp/lampp start'
+alias XOff='sudo /opt/lampp/lampp stop'
+
+# Pour 'dpkg'
+alias DIns='sudo dpkg -i '
+# alias List='dpkg -l | grep -i '
+
+# Pout 'tmux'
+alias tmux='tmux -2'
+alias TmL='tmux ls'
+alias TmK='tmux kill-session -t '
+
+# Pour 'avconv'
+alias AVC1366='avconv -f x11grab -s wxga -r 25 -i :0.0 ~/Vidéos/tuto.mp4'
+alias AVC720='avconv -f x11grab -s hd720 -r 25 -follow_mouse 50 -i :0.0 ~/Vidéos/tuto.mp4'
+
+# Pour 'ps'
+alias PsN='ps -o pid,comm,pcpu,rss,stat,etime,args -C ' # Par rapport au nom du processus.
+alias PsP='ps -o pid,comm,pcpu,rss,stat,etime,args -p ' # Par rapport au PID du processus.
+alias PsS='ps -ef | grep -i '
+
+# Remettre l'icône monochrome de CherryTree dans le panel
+alias Cherry='sudo cp -v ~/.icons/CherryTree/* /usr/share/cherrytree/glade/'
+
+# Pour 'ls'
+alias LsD='ls -F | grep "/$"'		   # Ne lister que les répértoires.
+alias LsF='ls -F | grep -e ".*[^\/]$"' # Ne lister que les fichiers..
+alias LsH='ls -A | grep "^\."'		   # Ne lister que les fichiers cachés.
+
+# Divers
+alias V='vim'
+alias Size='df -h'
+alias RelB='source ~/.bashrc'		# Recharge le terminal sans le quitter (.bashrc, .bash_aliases, .bash_functions)

@@ -1,0 +1,61 @@
+# Les fonctions:
+#	- Ps
+#	- Mp3D
+
+IFS="
+"
+
+# Ps ==============================================
+# =================================================
+# Retourne un tableau d'informations sur le nom donné en argument, trié par les PID des processus (Le plus récent en 1er).
+# N.B: Utilise les alias PsS et PsP.
+
+Ps() {
+	echo $(PsN nothing)		# Retourne le header du tableau.
+	if [ -z $1 ]
+	then
+		echo "Il faut préciser le nom d'un processus comme argument"
+	else
+		for P in $(PsS "$1" | awk '{print $2}')
+		do
+			PsP $P | tail -n 1
+		done
+	fi | head -n -1 | uniq -u | sort -nrk 1
+}
+
+# =================================================
+
+
+# Mp3D ============================================
+# =================================================
+# Crée les dossiers "Artiste/Album (Année)" à partir des tags d'un où de plusieurs mp3 puis y déplace le où les fichiers.
+# N.B: Les doubles quotes sont nécessaires pour les motifs!
+
+Mp3D() {
+	${1:?"Il faut préciser le nom d'un fichier ou un motif comme argument!"}
+
+	# Fonction qui vérifie la présence où non du dossier "Album (Année)" et le crée en conséquence.
+	FuncAlbum() {
+		if [ -e "$artist_album ($album_year)" ] && [ -d "$artist_album ($album_year)" ]
+		then
+			mv -v $F $artist_name/"$artist_album ($album_year)"
+		else
+			mkdir -vp $artist_name/"$artist_album ($album_year)"
+			mv -v $F $artist_name/"$artist_album ($album_year)"
+		fi
+	}
+
+	# Début de la procédure principale.
+	for F in $(ls -1 $1)
+	do
+		artist_name=$(mp3info2 -p '%a\n' $F)
+		artist_album=$(mp3info2 -p '%l\n' $F)
+		album_year=$(mp3info2 -p '%y\n' $F | tr -d ',')
+		if [ -e $artist_name ] && [ -d $artist_name ]
+		then
+			FuncAlbum
+		fi
+	done
+}
+
+# =================================================
