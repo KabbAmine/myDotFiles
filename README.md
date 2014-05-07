@@ -16,4 +16,6 @@ As for now it contains:
 	* tmux.conf
 	* Status-line-colors file.
 
+![Basic terminal window](.img/screen-terminal.jpg)
+
 - quicktile.cfg
