@@ -1,3 +1,9 @@
+# Pour Git
+alias Gi="git init"
+alias Gs="git status"
+alias Gc="git commit"
+alias Gp="git push -u origin master"
+
 # Pour 'apt'
 alias Upd='sudo apt update'
 alias Upg='sudo apt upgrade'
