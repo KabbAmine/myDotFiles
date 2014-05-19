@@ -46,6 +46,9 @@ if [ -x /usr/lib/command-not-found -o -x /usr/share/command-not-found/command-no
 }
 fi
 
+# Disable XON/XOFF protocol (No more Ctrl-S)
+stty -ixon
+
 # ===================================
 #		COLORS
 # ===================================
