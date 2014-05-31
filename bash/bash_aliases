@@ -1,10 +1,11 @@
 # Pour Git
 alias Gi="git init"
 alias Gl="git log"
+alias Gpl="git pull"
 alias Gs="git status"
 alias Gc="git commit"
 alias Gp="git push -u origin master"
-alias Gc="git clone"
+alias Gcl="git clone"
 
 # Pour 'apt'
 alias Upd='sudo apt update'
