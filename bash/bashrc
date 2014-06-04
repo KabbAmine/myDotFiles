@@ -1,6 +1,6 @@
 # ======== BASHRC ===================
 # Kabbaj Amine - amine.kabb@gmail.com
-# Last modification: 2014-06-02
+# Last modification: 2014-06-04
 # ===================================
 
 
@@ -50,7 +50,7 @@ fi
 stty -ixon
 
 # ===================================
-#		COLORS
+#		COLOR SYNTAX
 # ===================================
 
 # In the prompt.
