@@ -10,11 +10,11 @@ As for now it contains:
 	* Bashrc
 	* Aliases
 	* Functions.
+	* Script for displaying git branch name in the prompt.
 
 - For tmux:
 
 	* tmux.conf
-	* Status-line-colors file.
 
 ![Basic terminal window](.img/screen-terminal.jpg)
 
