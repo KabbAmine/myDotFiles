@@ -107,10 +107,22 @@ if [ -f  ~/.dotfiles/bash/bash_functions ]; then
 	. ~/.dotfiles/bash/bash_functions
 fi
 
+# Git prompt script.
+if [ -f  ~/.dotfiles/bash/git-prompt.sh ]; then
+	. ~/.dotfiles/bash/git-prompt.sh
+fi
+
 # ===================================
 #		CUSTOMIZATION
 # ===================================
 
+# Colors.
+default='\033[00m'
+bold='\033[01m'
+red='\033[01;31m'
+green='\033[01;32m'
+yellow='\033[01;33m'
+
 # Personal prompt.
-PS1='\[\033[01;33m\]┌──\[\033[01;33m\] \w\[\033[01;33m\]\n└\[\033[01;31m\]─┤ \[\033[00m\]'
-PS2='\[\033[01;31m\]  └─┤ \[\033[00m\]'
+PS1="\[$yellow\]┌── \w\[$green\]\$(__git_ps1)\n\[$yellow\]└\[$red\]─┤ \[$default\]"
+PS2="\[$red\]  └─┤ \[$default\]"
