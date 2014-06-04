@@ -1,10 +1,13 @@
+# Last modification: 2014-06-04
+
 # Pour Git
 alias Gi="git init"
-alias Gl="git log"
+alias Gl="git log | less"
 alias Gpl="git pull"
+alias Ga="git add"
 alias Gs="git status"
 alias Gc="git commit"
-alias Gp="git push -u origin master"
+alias Gp="git push -u origin "
 alias Gcl="git clone"
 
 # Pour 'apt'
