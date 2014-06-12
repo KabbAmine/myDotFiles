@@ -1,0 +1,32 @@
+[Configuration]
+DropdownStatusIcon=FALSE
+FontName=Ubuntu Mono derivative Powerline 12
+MiscAlwaysShowTabs=FALSE
+MiscBell=FALSE
+MiscBordersDefault=TRUE
+MiscCursorBlinks=TRUE
+MiscCursorShape=TERMINAL_CURSOR_SHAPE_BLOCK
+MiscDefaultGeometry=80x30
+MiscInheritGeometry=FALSE
+MiscMenubarDefault=FALSE
+MiscMouseAutohide=TRUE
+MiscToolbarDefault=FALSE
+MiscConfirmClose=TRUE
+MiscCycleTabs=TRUE
+MiscTabCloseButtons=TRUE
+MiscTabCloseMiddleClick=TRUE
+MiscTabPosition=GTK_POS_BOTTOM
+MiscHighlightUrls=TRUE
+MiscScrollAlternateScreen=TRUE
+DropdownWidth=97
+DropdownPosition=96
+DropdownHeight=97
+BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
+BackgroundDarkness=0,850000
+DropdownAlwaysShowTabs=FALSE
+ShortcutsNoMnemonics=TRUE
+ShortcutsNoMenukey=TRUE
+TitleMode=TERMINAL_TITLE_HIDE
+TitleInitial=The Terminal
+DropdownMoveToActive=FALSE
+
