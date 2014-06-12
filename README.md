@@ -19,6 +19,9 @@ As for now it contains:
 - For Stjerm:
 	* Xdefaults.cfg
 
+- For Xfce4-terminal
+	* terminal.rc
+
 - Other files:
 	* quicktile.cfg
 
