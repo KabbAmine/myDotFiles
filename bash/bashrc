@@ -1,6 +1,6 @@
 # ======== BASHRC ===================
 # Kabbaj Amine - amine.kabb@gmail.com
-# Last modification: 2014-06-04
+# Last modification: 2014-06-12
 # ===================================
 
 
@@ -126,3 +126,8 @@ yellow='\033[01;33m'
 # Personal prompt.
 PS1="\[$yellow\]┌── \w\[$green\]\$(__git_ps1)\n\[$yellow\]└\[$red\]─┤ \[$default\]"
 PS2="\[$red\]  └─┤ \[$default\]"
+
+# Execute a tmux session.
+if [[ -z $TMUX ]]; then
+	exec tmux
+fi
