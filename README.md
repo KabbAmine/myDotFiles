@@ -16,6 +16,10 @@ As for now it contains:
 
 	* tmux.conf
 
-![Basic terminal window](.img/screen-terminal.jpg)
+- For Stjerm:
+	* Xdefaults.cfg
 
-- quicktile.cfg
+- Other files:
+	* quicktile.cfg
+
+![Basic terminal window](.img/screen-terminal.jpg)
