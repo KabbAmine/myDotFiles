@@ -1,4 +1,6 @@
+# #############################
 # Last modification: 2014-06-04
+# #############################
 
 # Pour Git
 alias Gi="git init"
@@ -32,6 +34,12 @@ alias CTarB='tar -jcvf ' # Compresser dans un Bzip2.
 # Pour XAMPP/LAMPP
 alias XOn='sudo /opt/lampp/lampp start'
 alias XOff='sudo /opt/lampp/lampp stop'
+
+# Dossiers spéciaux.
+alias www='cd /opt/lampp/htdocs/mesProjets/'
+
+# Pour "InitWebProject"
+alias ISWP='. InitWebProject.sh '
 
 # Pour 'dpkg'
 alias DIns='sudo dpkg -i '

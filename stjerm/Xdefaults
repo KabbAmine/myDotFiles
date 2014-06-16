@@ -10,3 +10,4 @@ stjerm.height: 743
 stjerm.position: top
 stjerm.fixedX: 40
 stjerm.fixedY: 24
+stjerm.shell: /bin/bash

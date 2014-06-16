@@ -129,5 +129,5 @@ PS2="\[$red\]  └─┤ \[$default\]"
 
 # Execute a tmux session.
 if [[ -z $TMUX ]]; then
-	exec tmux
+	exec tmux -2
 fi
