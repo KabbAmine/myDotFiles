@@ -10,8 +10,9 @@
 
 # USAGE
 # - Specify the dotfiles folder in the variables.
-# - Specify the symb links in the PROCESSING PART:
+# - Specify the symbolic links and files to copy in the PROCESSING PART:
 #	* createLink file link [h(If hidden)]
+#	* copyFile file destination [h(If hidden)]
 
 # TODO
 # - Test if file newer that link (-nt?).
@@ -77,7 +78,24 @@ createLink() {
 		echo -e $yellow"$link"$white" was successfully created"
 	else
 		ln -sfn $file $link &&
-		echo -e $yellow"$link"$white" was successfully updated"
+		echo -e $yellow"$link"$white" was successfully "$yellow"updated"$white
+	fi
+
+}
+copyFile() {
+
+	file=$dotfiles_folder"$1" &&
+	destination=$2 &&
+	option=$3 &&
+	
+	checkFile $file &&
+	getProperties $file $destination $option &&
+
+	if [ ! -e $destination ] || [ $file -nt $link ]; then
+		cp $file $link
+		echo -e $yellow"$file"$white" was successfully copied to "$yellow"$link"$white
+	else
+		echo -e $yellow"$link"$white" is the same as "$yellow"$file"$white
 	fi
 
 }
@@ -103,8 +121,11 @@ createLink tmux/tmux.conf ~ h &&
 createLink quicktile/quicktile.cfg ~/.config &&
 # Stjerm.
 createLink stjerm/Xdefaults ~ h &&
+
+showTitle "Copy files" &&
+
 # Xfce4-terminal.
-createLink xfce4-terminal/terminalrc ~/.config/xfce4/terminal &&
+copyFile xfce4-terminal/terminalrc ~/.config/xfce4/terminal &&
 
 echo -e "\n" &&
 exit
