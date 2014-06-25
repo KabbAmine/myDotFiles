@@ -76,9 +76,6 @@ createLink() {
 	if [ ! -L "$link" ]; then
 		ln -s $file $link &&
 		echo -e $yellow"$link"$white" was successfully created"
-	else
-		ln -sfn $file $link &&
-		echo -e $yellow"$link"$white" was successfully "$yellow"updated"$white
 	fi
 
 }
