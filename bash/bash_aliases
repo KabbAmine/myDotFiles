@@ -1,5 +1,5 @@
 # #############################
-# Last modification: 2014-06-04
+# Last modification: 2014-07-08
 # #############################
 
 # Pour Git
@@ -17,38 +17,38 @@ alias Upd='sudo apt update'
 alias Upg='sudo apt upgrade'
 alias Ins='sudo apt install'
 alias Del='sudo apt --purge remove'
-alias AddRepo='sudo add-apt-repository' 
-alias DelRepo='sudo add-apt-repository --remove' 
+alias AddRepo='sudo add-apt-repository'
+alias DelRepo='sudo add-apt-repository --remove'
 alias Ar='sudo apt-get autoremove'
 alias Ac='sudo apt-get autoclean'
-alias Search='apt search'
-alias List='apt list -a '
-alias Show='apt show'
+alias Search='apt search $1'
+alias List='apt list -a $1'
+alias Show='apt show $1'
 
 # Extraction & compression des archives tar et bzip2.
-alias ETarG='tar -zxvf ' # Extraire Gzip.
-alias CTarG='tar -zcvf ' # Compresser dans un Gzip.
-alias ETarB='tar -jxvf ' # Extraire Bzip2.
-alias CTarB='tar -jcvf ' # Compresser dans un Bzip2.
+alias ETarG='tar -zxvf $1' # Extraire Gzip.
+alias CTarG='tar -zcvf $1' # Compresser dans un Gzip.
+alias ETarB='tar -jxvf $1' # Extraire Bzip2.
+alias CTarB='tar -jcvf $1' # Compresser dans un Bzip2.
 
 # Pour XAMPP/LAMPP
 alias XOn='sudo /opt/lampp/lampp start'
 alias XOff='sudo /opt/lampp/lampp stop'
 
 # Dossiers spéciaux.
-alias www='cd /opt/lampp/htdocs/mesProjets/'
+alias www='cd /opt/lampp/htdocs/mesProjets/ && cd $1'
 
 # Pour "InitWebProject"
 alias ISWP='. InitWebProject.sh '
 
 # Pour 'dpkg'
-alias DIns='sudo dpkg -i '
+alias DIns='sudo dpkg -i $1'
 # alias List='dpkg -l | grep -i '
 
 # Pout 'tmux'
 alias tmux='tmux -2'
 alias TmL='tmux ls'
-alias TmK='tmux kill-session -t '
+alias TmK='tmux kill-session -t $1'
 
 # Pour 'avconv'
 alias AVC1366='avconv -f x11grab -s wxga -r 25 -i :0.0 ~/Vidéos/tuto.mp4'
