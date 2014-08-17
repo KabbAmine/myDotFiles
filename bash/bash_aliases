@@ -1,16 +1,20 @@
 # #############################
-# Last modification: 2014-07-08
+# Last modification: 2014-08-18
 # #############################
 
 # Pour Git
+alias Gcl="git clone"
 alias Gi="git init"
-alias Gl="git log | less"
+alias Gl="git log"
+alias Gb="git branch"
+alias Gch="git checkout"
 alias Gpl="git pull"
 alias Ga="git add"
 alias Gs="git status"
-alias Gc="git commit"
+alias Gco="git commit"
+alias Gd="git diff"
+alias Gm="git merge"
 alias Gp="git push -u origin "
-alias Gcl="git clone"
 
 # Pour 'apt'
 alias Upd='sudo apt update'
@@ -36,7 +40,14 @@ alias XOn='sudo /opt/lampp/lampp start'
 alias XOff='sudo /opt/lampp/lampp stop'
 
 # Dossiers spéciaux.
-alias www='cd /opt/lampp/htdocs/mesProjets/ && cd $1'
+alias www='cd /opt/lampp/htdocs/mesProjets/'
+alias ww='cd /opt/lampp/htdocs/mesProjets/ && cd $1'
+
+# Pour DevDocs
+alias DDi='currdir=$(echo $PWD) && cd /opt/devdocs/ && rackup -D && cd $currdir'
+# Add in the functions (One with args):
+# * u => update
+# * k => close/kill
 
 # Pour "InitWebProject"
 alias ISWP='. InitWebProject.sh '
@@ -69,5 +80,6 @@ alias LsH='ls -A | grep "^\."'		   # Ne lister que les fichiers cachés.
 
 # Divers
 alias V='vim'
+alias G='gvim'
 alias Size='df -h'
-alias RelB='source ~/.bashrc'		# Recharge le terminal sans le quitter (.bashrc, .bash_aliases, .bash_functions)
+alias RelB='source ~/.bashrc'
