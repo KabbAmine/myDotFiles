@@ -1,16 +1,63 @@
-# Les fonctions:
-#	- Ps
-#	- Mp3D
+# Last modification: 2014-09-03
 
 IFS="
 "
 
-# Ps ==============================================
-# =================================================
-# Retourne un tableau d'informations sur le nom donné en argument, trié par les PID des processus (Le plus récent en 1er).
-# N.B: Utilise les alias PsS et PsP.
+# Colors.
+red="\033[30m"
+white="\033[0m"
+green="\033[32m"
+yellow="\033[33m"
+
+DD() {
+# DevDocs avec param:
+# - i : Init
+# - o : Open in a browser
+# - e : Init & open in a browser
+# - u : Upd
+# - l : List
+
+	dd_dir="/opt/devdocs/"
+	curr_dir=$(echo $PWD)
+
+	cd $dd_dir &&
+
+	case $1 in
+		"" )
+			echo -e "DD for "$green"DevDocs"
+			echo -e "++++++++++++++\n"$white
+			echo -e "Possible arguments are:"
+			echo -e $red"i"$white" \t Initialize DD"
+			echo -e $red"o"$white" \t Open DD in the browser"
+			echo -e $red"e"$white" \t Initialize DD & open it in the browser"
+			echo -e $red"u"$white" \t Update Docs"
+			echo -e $red"l"$white" \t List Docs"
+			;;
+		"i" )
+			rackup -D
+			;;
+		"o" )
+			exo-open "http://localhost:9292/" 2> /dev/null
+			;;
+		"e" )
+			rackup -D &&
+			exo-open "http://localhost:9292/" 2> /dev/null
+			;;
+		"u" )
+			bundle exec thor docs:download --all
+			;;
+		"l" )
+			bundle exec thor docs:list | cut -d ':' -f 1 | tr -d ' ' | less
+			;;
+	esac &&
+
+	cd $curr_dir
+}
 
 Ps() {
+	# Retourne un tableau d'informations sur le nom donné en argument, trié par les PID des processus (Le plus récent en 1er).
+	# N.B: Utilise les alias PsS et PsP.
+
 	echo $(PsN nothing)		# Retourne le header du tableau.
 	if [ -z $1 ]
 	then
@@ -23,15 +70,10 @@ Ps() {
 	fi | head -n -1 | uniq -u | sort -nrk 1
 }
 
-# =================================================
-
-
-# Mp3D ============================================
-# =================================================
-# Crée les dossiers "Artiste/Album (Année)" à partir des tags d'un où de plusieurs mp3 puis y déplace le où les fichiers.
-# N.B: Les doubles quotes sont nécessaires pour les motifs!
-
 Mp3D() {
+	# Crée les dossiers "Artiste/Album (Année)" à partir des tags d'un où de plusieurs mp3 puis y déplace le où les fichiers.
+	# N.B: Les doubles quotes sont nécessaires pour les motifs!
+
 	${1:?"Il faut préciser le nom d'un fichier ou un motif comme argument!"}
 
 	# Fonction qui vérifie la présence où non du dossier "Album (Année)" et le crée en conséquence.
@@ -57,5 +99,3 @@ Mp3D() {
 		fi
 	done
 }
-
-# =================================================
