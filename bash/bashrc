@@ -1,6 +1,6 @@
 # ======== BASHRC ===================
 # Kabbaj Amine - amine.kabb@gmail.com
-# Last modification: 2014-06-12
+# Last modification: 2014-08-20
 # ===================================
 
 
@@ -97,7 +97,7 @@ fi
 #		SOURCE OTHER FILES
 # ===================================
 
-# Aliases.
+# Personal aliases.
 if [ -f  ~/.dotfiles/bash/bash_aliases ]; then
 	. ~/.dotfiles/bash/bash_aliases
 fi

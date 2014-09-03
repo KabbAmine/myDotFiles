@@ -1,5 +1,5 @@
 # #############################
-# Last modification: 2014-08-18
+# Last modification: 2014-09-03
 # #############################
 
 # Pour Git
@@ -42,12 +42,6 @@ alias XOff='sudo /opt/lampp/lampp stop'
 # Dossiers spéciaux.
 alias www='cd /opt/lampp/htdocs/mesProjets/'
 alias ww='cd /opt/lampp/htdocs/mesProjets/ && cd $1'
-
-# Pour DevDocs
-alias DDi='currdir=$(echo $PWD) && cd /opt/devdocs/ && rackup -D && cd $currdir'
-# Add in the functions (One with args):
-# * u => update
-# * k => close/kill
 
 # Pour "InitWebProject"
 alias ISWP='. InitWebProject.sh '
