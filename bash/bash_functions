@@ -11,6 +11,7 @@ yellow="\033[33m"
 
 DD() {
 # DevDocs avec param:
+# - upg : Upg DD
 # - i : Init
 # - o : Open in a browser
 # - e : Init & open in a browser
@@ -27,11 +28,15 @@ DD() {
 			echo -e "DD for "$green"DevDocs"
 			echo -e "++++++++++++++\n"$white
 			echo -e "Possible arguments are:"
+			echo -e $red"upg"$white" \t Upgrade DD"
 			echo -e $red"i"$white" \t Initialize DD"
 			echo -e $red"o"$white" \t Open DD in the browser"
 			echo -e $red"e"$white" \t Initialize DD & open it in the browser"
 			echo -e $red"u"$white" \t Update Docs"
 			echo -e $red"l"$white" \t List Docs"
+			;;
+		"upg" )
+			git pull origin master
 			;;
 		"i" )
 			rackup -D
