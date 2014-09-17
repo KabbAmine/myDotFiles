@@ -42,11 +42,11 @@ DD() {
 			rackup -D
 			;;
 		"o" )
-			exo-open "http://localhost:9292/" 2> /dev/null
+			exo-open --launch WebBrowser "localhost:9292/" 2> /dev/null
 			;;
 		"e" )
 			rackup -D &&
-			exo-open "http://localhost:9292/" 2> /dev/null
+			exo-open --launch WebBrowser "localhost:9292/" 2> /dev/null
 			;;
 		"u" )
 			bundle exec thor docs:download --all
