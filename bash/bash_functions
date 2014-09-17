@@ -24,17 +24,6 @@ DD() {
 	cd $dd_dir &&
 
 	case $1 in
-		"" )
-			echo -e "DD for "$green"DevDocs"
-			echo -e "++++++++++++++\n"$white
-			echo -e "Possible arguments are:"
-			echo -e $red"upg"$white" \t Upgrade DD"
-			echo -e $red"i"$white" \t Initialize DD"
-			echo -e $red"o"$white" \t Open DD in the browser"
-			echo -e $red"e"$white" \t Initialize DD & open it in the browser"
-			echo -e $red"u"$white" \t Update Docs"
-			echo -e $red"l"$white" \t List Docs"
-			;;
 		"upg" )
 			git pull origin master
 			;;
@@ -53,6 +42,17 @@ DD() {
 			;;
 		"l" )
 			bundle exec thor docs:list | cut -d ':' -f 1 | tr -d ' ' | less
+			;;
+		* )
+			echo -e "DD for "$green"DevDocs"
+			echo -e "++++++++++++++\n"$white
+			echo -e "Possible arguments are:"
+			echo -e $red"upg"$white" \t Upgrade DD"
+			echo -e $red"i"$white" \t Initialize DD"
+			echo -e $red"o"$white" \t Open DD in the browser"
+			echo -e $red"e"$white" \t Initialize DD & open it in the browser"
+			echo -e $red"u"$white" \t Update Docs"
+			echo -e $red"l"$white" \t List Docs"
 			;;
 	esac &&
 
