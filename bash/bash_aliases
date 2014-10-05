@@ -13,6 +13,7 @@ alias Ga="git add"
 alias Gs="git status"
 alias Gco="git commit"
 alias Gd="git diff"
+alias Gt="git tag"
 alias Gm="git merge"
 alias Gp="git push -u origin "
 
@@ -78,3 +79,6 @@ alias G='gvim'
 alias Size='df -h'
 alias RelB='source ~/.bashrc'
 alias Watch='watch -t --differences '
+
+# Lazy lazy you are
+alias CompassInit='compass create --css-dir css --output-style nested --no-line-comments --bar -q'
