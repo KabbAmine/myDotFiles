@@ -4,4 +4,3 @@ fi
 
 # For spinning bug in DreamChess.
 export SDL_JOYSTICK_DEVICE=/dev/null
-

@@ -1,6 +1,6 @@
 # ======== BASHRC ===================
 # Kabbaj Amine - amine.kabb@gmail.com
-# Last modification: 2014-08-20
+# Last modification: 2014-10-16
 # ===================================
 
 
@@ -127,7 +127,8 @@ yellow='\033[01;33m'
 PS1="\[$yellow\]┌── \w\[$green\]\$(__git_ps1)\n\[$yellow\]└\[$red\]─┤ \[$default\]"
 PS2="\[$red\]  └─┤ \[$default\]"
 
-# Execute a tmux session.
-if [[ -z $TMUX ]]; then
-	exec tmux -2
+# Execute a main tmux session.
+if [ -z "$TMUX" ]; then
+	session_name="HaHoKo"
+	tmux attach -t $session_name || tmux new -s $session_name
 fi
