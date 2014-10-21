@@ -132,3 +132,6 @@ if [ -z "$TMUX" ]; then
 	session_name="HaHoKo"
 	tmux attach -t $session_name || tmux new -s $session_name
 fi
+
+# Default editor
+export EDITOR=/usr/bin/vim
