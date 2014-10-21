@@ -1,4 +1,4 @@
-# Last modification: 2014-09-03
+# Last modification: 2014-10-21
 
 IFS="
 "
@@ -9,98 +9,132 @@ white="\033[0m"
 green="\033[32m"
 yellow="\033[33m"
 
+Npm() {
+	# Personal npm:
+	# - upg : Update npm
+	# - u   : Update global packages
+	# - l   : List all local & global packages
+	#	* package : List specified package(s)
+
+	node_packages=$(npm -g list | grep -e '^\(├─┬\|└─┬\)' | cut -d ' ' -f 2 | cut -d '@' -f 1 | grep -e '[^npm]' | paste -)
+
+	case $1 in
+		"upg" )
+			sudo npm -g install npm
+			;;
+		"u" )
+			sudo npm -g install $node_packages
+			;;
+		"l" )
+			if [ -z $2 ]; then
+				npm -g list $node_packages
+			else
+				npm -g list $2
+			fi
+			;;
+		* )
+			echo -e $green"Npm"
+			echo -e "++++++++++++++\n"$white
+			echo -e "Possible arguments are:"
+			echo -e $red"upg"$white" \t Update npm"
+			echo -e $red"u"$white" \t Update global node packages"
+			echo -e $red"l"$white" \t List local & global node packages"
+			;;
+	esac
+}
+
 DD() {
-# DevDocs avec param:
-# - upg : Upg DD
-# - i : Init
-# - o : Open in a browser
-# - e : Init & open in a browser
-# - u : Upd
-# - l : List
+	# DevDocs avec param:
+	# - upg : Upg DD
+	# - i : Init
+	# - o : Open in a browser
+	# - e : Init & open in a browser
+	# - u : Upd
+	# - l : List
 
 	dd_dir="/opt/devdocs/"
 	curr_dir=$(echo $PWD)
 
 	cd $dd_dir &&
 
-	case $1 in
-		"upg" )
-			git pull origin master
-			;;
-		"i" )
-			rackup -D
-			;;
-		"o" )
-			exo-open --launch WebBrowser "localhost:9292/" 2> /dev/null
-			;;
-		"e" )
-			rackup -D &&
-			exo-open --launch WebBrowser "localhost:9292/" 2> /dev/null
-			;;
-		"u" )
-			bundle exec thor docs:download --all
-			;;
-		"l" )
-			bundle exec thor docs:list | cut -d ':' -f 1 | tr -d ' ' | less
-			;;
-		* )
-			echo -e "DD for "$green"DevDocs"
-			echo -e "++++++++++++++\n"$white
-			echo -e "Possible arguments are:"
-			echo -e $red"upg"$white" \t Upgrade DD"
-			echo -e $red"i"$white" \t Initialize DD"
-			echo -e $red"o"$white" \t Open DD in the browser"
-			echo -e $red"e"$white" \t Initialize DD & open it in the browser"
-			echo -e $red"u"$white" \t Update Docs"
-			echo -e $red"l"$white" \t List Docs"
-			;;
-	esac &&
+		case $1 in
+			"upg" )
+				git pull origin master
+				;;
+			"i" )
+				rackup -D
+				;;
+			"o" )
+				exo-open --launch WebBrowser "localhost:9292/" 2> /dev/null
+				;;
+			"e" )
+				rackup -D &&
+					exo-open --launch WebBrowser "localhost:9292/" 2> /dev/null
+				;;
+			"u" )
+				bundle exec thor docs:download --all
+				;;
+			"l" )
+				bundle exec thor docs:list | cut -d ':' -f 1 | tr -d ' ' | less
+				;;
+			* )
+				echo -e "DD for "$green"DevDocs"
+				echo -e "++++++++++++++\n"$white
+				echo -e "Possible arguments are:"
+				echo -e $red"upg"$white" \t Upgrade DD"
+				echo -e $red"i"$white" \t Initialize DD"
+				echo -e $red"o"$white" \t Open DD in the browser"
+				echo -e $red"e"$white" \t Initialize DD & open it in the browser"
+				echo -e $red"u"$white" \t Update Docs"
+				echo -e $red"l"$white" \t List Docs"
+				;;
+		esac &&
 
-	cd $curr_dir
-}
-
-Ps() {
-	# Retourne un tableau d'informations sur le nom donné en argument, trié par les PID des processus (Le plus récent en 1er).
-	# N.B: Utilise les alias PsS et PsP.
-
-	echo $(PsN nothing)		# Retourne le header du tableau.
-	if [ -z $1 ]
-	then
-		echo "Il faut préciser le nom d'un processus comme argument"
-	else
-		for P in $(PsS "$1" | awk '{print $2}')
-		do
-			PsP $P | tail -n 1
-		done
-	fi | head -n -1 | uniq -u | sort -nrk 1
-}
-
-Mp3D() {
-	# Crée les dossiers "Artiste/Album (Année)" à partir des tags d'un où de plusieurs mp3 puis y déplace le où les fichiers.
-	# N.B: Les doubles quotes sont nécessaires pour les motifs!
-
-	${1:?"Il faut préciser le nom d'un fichier ou un motif comme argument!"}
-
-	# Fonction qui vérifie la présence où non du dossier "Album (Année)" et le crée en conséquence.
-	FuncAlbum() {
-		if [ -e "$artist_album ($album_year)" ] && [ -d "$artist_album ($album_year)" ]
-		then
-			mv -v $F $artist_name/"$artist_album ($album_year)"
-		else
-			mkdir -vp $artist_name/"$artist_album ($album_year)"
-			mv -v $F $artist_name/"$artist_album ($album_year)"
-		fi
+			cd $curr_dir
 	}
 
-	# Début de la procédure principale.
-	for F in $(ls -1 $1)
-	do
-		artist_name=$(mp3info2 -p '%a\n' $F)
-		artist_album=$(mp3info2 -p '%l\n' $F)
-		album_year=$(mp3info2 -p '%y\n' $F | tr -d ',')
-		if [ -e $artist_name ] && [ -d $artist_name ]
+	Ps() {
+		# Retourne un tableau d'informations sur le nom donné en argument, trié par les PID des processus (Le plus récent en 1er).
+		# N.B: Utilise les alias PsS et PsP.
+
+		echo $(PsN nothing)		# Retourne le header du tableau.
+		if [ -z $1 ]
 		then
-			FuncAlbum
-		fi
-	done
-}
+			echo "Il faut préciser le nom d'un processus comme argument"
+		else
+			for P in $(PsS "$1" | awk '{print $2}')
+			do
+				PsP $P | tail -n 1
+			done
+		fi | head -n -1 | uniq -u | sort -nrk 1
+	}
+
+	Mp3D() {
+		# Crée les dossiers "Artiste/Album (Année)" à partir des tags d'un où de plusieurs mp3 puis y déplace le où les fichiers.
+		# N.B: Les doubles quotes sont nécessaires pour les motifs!
+
+		${1:?"Il faut préciser le nom d'un fichier ou un motif comme argument!"}
+
+		# Fonction qui vérifie la présence où non du dossier "Album (Année)" et le crée en conséquence.
+		FuncAlbum() {
+			if [ -e "$artist_album ($album_year)" ] && [ -d "$artist_album ($album_year)" ]
+			then
+				mv -v $F $artist_name/"$artist_album ($album_year)"
+			else
+				mkdir -vp $artist_name/"$artist_album ($album_year)"
+				mv -v $F $artist_name/"$artist_album ($album_year)"
+			fi
+		}
+
+		# Début de la procédure principale.
+		for F in $(ls -1 $1)
+		do
+			artist_name=$(mp3info2 -p '%a\n' $F)
+			artist_album=$(mp3info2 -p '%l\n' $F)
+			album_year=$(mp3info2 -p '%y\n' $F | tr -d ',')
+			if [ -e $artist_name ] && [ -d $artist_name ]
+			then
+				FuncAlbum
+			fi
+		done
+	}
