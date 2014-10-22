@@ -1,5 +1,5 @@
 # #############################
-# Last modification: 2014-09-03
+# Last modification: 2014-10-22
 # #############################
 
 # Pour Git
@@ -82,3 +82,6 @@ alias Watch='watch -t --differences '
 
 # Lazy lazy you are
 alias CompassInit='compass create --css-dir css --output-style nested --no-line-comments --bar -q'
+
+# For Browser-Sync
+alias BS='browser-sync start --server --no-open --no-notify --directory --files $1'
