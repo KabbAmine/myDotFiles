@@ -1,0 +1,20 @@
+# #############################
+# Last modification: 2014-10-21
+# #############################
+
+BrowserSync() {
+	# Simplify BrowserSync execution
+	# BrowserSync files [proxy] [port]
+
+	files=${1?:"You need to specify one or more files"}
+	proxy=$2
+	if [ -z $3 ]; then
+		port=3050
+	fi
+
+	if [ -z $proxy ]; then
+		browser-sync start --server --no-notify --directory --files $files
+	else
+		browser-sync start --proxy $proxy --port $port --no-open --no-notify --directory --files $files
+	fi
+}

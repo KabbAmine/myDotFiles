@@ -1,0 +1,37 @@
+# #############################
+# Last modification: 2014-10-21
+# #############################
+
+Npm() {
+	# Personal npm:
+	# - upg : Update npm
+	# - u   : Update global packages
+	# - l   : List all local & global packages
+	#	* package : List specified package(s)
+
+	node_packages=$(npm -g list | grep -e '^\(├─┬\|└─┬\)' | cut -d ' ' -f 2 | cut -d '@' -f 1 | grep -e '[^npm]' | paste -)
+
+	case $1 in
+		"upg" )
+			sudo npm -g install npm
+			;;
+		"u" )
+			sudo npm -g install $node_packages
+			;;
+		"l" )
+			if [ -z $2 ]; then
+				npm -g list $node_packages
+			else
+				npm -g list $2
+			fi
+			;;
+		* )
+			echo -e $green"Npm"
+			echo -e "++++++++++++++\n"$white
+			echo -e "Possible arguments are:"
+			echo -e $red"upg"$white" \t Update npm"
+			echo -e $red"u"$white" \t Update global node packages"
+			echo -e $red"l"$white" \t List local & global node packages"
+			;;
+	esac
+}
