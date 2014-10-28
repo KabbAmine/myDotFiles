@@ -1,5 +1,5 @@
 # #############################
-# Last modification: 2014-10-21
+# Last modification: 2014-10-28
 # #############################
 
 BrowserSync() {
@@ -13,7 +13,7 @@ BrowserSync() {
 	fi
 
 	if [ -z $proxy ]; then
-		browser-sync start --server --no-notify --directory --files $files
+		browser-sync start --server --no-open --no-notify --directory --files $files
 	else
 		browser-sync start --proxy $proxy --port $port --no-open --no-notify --directory --files $files
 	fi
