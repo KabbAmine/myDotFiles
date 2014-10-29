@@ -1,14 +1,15 @@
 # #############################
-# Last modification: 2014-10-21
+# Last modification: 2014-10-29
 # #############################
 
 DevDocs() {
 	# DevDocs avec param:
 	# - upg : Upg DD
-	# - i : Init
+	# - init : Init
 	# - o : Open in a browser
 	# - e : Init & open in a browser
 	# - u : Upd
+	# - i : Install [docset]
 	# - l : List
 
 	dd_dir="/opt/devdocs/"
@@ -20,7 +21,7 @@ DevDocs() {
 			"upg" )
 				git pull origin master
 				;;
-			"i" )
+			"init" )
 				rackup -D
 				;;
 			"o" )
@@ -33,6 +34,10 @@ DevDocs() {
 			"u" )
 				bundle exec thor docs:download --all
 				;;
+			"i" )
+				docset=${2?"You should specify a docset name"}
+				bundle exec thor docs:download $docset
+				;;
 			"l" )
 				bundle exec thor docs:list | cut -d ':' -f 1 | tr -d ' ' | less
 				;;
@@ -40,12 +45,13 @@ DevDocs() {
 				echo -e "DD for "$green"DevDocs"
 				echo -e "++++++++++++++\n"$white
 				echo -e "Possible arguments are:"
-				echo -e $red"upg"$white" \t Upgrade DD"
-				echo -e $red"i"$white" \t Initialize DD"
-				echo -e $red"o"$white" \t Open DD in the browser"
-				echo -e $red"e"$white" \t Initialize DD & open it in the browser"
-				echo -e $red"u"$white" \t Update Docs"
-				echo -e $red"l"$white" \t List Docs"
+				echo -e $red"upg"$white" \t\t Upgrade DD"
+				echo -e $red"init"$white" \t\t Initialize DD"
+				echo -e $red"o"$white" \t\t Open DD in the browser"
+				echo -e $red"e"$white" \t\t Initialize DD & open it in the browser"
+				echo -e $red"u"$white" \t\t Update Docs"
+				echo -e $red"i [docset]"$white" \t Install [docset]"
+				echo -e $red"l"$white" \t\t List Docs"
 				;;
 		esac &&
 
