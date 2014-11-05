@@ -1,0 +1,8 @@
+[user]
+	name = Kabbaj Amine\n
+	email = amine.kabb@gmail.com
+[credential]
+	# Set the credential memory cache to timeout after 1 hour
+	helper = cache --timeout=3600
+[color]
+	ui = auto
