@@ -121,13 +121,13 @@ createLink quicktile/quicktile.cfg ~/.config &&
 createLink stjerm/Xdefaults ~ h &&
 # Ctags
 createLink ctags/ctags ~ h &&
-# Git
-createLink git/gitconfig ~ h &&
 
 showTitle "Copy files" &&
 
 # Xfce4-terminal.
 copyFile xfce4-terminal/terminalrc ~/.config/xfce4/terminal &&
+	# Git
+copyFile git/gitconfig ~ h &&
 
 echo -e "\n" &&
 exit
