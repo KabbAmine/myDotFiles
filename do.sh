@@ -3,7 +3,7 @@
 #######################################################################
 # Author            : Kabbaj Amine
 # Date Creation     : 2014-06-21
-# Last modification : 2014-06-25
+# Last modification : 2014-11-05
 
 # DESCRIPTION
 # - Create symbolic links for my dotfiles.
@@ -15,7 +15,6 @@
 #	* copyFile file destination [h(If hidden)]
 
 # TODO
-# - Test if file newer that link (-nt?).
 # - Create the symb links with a loop (Stock the informations in a dict-like if possible).
 #######################################################################
 
@@ -45,7 +44,7 @@ yellow="\033[33m"
 checkFile() {
 
 	if [ ! -e $1 ]; then
-		echo -e $red"$1"$white" does not exist."
+		echo -e "$1 "$red"does not exist."$white
 		kill -SIGINT $$
 	fi
 
@@ -75,7 +74,9 @@ createLink() {
 
 	if [ ! -L "$link" ]; then
 		ln -s $file $link &&
-		echo -e $yellow"$link"$white" was successfully created"
+		echo -e "$link "$yellow"was successfully created"$white
+	else
+		echo -e "$link "$red"already exist"$white
 	fi
 
 }
@@ -90,9 +91,9 @@ copyFile() {
 
 	if [ ! -e $destination ] || [ $file -nt $link ]; then
 		cp $file $link
-		echo -e $yellow"$file"$white" was successfully copied to "$yellow"$link"$white
+		echo -e "$file "$yellow"was successfully copied to "$white" $link"
 	else
-		echo -e $yellow"$link"$white" is the same as "$yellow"$file"$white
+		echo -e "$file "$red"is the same as"$white" $link"
 	fi
 
 }
@@ -118,6 +119,10 @@ createLink tmux/tmux.conf ~ h &&
 createLink quicktile/quicktile.cfg ~/.config &&
 # Stjerm.
 createLink stjerm/Xdefaults ~ h &&
+# Ctags
+createLink ctags/ctags ~ h &&
+# Git
+createLink git/gitconfig ~ h &&
 
 showTitle "Copy files" &&
 
