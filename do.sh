@@ -126,7 +126,7 @@ showTitle "Copy files" &&
 
 # Xfce4-terminal.
 copyFile xfce4-terminal/terminalrc ~/.config/xfce4/terminal &&
-	# Git
+# Git
 copyFile git/gitconfig ~ h &&
 
 echo -e "\n" &&
