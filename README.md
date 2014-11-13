@@ -25,6 +25,8 @@ As for now it contains:
 
 - Other files:
     * quicktile.cfg
+    * gitconfig
+    * ctags
 
 ![Basic terminal window](.img/screen-terminal.jpg)
 
