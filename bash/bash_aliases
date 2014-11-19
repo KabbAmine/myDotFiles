@@ -1,5 +1,5 @@
 # #############################
-# Last modification: 2014-10-24
+# Last modification: 2014-11-16
 # #############################
 
 # Pour Git
@@ -66,7 +66,10 @@ alias PsP='ps -o pid,comm,pcpu,rss,stat,etime,args -p ' # Par rapport au PID du 
 alias PsS='ps -ef | grep -i '
 
 # Remettre l'icône monochrome de CherryTree dans le panel
-alias Cherry='sudo cp -v ~/.icons/CherryTree/* /usr/share/cherrytree/glade/'
+alias IcnCherry='sudo cp -v ~/.icons/CherryTree/* /usr/share/cherrytree/glade/'
+alias IcnKeePassx='sudo cp -v ~/.icons/KeePassX/keepass*[^OLD].png /usr/share/keepassx/icons/'
+alias IcnXfceNote='sudo cp -v ~/.icons/Xfce4-notes-panel/xfce4-notes-plugin.png /usr/share/icons/Faenza-Dark/status/22/'
+alias IcnPidgin='sudo cp -v ~/.icons/Pidgin-tray/* /usr/share/icons/Faenza-Dark/status/22/'
 
 # Pour 'ls'
 alias LsD='ls -F | grep "/$"'		   # Ne lister que les répértoires.
