@@ -112,6 +112,9 @@ if [ -f  ~/.dotfiles/bash/git-prompt.sh ]; then
 	. ~/.dotfiles/bash/git-prompt.sh
 fi
 
+# Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/.rvm/bin"
+
 # ===================================
 #		CUSTOMIZATION
 # ===================================
