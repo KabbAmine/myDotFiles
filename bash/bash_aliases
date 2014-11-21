@@ -1,5 +1,5 @@
 # #############################
-# Last modification: 2014-11-16
+# Last modification: 2014-11-20
 # #############################
 
 # Pour Git
@@ -37,8 +37,7 @@ alias ETarB='tar -jxvf $1' # Extraire Bzip2.
 alias CTarB='tar -jcvf $1' # Compresser dans un Bzip2.
 
 # Pour XAMPP/LAMPP
-alias XOn='sudo /opt/lampp/lampp start'
-alias XOff='sudo /opt/lampp/lampp stop'
+alias Xampp='sudo /opt/lampp/lampp $1'
 
 # Dossiers spéciaux.
 alias www='cd /opt/lampp/htdocs/mesProjets/'
