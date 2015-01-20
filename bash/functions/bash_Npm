@@ -1,26 +1,41 @@
 # #############################
-# Last modification: 2014-10-21
+# Last modification: 2015-01-20
 # #############################
 
 Npm() {
 	# Personal npm:
 	# - upg : Update npm
-	# - u   : Update global packages
+	# - o   : List outdated & global packages
+	# - u   : Update outdated & global packages
 	# - l   : List all local & global packages
 	#	* package : List specified package(s)
 
-	node_packages=$(npm -g list | grep -e '^\(├─┬\|└─┬\)' | cut -d ' ' -f 2 | cut -d '@' -f 1 | grep -e '[^npm]' | paste -)
+	list_packages=$(npm -g list --parseable --depth=0 | tail -n +2 | cut -d '/' -f 5)
+	outdated_packages=$(npm -g outdated --parseable --depth=0 | cut -d ':' -f 3)
 
 	case $1 in
 		"upg" )
 			sudo npm -g install npm
 			;;
+		"o" )
+			if [[ $outdated_packages =~ ^[a-z\-\_]*$ ]]; then
+				echo $outdated_packages
+			else
+				echo -e $red"No outdated packet(s)"$white
+			fi
+			;;
 		"u" )
-			sudo npm -g install $node_packages
+			for p in $outdated_packages; do
+				if [[ $p =~ ^[a-z-_]$ ]]; then
+					sudo npm -g install $p
+				fi
+			done
 			;;
 		"l" )
 			if [ -z $2 ]; then
-				npm -g list $node_packages
+				for p in $list_packages; do
+					echo -e $p
+				done
 			else
 				npm -g list $2
 			fi
@@ -30,7 +45,8 @@ Npm() {
 			echo -e "++++++++++++++\n"$white
 			echo -e "Possible arguments are:"
 			echo -e $red"upg"$white" \t Update npm"
-			echo -e $red"u"$white" \t Update global node packages"
+			echo -e $red"o"$white" \t List outdated & global node packages"
+			echo -e $red"u"$white" \t Update outdated & global node packages"
 			echo -e $red"l"$white" \t List local & global node packages"
 			;;
 	esac
