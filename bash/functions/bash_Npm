@@ -1,5 +1,5 @@
 # #############################
-# Last modification: 2015-01-20
+# Last modification: 2015-01-25
 # #############################
 
 Npm() {
@@ -11,22 +11,22 @@ Npm() {
 	#	* package : List specified package(s)
 
 	list_packages=$(npm -g list --parseable --depth=0 | tail -n +2 | cut -d '/' -f 5)
-	outdated_packages=$(npm -g outdated --parseable --depth=0 | cut -d ':' -f 3)
+	outdated_packages=$(npm -g outdated --parseable --depth=0 | cut -d ':' -f 2)
 
 	case $1 in
 		"upg" )
 			sudo npm -g install npm
 			;;
 		"o" )
-			if [[ $outdated_packages =~ ^[a-z\-\_]*$ ]]; then
-				echo $outdated_packages
-			else
-				echo -e $red"No outdated packet(s)"$white
-			fi
+			for p in $outdated_packages; do
+				if [[ $p =~ ^[a-z\-]*.*$ ]]; then
+					echo -e $p
+				fi
+			done
 			;;
 		"u" )
 			for p in $outdated_packages; do
-				if [[ $p =~ ^[a-z-_]$ ]]; then
+				if [[ $p =~ ^[a-z\-]*.*$ ]]; then
 					sudo npm -g install $p
 				fi
 			done
