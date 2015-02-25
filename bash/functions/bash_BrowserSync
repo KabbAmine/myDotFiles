@@ -21,9 +21,9 @@ BrowserSync() {
 		fi
 
 		if [ -z $proxy ]; then
-			browser-sync start --server --no-open --no-notify --directory --files $files
+			browser-sync start --server --no-open --directory --files $files
 		else
-			browser-sync start --proxy $proxy --port $port --no-open --no-notify --directory --files $files
+			browser-sync start --proxy $proxy --port $port --no-open --directory --files $files
 		fi
 	fi
 
