@@ -3,7 +3,7 @@
 #######################################################################
 # Author            : Kabbaj Amine
 # Date Creation     : 2014-06-21
-# Last modification : 2014-11-05
+# Last modification : 2015-03-20
 
 # DESCRIPTION
 # - Create symbolic links for my dotfiles.
@@ -31,9 +31,10 @@ script_folder=$(cd $(dirname ${BASH_SOURCE[0]}) && pwd)
 dotfiles_folder="/home/k-bag/.dotfiles/"
 
 # Colors.
-red="\033[31m"
+red_bold='\033[01;31m'
+red='\033[31m'
 white="\033[0m"
-green="\033[32m"
+green="\033[01;32m"
 yellow="\033[33m"
 
 
@@ -98,8 +99,14 @@ copyFile() {
 
 }
 showTitle () {
+	# showTitle "title"
+	# showTitle "title" ["s" (Sub-title) ]
 
-	echo -e $green"\n~~~~~~~~~~ $1 ~~~~~~~~~~\n"$white
+	if [[ $2 = "sub" ]]; then
+		echo -e $yellow"********** $1 ***********\n"$white
+	else
+		echo -e $green"\n~~~~~~~~~~ $1 ~~~~~~~~~~\n"$white
+	fi
 
 }
 
@@ -107,6 +114,19 @@ showTitle () {
 # #####################
 #		PROCESSING
 # #####################
+
+echo -e $red_bold"============================================================="
+echo -e "  _____   ____       _     "
+echo -e $green" |  __ \ / __ \     | |    "
+echo -e $yellow" | |  | | |  | | ___| |__  "
+echo -e $red_bold" | |  | | |  | |/ __| '_ \ "
+echo -e $green" | |__| | |__| |\__ \ | | |"
+echo -e $yellow" |_____/ \____(_)___/_| |_|"
+echo -e "                           "
+echo -e $red_bold"Create or link my dotfiles in the right place"
+echo -e "============================================================="
+echo -e $white"                                                             "
+
 
 showTitle "Creation of symbolic links" &&
 
@@ -117,8 +137,6 @@ createLink bash/bashrc ~ h &&
 createLink tmux/tmux.conf ~ h &&
 # Quicktile.
 createLink quicktile/quicktile.cfg ~/.config &&
-# Stjerm.
-createLink stjerm/Xdefaults ~ h &&
 # Ctags
 createLink ctags/ctags ~ h &&
 
