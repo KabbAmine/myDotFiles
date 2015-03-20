@@ -17,9 +17,6 @@ As for now it contains:
 - For tmux:
     * tmux.conf
 
-- For Stjerm:
-    * Xdefaults.cfg
-
 - For Xfce4-terminal
     * terminal.rc
 
