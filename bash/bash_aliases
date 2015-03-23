@@ -1,5 +1,5 @@
 # #############################
-# Last modification: 2014-11-20
+# Last modification: 2015-03-23
 # #############################
 
 # Pour Git
@@ -84,3 +84,7 @@ alias Watch='watch -t --differences '
 
 # Lazy lazy you are
 alias CompassInit='compass create --css-dir css --output-style nested --no-line-comments --bar -q'
+# Update & Upgrade
+alias RubyUpd='rvm get stable && gem update && rvm use 2.1.4 && gem update && rvm use 2.1.5 && gem update && rvm use default'
+alias ComposerUpd='composer selfupdate'
+alias GlobUpd='Upg && Npm u && Pip u && RubyUpd && ComposerUpd'
