@@ -1,0 +1,41 @@
+# #############################
+# Last modification: 2015-03-23
+# #############################
+
+dotfiles_folder="/home/k-bag/.dotfiles/"
+
+Pip() {
+	# Personal pip:
+		# - l   : List local & followed packages
+		# - u   : Upgrade local & needed packages
+			#	* package : List specified package(s)
+
+	packages_file="$dotfiles_folder/install/pip/packages.txt"
+	packages=$(cat $packages_file)
+
+	case $1 in
+		"u" )
+			if [ -f $packages_file ]; then
+				for p in $packages; do
+					if [ ! -z $p ]; then
+						sudo pip install --upgrade $p
+					fi
+				done
+			fi
+			;;
+		"l" )
+			if [ -z $2 ]; then
+				for p in $list_packages; do
+					echo -e $p
+				done
+			fi
+			;;
+		* )
+			echo -e $green"Pip"
+			echo -e "++++++++++++++\n"$white
+			echo -e "Possible arguments are:"
+			echo -e $red"l"$white" \t List local & needed packages"
+			echo -e $red"u"$white" \t Upgrade local & needed packages"
+			;;
+	esac
+}
