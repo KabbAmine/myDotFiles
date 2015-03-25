@@ -1,5 +1,5 @@
 # #############################
-# Last modification: 2015-03-23
+# Last modification: 2015-03-25
 # #############################
 
 dotfiles_folder="/home/k-bag/.dotfiles/"
@@ -24,11 +24,9 @@ Pip() {
 			fi
 			;;
 		"l" )
-			if [ -z $2 ]; then
-				for p in $list_packages; do
-					echo -e $p
-				done
-			fi
+			for p in $packages; do
+				echo -e $p
+			done
 			;;
 		* )
 			echo -e $green"Pip"
