@@ -1,11 +1,10 @@
 [Configuration]
-BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
 BackgroundDarkness=0,800000
 ColorPalette=#000000;#cc0000;#4e9a06;#c4a000;#3465a4;#75507b;#06989a;#d3d7cf;#555753;#ef2929;#8ae234;#fce94f;#739fcf;#ad7fa8;#34e2e2;#eeeeec
 DropdownStatusIcon=FALSE
-DropdownWidth=100
+DropdownWidth=97
 DropdownHeight=97
-DropdownPosition=0
+DropdownPosition=100
 FontName=Ubuntu Mono derivative Powerline 12
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
@@ -28,7 +27,7 @@ ShortcutsNoMenukey=TRUE
 ShortcutsNoMnemonics=TRUE
 TitleInitial=The Terminal
 TitleMode=TERMINAL_TITLE_HIDE
-CommandLoginShell=TRUE
-DropdownKeepAbove=FALSE
 DropdownAlwaysShowTabs=FALSE
+CommandLoginShell=TRUE
+ColorBackground=#202020202020
 
