@@ -1,5 +1,5 @@
 # #############################
-# Last modification: 2015-03-25
+# Last modification: 2015-04-01
 # #############################
 
 # Pour Git
@@ -69,6 +69,7 @@ alias IcnCherry='sudo cp -v ~/.icons/CherryTree/* /usr/share/cherrytree/glade/'
 alias IcnKeePassx='sudo cp -v ~/.icons/KeePassX/keepass*[^OLD].png /usr/share/keepassx/icons/'
 alias IcnXfceNote='sudo cp -v ~/.icons/Xfce4-notes-panel/xfce4-notes-plugin.png /usr/share/icons/Faenza-Dark/status/22/'
 alias IcnPidgin='sudo cp -v ~/.icons/Pidgin-tray/* /usr/share/icons/Faenza-Dark/status/22/'
+alias IcnTurpial='cp -v ~/.icons/Turpial/turpial_icon.png /home/k-bag/Scripts/turpial/turpial/data/pixmaps/turpial-tray.png'
 
 # Pour 'ls'
 alias LsD='ls -F | grep "/$"'		   # Ne lister que les répértoires.
