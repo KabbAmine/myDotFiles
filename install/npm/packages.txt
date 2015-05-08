@@ -3,6 +3,7 @@ csslint
 gulp
 jade
 jslint
+jsonlint
 livedown
 npm
 ungit
