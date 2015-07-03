@@ -6,4 +6,5 @@ jslint
 jsonlint
 livedown
 npm
+sassdoc
 ungit
