@@ -1,3 +1,4 @@
 eg
 vim-vint
 youtube-dl
+jedi
