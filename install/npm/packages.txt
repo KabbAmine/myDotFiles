@@ -1,4 +1,5 @@
 browser-sync
+coffee-script
 csslint
 gulp
 jade
