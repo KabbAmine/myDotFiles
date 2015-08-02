@@ -3,6 +3,7 @@ coffee-script
 csslint
 gulp
 jade
+jade-lint
 jslint
 jsonlint
 livedown
