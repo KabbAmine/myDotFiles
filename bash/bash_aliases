@@ -1,11 +1,11 @@
 # #############################
-# Last modification: 2015-04-01
+# Last modification: 2015-08-06
 # #############################
 
 # Pour Git
 alias Gcl="git clone"
 alias Gi="git init"
-alias Gl="git log"
+alias Gl="git log --pretty=oneline"
 alias Gb="git branch"
 alias Gch="git checkout"
 alias Gpl="git pull"
