@@ -1,5 +1,5 @@
 # #############################
-# Last modification: 2015-08-06
+# Last modification: 2015-08-17
 # #############################
 
 # Pour Git
@@ -88,4 +88,4 @@ alias CompassInit='compass create --css-dir css --output-style nested --no-line-
 # Update & Upgrade
 alias RubyUpd='rvm get stable && gem update && rvm use 2.1.4 && gem update && rvm use 2.1.5 && gem update && rvm use default'
 alias ComposerUpd='composer selfupdate'
-alias GlobUpd='Upg -y && Npm u && Pip u && RubyUpd && ComposerUpd'
+alias GlobUpd='Upg -y && Npm u && Pip upg && Pip u && RubyUpd && ComposerUpd'
