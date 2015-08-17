@@ -16,13 +16,13 @@ Pip() {
 
 	case $1 in
 		"upg" )
-			sudo pip install --upgrade pip
+			sudo -H pip install --upgrade pip
 			;;
 		"u" )
 			if [ -f $packages_file ]; then
 				for p in $packages; do
 					if [ ! -z $p ]; then
-						sudo pip install --upgrade $p
+						sudo -H pip install --upgrade $p
 					fi
 				done
 			fi
