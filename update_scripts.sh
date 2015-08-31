@@ -3,7 +3,7 @@
 #######################################################################
 # Author            : Kabbaj Amine
 # Date Creation     : 2015-08-30
-# Last modification : 2015-08-30
+# Last modification : 2015-09-01
 
 # DESCRIPTION
 # - Update all git projects in this directory.
@@ -21,7 +21,8 @@ IFS='
 #		VARIABLES
 # #####################
 
-# My project's directory
+# Folders
+curr_dir=$(pwd)
 proj_dir='/home/k-bag/Scripts/'
 
 # Colors.
@@ -68,4 +69,6 @@ do
 		git pull origin "$git_branch"
 	fi &&
 	cd ..
-done
+done &&
+
+cd "$curr_dir"
