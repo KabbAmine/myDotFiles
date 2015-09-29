@@ -6,7 +6,9 @@ jade
 jade-lint
 jslint
 jsonlint
+less
 livedown
 npm
 sassdoc
+stylus
 ungit
