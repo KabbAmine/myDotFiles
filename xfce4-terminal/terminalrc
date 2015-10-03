@@ -1,9 +1,6 @@
 [Configuration]
-BackgroundDarkness=0,800000
-ColorPalette=#000000;#cc0000;#4e9a06;#c4a000;#3465a4;#75507b;#06989a;#d3d7cf;#555753;#ef2929;#8ae234;#fce94f;#739fcf;#ad7fa8;#34e2e2;#eeeeec
-DropdownWidth=97
+DropdownWidth=100
 DropdownHeight=97
-DropdownPosition=100
 FontName=Ubuntu Mono derivative Powerline Plus Nerd File Types 12
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
@@ -26,9 +23,14 @@ ShortcutsNoMenukey=TRUE
 ShortcutsNoMnemonics=TRUE
 TitleInitial=The Terminal
 TitleMode=TERMINAL_TITLE_HIDE
-DropdownAlwaysShowTabs=FALSE
 CommandLoginShell=TRUE
-ColorBackground=#191919191919
-DropdownStatusIcon=FALSE
 BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
+BackgroundDarkness=0,900000
+DropdownKeepOpenDefault=TRUE
+DropdownStatusIcon=FALSE
+DropdownAlwaysShowTabs=FALSE
+DropdownPosition=100
+DropdownAnimationTime=260
+ColorPalette=#164c164c164c;#c0c039392b2b;#2727aeae6060;#f3f39c9c1212;#29298080b9b9;#8e8e4444adad;#1616a0a08585;#bdbdc3c3c7c7;#442d442d442d;#e7e74c4c3c3c;#2e2ecccc7171;#f1f1c4c40f0f;#34349898dbdb;#9b9b5959b6b6;#1a1abcbc9c9c;#ececf0f0f1f1
+ColorBackground=#2d2d2d2d2d2d
 
