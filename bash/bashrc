@@ -1,6 +1,6 @@
 # ======== BASHRC ===================
 # Kabbaj Amine - amine.kabb@gmail.com
-# Last modification: 2014-10-22
+# Last modification: 2015-10-09
 # ===================================
 
 
@@ -127,8 +127,11 @@ green='\033[01;32m'
 yellow='\033[01;33m'
 
 # Personal prompt.
-PS1="\[$yellow\]┌── \w\[$green\]\$(__git_ps1)\n\[$yellow\]└\[$red\]─┤ \[$default\]"
-PS2="\[$red\]  └─┤ \[$default\]"
+PS1="\[$red\]⟩\[$green\]⟩\[$yellow\]⟩ \w\[$green\]\$(__git_ps1)\n\[$red\]▸\[$green\]▸\[$yellow\]⦒\[$default\] "
+PS2="\[$yellow\]  ▸▸⦒\[$default\] "
+# PS2="\[$red\]  └─┤ \[$default\]"
+# PS1="\[$yellow\]┌── \w\[$green\]\$(__git_ps1)\n\[$yellow\]└\[$red\]─┤ \[$default\]"
+# PS2="\[$red\]  └─┤ \[$default\]"
 
 # Execute a main tmux session only for 1st instance of terminal.
 if [ -z "$TMUX" ]; then
