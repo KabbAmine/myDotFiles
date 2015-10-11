@@ -127,8 +127,19 @@ green='\033[01;32m'
 yellow='\033[01;33m'
 
 # Personal prompt.
-PS1="\[$red\]⟩\[$green\]⟩\[$yellow\]⟩ \w\[$green\]\$(__git_ps1) \[$yellow\]⟨\[$green\]⟨\[$red\]⟨\n\[$red\]⦁ \[$default\]"
-PS2="\[$yellow\]    ⬞ \[$default\] "
+if [[ $TERM == "linux" ]]; then
+	sym1=">"
+	sym2="<"
+	sym3="+"
+	sym4="."
+else
+	sym1="⟩"
+	sym2="⟨"
+	sym3="⦁"
+	sym4="⬞"
+fi
+PS1="\[$red\]$sym1\[$green\]$sym1\[$yellow\]$sym1 \w\[$green\]\$(__git_ps1) \[$yellow\]$sym2\[$green\]$sym2\[$red\]$sym2\n\[$red\]$sym3\[$green\]$sym3\[$yellow\]$sym3 \[$default\]"
+PS2="\[$yellow\]    ""$sym4""$sym4""$sym4"" \[$default\] "
 
 # Execute a main tmux session only for 1st instance of terminal.
 if [ -z "$TMUX" ]; then
