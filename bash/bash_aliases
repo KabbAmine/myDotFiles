@@ -1,5 +1,5 @@
 # #############################
-# Last modification: 2015-09-24
+# Last modification: 2015-10-15
 # #############################
 
 # Pour Git
@@ -75,6 +75,7 @@ alias IcnTurpial='cp -v ~/.icons/Turpial/turpial_icon.png /home/k-bag/Scripts/tu
 alias LsD='ls -F | grep "/$"'		   # Ne lister que les répértoires.
 alias LsF='ls -F | grep -e ".*[^\/]$"' # Ne lister que les fichiers..
 alias LsH='ls -A | grep "^\."'		   # Ne lister que les fichiers cachés.
+alias ll='ls -l'
 
 # Divers
 alias V='vim'
@@ -82,6 +83,9 @@ alias G='gvim'
 alias Size='df -h'
 alias RelB='source ~/.bashrc'
 alias Watch='watch -t --differences '
+# Vim & gvim vanilla
+alias Vv='vim -Nu ~/.vimVanilla/vimrc'
+alias Gv='gvim -Nu ~/.vimVanilla/vimrc'
 
 # Lazy lazy you are
 alias CompassInit='compass create --css-dir css --output-style nested --no-line-comments --bar -q'
