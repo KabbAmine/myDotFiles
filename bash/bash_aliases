@@ -1,5 +1,5 @@
 # #############################
-# Last modification: 2015-10-15
+# Last modification: 2015-10-18
 # #############################
 
 # Pour Git
@@ -16,6 +16,7 @@ alias Gd="git diff"
 alias Gt="git tag"
 alias Gm="git merge $1"
 alias Gp="git push -u origin $1"
+alias Gst="git stash"
 
 # Pour 'apt'
 alias Upd='sudo apt update'
