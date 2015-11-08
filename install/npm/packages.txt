@@ -2,6 +2,7 @@ browser-sync
 coffee-script
 csslint
 gulp
+harp
 jade
 jade-lint
 jslint
