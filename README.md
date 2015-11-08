@@ -29,7 +29,7 @@ As for now it contains:
 - Installation script:
 	* Nodejs modules (From `install/npm/packages.txt`)
 
-![Basic terminal window](.img/screen-terminal.jpg)
+![Basic terminal window](.img/terminal.jpg)
 
 Usage
 -----
