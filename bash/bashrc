@@ -1,6 +1,6 @@
 # ======== BASHRC ===================
 # Kabbaj Amine - amine.kabb@gmail.com
-# Last modification: 2015-10-11
+# Last modification: 2015-11-08
 # ===================================
 
 
@@ -110,6 +110,12 @@ fi
 # Git prompt script.
 if [ -f  ~/.dotfiles/bash/git-prompt.sh ]; then
 	. ~/.dotfiles/bash/git-prompt.sh
+fi
+
+# FZF
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+if [ -f  ~/.dotfiles/bash/fzf/conf.sh ]; then
+	. ~/.dotfiles/bash/fzf/conf.sh
 fi
 
 # Add RVM to PATH for scripting
