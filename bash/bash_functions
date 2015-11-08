@@ -1,9 +1,9 @@
 # #############################
-# Last modification: 2014-10-21
+# Last modification: 2015-11-08
 # #############################
 
-IFS="
-"
+# IFS="
+# "
 
 # Current dir
 SC_DIR=$(cd $(dirname ${BASH_SOURCE[0]}) && pwd)
@@ -34,6 +34,6 @@ Ps() {
 
 
 # Functions for external programs.
-for fun in $(ls -1 $SC_DIR/functions/bash_*); do
+for fun in $(ls -1 "$SC_DIR/functions/"bash_*); do
 	. $fun
 done
