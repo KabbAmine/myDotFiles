@@ -3,7 +3,7 @@
 #######################################################################
 # Author            : Kabbaj Amine
 # Date Creation     : 2015-08-30
-# Last modification : 2015-09-01
+# Last modification : 2015-11-12
 
 # DESCRIPTION
 # - Update all git projects in this directory.
@@ -14,6 +14,7 @@
 #######################################################################
 
 #!/bin/bash
+DEFAULT_IFS=$IFS
 IFS='
 '
 
@@ -72,3 +73,5 @@ do
 done &&
 
 cd "$curr_dir"
+
+IFS=$DEFAULT_IFS

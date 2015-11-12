@@ -3,7 +3,7 @@
 #######################################################################
 # Author            : Kabbaj Amine
 # Date Creation     : 2015-03-20
-# Last modification : 2015-03-20
+# Last modification : 2015-11-12
 
 # DESCRIPTION
 # - Install apps, packages & others.
@@ -16,6 +16,7 @@
 #######################################################################
 
 #!/bin/bash
+DEFAULT_IFS=$IFS
 IFS='
 '
 
@@ -96,3 +97,5 @@ sourceFile "npm/npm_install.sh" $pass &&
 
 echo -e "\n" &&
 exit
+
+IFS=$DEFAULT_IFS

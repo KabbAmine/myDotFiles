@@ -3,7 +3,7 @@
 #######################################################################
 # Author            : Kabbaj Amine
 # Date Creation     : 2014-06-21
-# Last modification : 2015-03-20
+# Last modification : date
 
 # DESCRIPTION
 # - Create symbolic links for my dotfiles.
@@ -19,6 +19,7 @@
 #######################################################################
 
 #!/bin/bash
+DEFAULT_IFS=$IFS
 IFS='
 '
 
@@ -149,3 +150,5 @@ copyFile git/gitconfig ~ h &&
 
 echo -e "\n" &&
 exit
+
+IFS=$DEFAULT_IFS

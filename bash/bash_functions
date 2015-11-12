@@ -1,9 +1,10 @@
 # #############################
-# Last modification: 2015-11-08
+# Last modification: 2015-11-12
 # #############################
 
-# IFS="
-# "
+DEFAULT_IFS=$IFS
+IFS="
+"
 
 # Current dir
 SC_DIR=$(cd $(dirname ${BASH_SOURCE[0]}) && pwd)
@@ -37,3 +38,5 @@ Ps() {
 for fun in $(ls -1 "$SC_DIR/functions/"bash_*); do
 	. $fun
 done
+
+IFS=$DEFAULT_IFS

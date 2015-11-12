@@ -1,5 +1,5 @@
 # ############################################
-# Last modification: 2015-03-20
+# Last modification: 2015-11-12
 # ############################################
 # DESCRIPTION
 # Install node packages listed in packages.txt
@@ -9,6 +9,7 @@
 # ./script root_pass
 # ############################################
 
+DEFAULT_IFS=$IFS
 IFS="
 "
 
@@ -42,3 +43,5 @@ if [ -x $npm_bin ]; then
 else
 	echo -e $red"Npm not found"$white
 fi
+
+IFS=$DEFAULT_IFS
