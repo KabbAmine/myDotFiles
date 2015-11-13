@@ -1,5 +1,5 @@
 # #############################
-# Last modification: 2015-11-04
+# Last modification: 2015-11-13
 # #############################
 
 # Pour Git
@@ -37,6 +37,9 @@ alias ETarG='tar -zxvf $1' # Extraire Gzip.
 alias CTarG='tar -zcvf $1' # Compresser dans un Gzip.
 alias ETarB='tar -jxvf $1' # Extraire Bzip2.
 alias CTarB='tar -jcvf $1' # Compresser dans un Bzip2.
+
+# Applications
+alias Aard2='java -Dslobber.browse -jar ~/Scripts/aard2/aard2-web-0.7.jar ~/Scripts/aard2/*.slob'
 
 # Pour XAMPP/LAMPP
 alias Xampp='sudo /opt/lampp/lampp $1'
