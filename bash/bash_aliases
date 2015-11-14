@@ -1,5 +1,5 @@
 # #############################
-# Last modification: 2015-11-13
+# Last modification: 2015-11-14
 # #############################
 
 # Pour Git
@@ -95,7 +95,7 @@ alias Gv='gvim -Nu ~/.vimVanilla/vimrc'
 # Lazy lazy you are
 alias CompassInit='compass create --css-dir css --output-style nested --no-line-comments --bar -q'
 # Update & Upgrade
-alias RubyUpd='rvm get stable && gem update && rvm use 2.1.4 && gem update && rvm use 2.1.5 && gem update && rvm use default'
+alias RubyUpd='rvm get stable && gem update'
 alias ComposerUpd='composer selfupdate'
 alias GlobUpd='Upg -y && sudo npm update -g && Pip upg && Pip u && RubyUpd && ComposerUpd'
 alias UpdScr='. ~/.dotfiles/update_scripts.sh'
