@@ -1,7 +1,7 @@
 [Configuration]
 DropdownWidth=100
 DropdownHeight=97
-FontName=Ubuntu Mono derivative Powerline Plus Nerd File Types 12
+FontName=Ubuntu Mono derivative Powerline 12
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
 MiscBordersDefault=TRUE
@@ -33,4 +33,5 @@ DropdownPosition=100
 DropdownAnimationTime=260
 ColorPalette=#164c164c164c;#c0c039392b2b;#2727aeae6060;#f3f39c9c1212;#29298080b9b9;#8e8e4444adad;#1616a0a08585;#bdbdc3c3c7c7;#442d442d442d;#e7e74c4c3c3c;#2e2ecccc7171;#f1f1c4c40f0f;#34349898dbdb;#9b9b5959b6b6;#1a1abcbc9c9c;#ececf0f0f1f1
 ColorBackground=#2d2d2d2d2d2d
+DropdownMoveToActive=FALSE
 
