@@ -1,35 +1,25 @@
 MyDotFiles
 ==========
 
-This repository contains some dotfiles that I use in my GNU/Linux systems and a bash script for automation process.
-Also it contains an script for automatic app & packages installation.
+This repository contains dotfiles and configuration files that I'm using on my GNU/Linux systems plus some scripts for app & packages installation.
+
+<div style="text-align:center"><img src=".img/terminal.jpg" alt="Basic terminal window" /></div>
 
 Content
 -------
 
-As for now it contains:
-
-- For bash:
-    * Bashrc
-    * Aliases
-    * Functions.
-    * Script for displaying git branch name in the prompt.
-
-- For tmux:
-    * tmux.conf
-
-- For Xfce4-terminal
-    * terminal.rc
-
-- Other files:
-    * quicktile.cfg
-    * gitconfig
-    * ctags
-
-- Installation script:
-	* Nodejs modules (From `install/npm/packages.txt`)
-
-![Basic terminal window](.img/terminal.jpg)
+- bash (rc, profile, aliases, functions...)
+- Script for displaying git branch name in the prompt.
+- tmux.conf
+- quicktile.cfg
+- gitconfig
+- ctags
+- For graphical applications:
+  * xfce4-terminal: terminal.rc
+  * zathura: zathurarc
+- For installation script:
+  * Nodejs modules (From `install/npm/packages.txt`)
+  * Pip packages (From `install/pip/packages.txt`)
 
 Usage
 -----
@@ -63,4 +53,3 @@ sourceFile 'apt\apt.sh' $pass &&	 #pass exists already in install.sh
 ```
 
 Now, execute `install.sh` to have a visible output.
-
