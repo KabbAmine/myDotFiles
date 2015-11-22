@@ -3,7 +3,7 @@
 #######################################################################
 # Author            : Kabbaj Amine
 # Date Creation     : 2014-06-21
-# Last modification : date
+# Last modification : 2015-11-22
 
 # DESCRIPTION
 # - Create symbolic links for my dotfiles.
@@ -140,6 +140,8 @@ createLink tmux/tmux.conf ~ h &&
 createLink quicktile/quicktile.cfg ~/.config &&
 # Ctags
 createLink ctags/ctags ~ h &&
+# Zathura
+createLink zathura/zathurarc ~/.config/zathura &&
 
 showTitle "Copy files" &&
 

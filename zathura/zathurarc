@@ -1,0 +1,47 @@
+# Last modification: 2015-11-22
+
+# SYNTAX
+# set <option> <new value>
+# e.g.	set option foo\ bar
+#		set option "foo bar"
+# map [mode] <binding> <shortcut function> <argument>
+#		mode: normal, visual, insert, fullscreen, index
+# unmap [mode] <binding>
+
+# OPTIONS
+#########
+
+# GENERAL SETTINGS
+set adjust-open "width"
+set font "Ubuntu Mono 11"
+set page-padding 5
+
+# APPEARANCE
+set default-bg "#2d2d2d"
+set inputbar-fg "#FFFFFF"
+set show-scrollbars true
+set statusbar-bg "#2d2d2d"
+
+# MAPPINGS
+##########
+
+# Normal
+map [normal] <F11> toggle_fullscreen
+
+# Fullscreen
+#   The majority of the default mappings are not working in
+#   fullscreen mode :/
+map [fullscreen] <C-r> recolor
+map [fullscreen] <F11> toggle_fullscreen
+map [fullscreen] : focus_inputbar
+map [fullscreen] h scroll left
+map [fullscreen] j scroll down
+map [fullscreen] k scroll up
+map [fullscreen] l scroll right
+map [fullscreen] n search next
+map [fullscreen] N search previous
+map [fullscreen] q quit
+map [fullscreen] r rotate
+map [fullscreen] / search
+map [fullscreen] <Space> scroll full-down
+map [fullscreen] <tab> index_navigate
