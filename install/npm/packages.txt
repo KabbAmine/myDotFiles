@@ -4,12 +4,12 @@ csslint
 gulp
 harp
 jade
-jade-lint
+js-beautify
 jslint
 jsonlint
 less
 livedown
+node-sass
 npm
-sassdoc
 stylus
 ungit
