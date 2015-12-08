@@ -14,10 +14,11 @@ Content
 - quicktile.cfg
 - gitconfig
 - ctags
-- For graphical applications:
+- CLI & graphical applications:
   * xfce4-terminal: terminal.rc
   * zathura: zathurarc
-- For installation script:
+  * tudu: tudurc
+- Installation scripts:
   * Nodejs modules (From `install/npm/packages.txt`)
   * Pip packages (From `install/pip/packages.txt`)
 
