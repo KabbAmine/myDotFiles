@@ -4,7 +4,6 @@ csslint
 gulp
 harp
 jade
-js2coffee
 js-beautify
 jslint
 jsonlint
