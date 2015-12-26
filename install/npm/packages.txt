@@ -2,14 +2,11 @@ browser-sync
 coffee-script
 csslint
 gulp
-harp
 jade
 js-beautify
 jslint
 jsonlint
-less
 livedown
 node-sass
 npm
-stylus
 ungit
