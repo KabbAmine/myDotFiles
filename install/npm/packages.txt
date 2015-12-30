@@ -1,3 +1,4 @@
+bower
 browser-sync
 coffee-script
 csslint
