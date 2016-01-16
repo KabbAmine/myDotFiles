@@ -6,8 +6,7 @@ gulp
 jade
 js-beautify
 jslint
-jsonlint
-livedown
 node-sass
 npm
+npmlog
 ungit
