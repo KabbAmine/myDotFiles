@@ -6,6 +6,7 @@ gulp
 jade
 js-beautify
 jslint
+livedown
 node-sass
 npm
 npmlog
