@@ -1,5 +1,3 @@
-jedi
 pep8
-Pygments
 vim-vint
 youtube-dl
