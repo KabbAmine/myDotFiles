@@ -10,3 +10,5 @@ set format_current=%A - %n - %t
 # Play library bu default instead of playlist
 set play_library=true
 set show_current_bitrate=true
+# https://github.com/JustinPatricWade/cmus-theme_solar-mild
+colorscheme solar_mild
