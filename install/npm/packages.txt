@@ -3,11 +3,12 @@ browser-sync
 coffee-script
 csslint
 gulp
-jade
 js-beautify
 jslint
+jsonlint
 livedown
 node-sass
 npm
 npmlog
+pug
 ungit
