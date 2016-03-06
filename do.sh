@@ -3,7 +3,7 @@
 #######################################################################
 # Author            : Kabbaj Amine
 # Date Creation     : 2014-06-21
-# Last modification : 2015-12-08
+# Last modification : 2016-03-07
 
 # DESCRIPTION
 # - Create symbolic links for my dotfiles.
@@ -146,6 +146,8 @@ createLink zathura/zathurarc ~/.config/zathura &&
 createLink tudu/tudurc ~ h &&
 # cmus
 createLink cmus/rc ~/.cmus &&
+# ag
+createLink ag/agignore ~ h &&
 
 showTitle "Copy files" &&
 

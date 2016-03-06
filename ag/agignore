@@ -1,0 +1,4 @@
+.git/
+.sass-cache/
+.img/
+.node_modules/
