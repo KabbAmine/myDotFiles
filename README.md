@@ -8,12 +8,13 @@ This repository contains dotfiles and configuration files that I'm using on my G
 Content
 -------
 
+- agignore
 - bash (rc, profile, aliases, functions...)
+- ctags
+- gitconfig
+- quicktile.cfg
 - Script for displaying git branch name in the prompt.
 - tmux.conf
-- quicktile.cfg
-- gitconfig
-- ctags
 - CLI & graphical applications:
   * xfce4-terminal: terminal.rc
   * zathura: zathurarc
