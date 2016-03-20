@@ -3,7 +3,7 @@
 #######################################################################
 # Author            : Kabbaj Amine
 # Date Creation     : 2014-06-21
-# Last modification : 2016-03-07
+# Last modification : 2016-03-20
 
 # DESCRIPTION
 # - Create symbolic links for my dotfiles.
@@ -155,6 +155,7 @@ showTitle "Copy files" &&
 copyFile xfce4-terminal/terminalrc ~/.config/xfce4/terminal &&
 # Git
 copyFile git/gitconfig ~ h &&
+copyFile git/gitignore_global ~ h &&
 
 echo -e "\n" &&
 exit

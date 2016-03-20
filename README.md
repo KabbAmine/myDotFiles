@@ -11,7 +11,9 @@ Content
 - agignore
 - bash (rc, profile, aliases, functions...)
 - ctags
-- gitconfig
+- git:
+  * gitconfig
+  * A global gitignore
 - quicktile.cfg
 - Script for displaying git branch name in the prompt.
 - tmux.conf

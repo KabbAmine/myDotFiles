@@ -6,3 +6,6 @@
 	helper = cache --timeout=3600
 [color]
 	ui = auto
+[core]
+	excludesfile = /home/k-bag/.gitignore_global
+
