@@ -18,9 +18,10 @@ Content
 - Script for displaying git branch name in the prompt.
 - tmux.conf
 - CLI & graphical applications:
+  * cmus: rc
+  * tudu: tudurc
   * xfce4-terminal: terminal.rc
   * zathura: zathurarc
-  * tudu: tudurc
 - Installation scripts:
   * Nodejs modules (From `install/npm/packages.txt`)
   * Pip packages (From `install/pip/packages.txt`)
