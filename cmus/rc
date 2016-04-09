@@ -5,10 +5,12 @@ set continue=true
 # Repeat all tracks
 set repeat=true
 set shuffle=true
-# Current song (default %-25%a %3n. %t%= %y %d)
-set format_current=%A - %n - %t
 # Play library bu default instead of playlist
 set play_library=true
 set show_current_bitrate=true
-# https://github.com/JustinPatricWade/cmus-theme_solar-mild
-colorscheme solar_mild
+
+set format_current=%A - %t%= %2n. %l [%y]
+set format_trackwin=%2n. %t%= %g %d
+set format_playlist=%-15%A %-20l %2n. %t%= [%y] %-15%g %d
+
+colorscheme yowish
