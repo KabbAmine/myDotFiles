@@ -11,4 +11,5 @@ node-sass
 npm
 npmlog
 pug
+shiba
 ungit
