@@ -6,7 +6,7 @@ gulp
 js-beautify
 jslint
 jsonlint
-livedown
+live-server
 node-sass
 npm
 npmlog
