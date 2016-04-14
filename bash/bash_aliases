@@ -1,5 +1,5 @@
 # #############################
-# Last modification: 2015-11-14
+# Last modification: 2016-04-14
 # #############################
 
 # Pour Git
@@ -91,6 +91,7 @@ alias Watch='watch -t --differences '
 # Vim & gvim vanilla
 alias Vv='vim -Nu ~/.vimVanilla/vimrc'
 alias Gv='gvim -Nu ~/.vimVanilla/vimrc'
+alias Weather='curl wttr.in/novoazovsk'
 
 # Lazy lazy you are
 alias CompassInit='compass create --css-dir css --output-style nested --no-line-comments --bar -q'
