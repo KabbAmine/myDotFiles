@@ -1,4 +1,3 @@
-bower
 browser-sync
 coffee-script
 csslint
@@ -10,6 +9,6 @@ live-server
 node-sass
 npm
 npmlog
-pug
+pug-cli
 shiba
 ungit
