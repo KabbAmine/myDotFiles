@@ -1,0 +1,279 @@
+# i3 config file
+# Last modification: 2016-05-26
+
+####################
+# GLOBAL VARIABLES
+####################
+
+set $mod Mod4
+# Alt
+set $alt Mod1
+
+# Colors
+set $bg #333333
+set $bg_light #434343
+set $sl #f3f3f3
+set $blue #6793db
+set $red #ce3a3a
+set $focused_txt #f6f6f6
+set $inactive_txt #9d9d9d
+
+# Control volume with pactl
+set $pactl_decrease exec pactl set-sink-volume 0 -- '-5%'
+set $pactl_increase exec pactl set-sink-volume 0 -- '+5%'
+set $pactl_mute exec pactl set-sink-mute 0 toggle
+
+####################
+# GLOBAL KEYBINDINGS
+####################
+
+# Mouse
+bindsym --border button2 kill
+
+# A custom mode for launching applications
+set $mode_launcher [w]   [m]   [f]  [v]  [t] 
+bindsym $mod+Return mode "$mode_launcher"
+mode "$mode_launcher" {
+	bindsym w exec x-www-browser; mode "default"
+	bindsym m exec exo-open --launch MailReader; mode "default"
+	bindsym f exec exo-open --launch FileManager; mode "default"
+	bindsym t exec i3-sensible-terminal; mode "default"
+	bindsym v exec gvim; mode "default"
+
+	bindsym Escape mode "default"
+	bindsym Return mode "default"
+}
+
+# Applications
+## dmenu
+bindsym $mod+space exec dmenu_run -l 50 -p "> "
+## xkill
+bindsym --release Control+Shift+Escape exec xkill
+## cmus
+bindsym Control+F12 exec --no-startup-id bash ~/Projects/Scripts/Multimedia/cmus-notify.sh "-u"
+bindsym Control+F10 exec --no-startup-id bash ~/Projects/Scripts/Multimedia/cmus-notify.sh "-n"
+bindsym Control+F11 exec --no-startup-id bash ~/Projects/Scripts/Multimedia/cmus-notify.sh "-r"
+
+# Volume
+bindsym $mod+Down $pactl_decrease
+bindsym $mod+Up $pactl_increase
+bindsym $mod+Shift+Down $pactl_mute
+
+# Kill focused window
+bindsym $alt+F4 kill
+
+# Change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Split in horizontal/vertical orientation
+bindsym $mod+v split h
+bindsym $mod+s split v
+
+# Fullscreen mode
+bindsym $mod+f fullscreen
+
+# Change container layout (stacked, tabbed, toggle split)
+# bindsym $mod+s layout stacking
+bindsym $mod+z layout tabbed
+bindsym $mod+e layout toggle split
+
+# Toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# Change focus between tiling / floating windows
+# bindsym $mod+space focus mode_toggle
+
+# Focus the parent/child container
+# bindsym $mod+q focus parent
+# bindsym $mod+d focus child
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# Restart i3 inplace
+bindsym $mod+Shift+r restart
+
+# Exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Resize window
+mode "resize" {
+	bindsym h resize shrink width 10 px or 10 ppt
+	bindsym j resize grow height 10 px or 10 ppt
+	bindsym k resize shrink height 10 px or 10 ppt
+	bindsym l resize grow width 10 px or 10 ppt
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+x move scratchpad
+# Show the first scratchpad window
+bindsym $mod+x scratchpad show
+
+#########
+# WINDOWS
+#########
+
+client.focused $blue $blue $sl $sl $blue
+client.focused_inactive $bg $bg $inactive_txt $inactive_txt $bg
+client.unfocused $bg $bg $inactive_txt $inactive_txt $bg
+client.urgent $red $red $sl $red $red
+client.placeholder $blue $blue $sl $sl $sl
+client.background $blue
+
+# hide_edge_borders both
+font pango:Ubuntu Mono derivative Powerline 11
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+new_window pixel 3
+mouse_warping none
+
+# Enable floating mode for some windows
+for_window [class="^Yad$"] floating enable
+for_window [window_type="notification"] floating enable; border none;
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+
+############
+# WORKSPACES
+############
+
+# Custom workspaces
+set $ws_generic "1. "
+set $ws_mail "2. "
+set $ws_web "3. "
+set $ws_dev "4. "
+set $ws_chat "5. "
+set $ws_news "6. "
+set $ws_dl "7. "
+set $ws_games "8. "
+set $ws_terminal "F12. "
+# set $ws_media ""
+
+# Assign applications to specific workspaces
+assign [class="^Thunderbird$" instance="^Mail$"] $ws_mail
+assign [class="^Firefox$" instance="^Navigator$"] $ws_web
+assign [class="^vivaldi-stable$" instance="^crx_mpognobbkildjkofajifpdfhcoklimli$"] $ws_web
+assign [class="^Gvim$" instance="^gvim$"] $ws_dev
+assign [class="^Turpial$" instance="^Turpial$"] $ws_news
+assign [class="^Liferea$" instance="^liferea$"] $ws_news
+assign [class="^Qbittorrent$" instance="^qbittorrent$"] $ws_dl
+
+# Worspaces in 2nd monitor
+workspace $ws_mail output VGA-0
+workspace $ws_news output VGA-0
+workspace $ws_terminal output VGA-0
+workspace $ws_dl output VGA-0
+
+# Move the current workspace to the next output
+# (effectively toggles when you only have two outputs)
+bindsym $mod+asterisk move workspace to output right
+
+# Switch to workspace
+bindsym $mod+ampersand workspace $ws_generic
+bindsym $mod+eacute workspace $ws_mail
+bindsym $mod+quotedbl workspace $ws_web
+bindsym $mod+apostrophe workspace $ws_dev
+bindsym $mod+parenleft workspace $ws_chat
+bindsym $mod+minus workspace $ws_news
+bindsym $mod+egrave workspace $ws_dl
+bindsym $mod+underscore workspace $ws_games
+bindsym $mod+ccedilla workspace 9
+bindsym F12 workspace $ws_terminal
+
+# Move focused container to workspace
+bindsym $mod+Shift+ampersand move container to workspace $ws_generic
+bindsym $mod+Shift+eacute move container to workspace $ws_mail
+bindsym $mod+Shift+quotedbl move container to workspace $ws_web
+bindsym $mod+Shift+apostrophe move container to workspace $ws_dev
+bindsym $mod+Shift+5 move container to workspace $ws_chat
+bindsym $mod+Shift+minus move container to workspace $ws_news
+bindsym $mod+Shift+egrave move container to workspace $ws_dl
+bindsym $mod+Shift+underscore move container to workspace $ws_games
+bindsym $mod+Shift+ccedilla move container to workspace 9
+bindsym $mod+Shift+F12 move container to workspace $ws_terminal
+# bindsym $mod+Shift+agrave move container to workspace $ws_terminal
+
+#######
+# I3BAR
+#######
+
+# Primary monitor
+bar {
+	output LVDS
+	position top
+	# status_command i3status -c ~/.i3/i3status_primary.conf
+	status_command bash ~/.i3/i3status_custom_primary.sh
+	tray_output LVDS
+	tray_padding 0
+	separator_symbol " "
+	colors {
+		background $bg
+		statusline $sl
+		separator $inactive_txt
+		focused_workspace $blue $blue $focused_txt
+		inactive_workspace $bg_light $bg_light $inactive_txt
+		urgent_workspace $red $red $focused_txt
+		# binding_mode $red $red $focused_txt
+	}
+
+	# Control volum with the mouse wheel
+	bindsym button2 $pactl_mute
+	bindsym button4 $pactl_increase
+	bindsym button5 $pactl_decrease
+}
+bar {
+	output VGA-0
+	position top
+	status_command i3status -c ~/.i3/i3status_secondary.conf
+	tray_output none
+	separator_symbol " "
+	colors {
+		background $bg
+		statusline $sl
+		separator $inactive_txt
+		focused_workspace $blue $blue $focused_txt
+		inactive_workspace $bg_light $bg_light $inactive_txt
+		urgent_workspace $red $red $focused_txt
+		# binding_mode $red $red $focused_txt
+	}
+}
+
+#########
+# STARTUP
+#########
+
+# Disable notebook's keyboard
+exec bash /home/k-bag/Projects/Scripts/Divers/toggle_device_state.sh "AT Translated Set 2 Keyboard"
+
+# Set resolution & monitors
+exec_always xrandr --output VGA-0 --mode 1280x1024 --pos 1366x0  --gamma 1.4:1.4:1.4 --brightness 1.1 --output LVDS --mode 1366x768 --pos 0x0
+
+# Compositor
+exec_always compton -c -C -f
+
+# Applications
+exec clipit
+exec nm-applet
+
+# Set background
+exec_always feh --bg-fill --no-fehbg ~/Images/Wallpapers/the-dune_1366x768.jpg
+
+# Layouts (fr,eng,ru,ar), toggle it with alt+shift
+exec --no-startup-id setxkbmap -model pc105 -layout fr,us,ru,ar -option grp:alt_shift_toggle
+
+# Remap ¹ to <
+exec_always xmodmap -e "keycode 49 = less greater"

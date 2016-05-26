@@ -142,6 +142,7 @@ showTitle "Creation of directories" &&
 makeDir ~/.config/xfce4/terminal &&
 makeDir ~/.config/zathura &&
 makeDir ~/.cmus &&
+makeDir ~/.i3 &&
 
 showTitle "Creation of symbolic links" &&
 
@@ -162,6 +163,11 @@ createLink tudu/tudurc ~ h &&
 createLink cmus/rc ~/.cmus &&
 # ag
 createLink ag/agignore ~ h &&
+# i3
+createLink i3/config ~/.i3 &&
+createLink i3/i3status_custom_primary.sh ~/.i3 &&
+createLink i3/i3status_primary.conf ~/.i3 &&
+createLink i3/i3status_secondary.conf ~/.i3 &&
 
 showTitle "Copy files" &&
 
