@@ -3,7 +3,7 @@
 #######################################################################
 # Author            : Kabbaj Amine
 # Date Creation     : 2014-06-21
-# Last modification : 2016-03-20
+# Last modification : 2016-05-26
 
 # DESCRIPTION
 # - Create symbolic links for my dotfiles.
@@ -11,6 +11,7 @@
 # USAGE
 # - Specify the dotfiles folder in the variables.
 # - Specify the symbolic links and files to copy in the PROCESSING PART:
+#	* makeDir directory
 #	* createLink file link [h(If hidden)]
 #	* copyFile file destination [h(If hidden)]
 
@@ -99,6 +100,14 @@ copyFile() {
 	fi
 
 }
+makeDir() {
+	if [ ! -d "$1" ]; then
+		mkdir -p "$1"
+		echo -e "${1}${yellow} was successfully created${white}"
+	else
+		echo -e "${1}${red} already exist ${white}"
+	fi
+}
 showTitle () {
 	# showTitle "title"
 	# showTitle "title" ["s" (Sub-title) ]
@@ -128,6 +137,11 @@ echo -e $red_bold"Create or link my dotfiles in the right place"
 echo -e "============================================================="
 echo -e $white"                                                             "
 
+showTitle "Creation of directories" &&
+
+makeDir ~/.config/xfce4/terminal &&
+makeDir ~/.config/zathura &&
+makeDir ~/.cmus &&
 
 showTitle "Creation of symbolic links" &&
 
