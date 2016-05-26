@@ -13,6 +13,12 @@
 
 sep="|"
 
+# Get current keyboard layaout
+# Need https://github.com/nonpop/xkblayout-state
+getLayout() {
+	echo "$(xkblayout-state print %s)"
+}
+
 getCmus() {
 	if [ ! -x "/usr/bin/cmus" ]
 	then
@@ -51,12 +57,7 @@ getCmus() {
 
 i3status -c "~/.i3/i3status_primary.conf" | while true
 do
+	custom="$(getCmus) $sep $(getLayout)"
 	read line
-	custom="$(getCmus)"
-	if [ -n "$custom" ]
-	then
-		echo "$custom $sep $line" || exit 1
-	else
-		echo "$line" || exit 1
-	fi
+	echo "$custom $sep $line" || exit 1
 done
