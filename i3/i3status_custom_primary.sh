@@ -47,11 +47,8 @@ getCmus() {
 	fi
 }
 
-getTime() {
-	echo "  $(date +'%H:%M %d-%m-%Y')"
-}
-
 # Main loop
+
 i3status -c "~/.i3/i3status_primary.conf" | while true
 do
 	read line

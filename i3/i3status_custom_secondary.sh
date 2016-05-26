@@ -19,6 +19,7 @@ getMem() {
 }
 
 # Main loop
+
 i3status -c "~/.i3/i3status_secondary.conf" | while true
 do
 	read line
