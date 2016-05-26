@@ -8,7 +8,7 @@
 # MAINTAINER   : Kabbaj Amine <amine.kabb@gmail.com>
 
 # DESCRIPTION
-# - Custom status line to use in i3bar
+# - Custom status line to use in i3bar for primary monitor
 ####################################################
 
 sep="|"
@@ -47,8 +47,7 @@ getCmus() {
 	fi
 }
 
-getTime()
-{
+getTime() {
 	echo "  $(date +'%H:%M %d-%m-%Y')"
 }
 

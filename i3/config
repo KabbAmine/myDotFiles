@@ -238,7 +238,8 @@ bar {
 bar {
 	output VGA-0
 	position top
-	status_command i3status -c ~/.i3/i3status_secondary.conf
+	# status_command bash ~/.i3/i3status_custom_primary.sh
+	status_command bash ~/.i3/i3status_custom_secondary.sh
 	tray_output none
 	separator_symbol " "
 	colors {

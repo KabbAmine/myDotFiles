@@ -167,6 +167,7 @@ createLink ag/agignore ~ h &&
 createLink i3/config ~/.i3 &&
 createLink i3/i3status_custom_primary.sh ~/.i3 &&
 createLink i3/i3status_primary.conf ~/.i3 &&
+createLink i3/i3status_custom_secondary.sh ~/.i3 &&
 createLink i3/i3status_secondary.conf ~/.i3 &&
 
 showTitle "Copy files" &&
