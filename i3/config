@@ -1,12 +1,12 @@
 # i3 config file
-# Last modification: 2016-05-26
+# Last modification: 2016-05-27
 
 ####################
 # GLOBAL VARIABLES
 ####################
 
+# Keys
 set $mod Mod4
-# Alt
 set $alt Mod1
 
 # Colors
@@ -17,6 +17,10 @@ set $blue #6793db
 set $red #ce3a3a
 set $focused_txt #f6f6f6
 set $inactive_txt #9d9d9d
+
+# Outputs (Monitors)
+set $monitor1 LVDS
+set $monitor2 VGA-0
 
 # Control volume with pactl
 set $pactl_decrease exec pactl set-sink-volume 0 -- '-5%'
@@ -46,7 +50,7 @@ mode "$mode_launcher" {
 
 # Applications
 ## dmenu
-bindsym $mod+space exec dmenu_run -l 50 -p "> "
+bindsym $mod+space exec dmenu_run -l 50 -p '> ' -nb '$bg' -nf '$inactive_txt' -sb '$blue' -sf '$focused_txt'
 ## xkill
 bindsym --release Control+Shift+Escape exec xkill
 ## cmus
@@ -173,10 +177,10 @@ assign [class="^Liferea$" instance="^liferea$"] $ws_news
 assign [class="^Qbittorrent$" instance="^qbittorrent$"] $ws_dl
 
 # Worspaces in 2nd monitor
-workspace $ws_mail output VGA-0
-workspace $ws_news output VGA-0
-workspace $ws_terminal output VGA-0
-workspace $ws_dl output VGA-0
+workspace $ws_mail output $monitor2
+workspace $ws_news output $monitor2
+workspace $ws_terminal output $monitor2
+workspace $ws_dl output $monitor2
 
 # Move the current workspace to the next output
 # (effectively toggles when you only have two outputs)
@@ -213,13 +217,12 @@ bindsym $mod+Shift+F12 move container to workspace $ws_terminal
 
 # Primary monitor
 bar {
-	output LVDS
+	output $monitor1
 	position top
 	# status_command i3status -c ~/.i3/i3status_primary.conf
 	status_command bash ~/.i3/i3status_custom_primary.sh
-	tray_output LVDS
+	tray_output $monitor1
 	tray_padding 0
-	separator_symbol " "
 	colors {
 		background $bg
 		statusline $sl
@@ -227,7 +230,6 @@ bar {
 		focused_workspace $blue $blue $focused_txt
 		inactive_workspace $bg_light $bg_light $inactive_txt
 		urgent_workspace $red $red $focused_txt
-		# binding_mode $red $red $focused_txt
 	}
 
 	# Control volum with the mouse wheel
@@ -236,12 +238,10 @@ bar {
 	bindsym button5 $pactl_decrease
 }
 bar {
-	output VGA-0
+	output $monitor2
 	position top
-	# status_command bash ~/.i3/i3status_custom_primary.sh
 	status_command bash ~/.i3/i3status_custom_secondary.sh
 	tray_output none
-	separator_symbol " "
 	colors {
 		background $bg
 		statusline $sl
@@ -249,7 +249,6 @@ bar {
 		focused_workspace $blue $blue $focused_txt
 		inactive_workspace $bg_light $bg_light $inactive_txt
 		urgent_workspace $red $red $focused_txt
-		# binding_mode $red $red $focused_txt
 	}
 }
 
@@ -261,7 +260,7 @@ bar {
 exec bash /home/k-bag/Projects/Scripts/Divers/toggle_device_state.sh "AT Translated Set 2 Keyboard"
 
 # Set resolution & monitors
-exec_always xrandr --output VGA-0 --mode 1280x1024 --pos 1366x0  --gamma 1.4:1.4:1.4 --brightness 1.1 --output LVDS --mode 1366x768 --pos 0x0
+exec_always xrandr --output $monitor2 --mode 1280x1024 --pos 1366x0  --gamma 1.4:1.4:1.4 --brightness 1.1 --output $monitor1 --mode 1366x768 --pos 0x0
 
 # Compositor
 exec_always compton -c -C -f
