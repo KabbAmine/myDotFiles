@@ -219,8 +219,7 @@ bindsym $mod+Shift+F12 move container to workspace $ws_terminal
 bar {
 	output $monitor1
 	position top
-	# status_command i3status -c ~/.i3/i3status_primary.conf
-	status_command bash ~/.i3/i3status_custom_primary.sh
+	status_command i3blocks -c ~/.i3/i3blocks_primary.conf
 	tray_output $monitor1
 	tray_padding 0
 	colors {
@@ -232,15 +231,15 @@ bar {
 		urgent_workspace $red $red $focused_txt
 	}
 
-	# Control volum with the mouse wheel
-	bindsym button2 $pactl_mute
-	bindsym button4 $pactl_increase
-	bindsym button5 $pactl_decrease
+	# Control volume with the mouse wheel
+	# bindsym button2 $pactl_mute
+	# bindsym button4 $pactl_increase
+	# bindsym button5 $pactl_decrease
 }
 bar {
 	output $monitor2
 	position top
-	status_command bash ~/.i3/i3status_custom_secondary.sh
+	status_command i3blocks -c ~/.i3/i3blocks_secondary.conf
 	tray_output none
 	colors {
 		background $bg

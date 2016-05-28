@@ -1,0 +1,58 @@
+#!/bin/bash
+
+####################################################
+# CREATION     : 2016-05-26
+# MODIFICATION : 2016-05-26
+
+# I3block's blocklet which:
+# - Display current state & played song in cmus
+# - Control cmus via the mouse (m/l/r <=> pause/next/previous)
+####################################################
+
+getCmus() {
+	if [ ! -x "/usr/bin/cmus" ]
+	then
+		echo ""
+		return 1
+	fi
+
+	status=$(cmus-remote -Q | grep "status " | cut -d " " -f 2)
+	artist=$(cmus-remote -Q | grep "^tag artist " | sed -e "s/^tag artist //")
+	title=$(cmus-remote -Q | grep "^tag title " | sed -e "s/^tag title //")
+
+	if [ -z "$status" ]
+	then
+		echo ""
+		return 1
+	fi
+
+	case $status in
+		"playing" )
+			icon="";;
+		"paused" )
+			icon="";;
+		"stopped" )
+			icon="";;
+	esac
+
+	if [ -z "$artist" ] && [ -z "$title" ]
+	then
+		echo "$icon"
+	else
+		echo "$icon ${artist} - ${title}"
+	fi
+}
+
+case $BLOCK_BUTTON in
+    2) cmus-remote -u;;  # middle click, pause/unpause
+    1) cmus-remote -n;;  # left click, next
+    3) cmus-remote -r;;  # right down, previous
+esac
+
+cmus=$(getCmus)
+if [ -z "$cmus" ]
+then
+	echo ""
+else
+	echo $cmus
+fi

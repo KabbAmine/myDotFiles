@@ -3,7 +3,7 @@
 #######################################################################
 # Author            : Kabbaj Amine
 # Date Creation     : 2014-06-21
-# Last modification : 2016-05-26
+# Last modification : 2016-05-28
 
 # DESCRIPTION
 # - Create symbolic links for my dotfiles.
@@ -142,7 +142,7 @@ showTitle "Creation of directories" &&
 makeDir ~/.config/xfce4/terminal &&
 makeDir ~/.config/zathura &&
 makeDir ~/.cmus &&
-makeDir ~/.i3 &&
+makeDir ~/.i3/blocks &&
 
 showTitle "Creation of symbolic links" &&
 
@@ -165,10 +165,9 @@ createLink cmus/rc ~/.cmus &&
 createLink ag/agignore ~ h &&
 # i3
 createLink i3/config ~/.i3 &&
-createLink i3/i3status_custom_primary.sh ~/.i3 &&
-createLink i3/i3status_primary.conf ~/.i3 &&
-createLink i3/i3status_custom_secondary.sh ~/.i3 &&
-createLink i3/i3status_secondary.conf ~/.i3 &&
+createLink i3/i3blocks_primary.conf ~/.i3 &&
+createLink i3/i3blocks_secondary.conf ~/.i3 &&
+createLink i3/blocks/cmus ~/.i3/blocks &&
 
 showTitle "Copy files" &&
 
