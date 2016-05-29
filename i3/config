@@ -12,11 +12,11 @@ set $alt Mod1
 # Colors
 set $bg #333333
 set $bg_light #434343
-set $sl #f3f3f3
-set $blue #6793db
-set $red #ce3a3a
-set $focused_txt #f6f6f6
-set $inactive_txt #9d9d9d
+set $sl #F3F3F3
+set $blue #6793DB
+set $red #CE3A3A
+set $focused_txt #F6F6F6
+set $inactive_txt #9D9D9D
 
 # Outputs (Monitors)
 set $monitor1 LVDS
@@ -35,7 +35,7 @@ set $pactl_mute exec pactl set-sink-mute 0 toggle
 bindsym --border button2 kill
 
 # A custom mode for launching applications
-set $mode_launcher [w]   [m]   [f]  [v]  [t] 
+set $mode_launcher  [w]eb-browser  [m]ail  [f]ile-manager  g[v]im  [t]erminal
 bindsym $mod+Return mode "$mode_launcher"
 mode "$mode_launcher" {
 	bindsym w exec x-www-browser; mode "default"
@@ -48,9 +48,8 @@ mode "$mode_launcher" {
 	bindsym Return mode "default"
 }
 
-
 # A custom mode for layouts
-set $mode_layout [s]tacking  [t]abbed s[p]lit
+set $mode_layout  [s]tacking  [t]abbed  s[p]lit
 bindsym $mod+e mode "$mode_layout"
 mode "$mode_layout" {
 	bindsym s layout stacking; mode "default"
@@ -61,15 +60,20 @@ mode "$mode_layout" {
 	bindsym Return mode "default"
 }
 
-# Applications
-## dmenu
+# dmenu
 # bindsym $mod+space exec dmenu_run -l 50 -p '> ' -nb '$bg' -nf '$inactive_txt' -sb '$blue' -sf '$focused_txt'
-## xkill
+
+# xkill
 bindsym --release Control+Shift+Escape exec xkill
-## cmus
+
+# cmus
 bindsym Control+F12 exec --no-startup-id bash ~/Projects/Scripts/Multimedia/cmus-notify.sh "-u"
 bindsym Control+F10 exec --no-startup-id bash ~/Projects/Scripts/Multimedia/cmus-notify.sh "-n"
 bindsym Control+F11 exec --no-startup-id bash ~/Projects/Scripts/Multimedia/cmus-notify.sh "-r"
+
+# Xfce tools
+bindsym Print exec xfce4-screenshooter
+bindsym $alt+F1 exec xfce4-appfinder
 
 # Volume
 bindsym $mod+Down $pactl_decrease
@@ -276,10 +280,11 @@ exec_always compton -cCGf
 exec clipit
 exec nm-applet
 exec pasystray
-exec kupfer
+exec kupfer --no-splash
 
 # Set background
-exec_always feh --bg-fill --no-fehbg ~/Images/Wallpapers/the-dune_1366x768.jpg
+# exec_always feh --bg-fill --no-fehbg ~/Images/Wallpapers/the-dune_1366x768.jpg
+exec_always --no-startup-id nitrogen --restore
 
 # Layouts (fr,eng,ru,ar), toggle it with alt+shift
 exec --no-startup-id setxkbmap -model pc105 -layout fr,us,ru,ar -option grp:alt_shift_toggle
