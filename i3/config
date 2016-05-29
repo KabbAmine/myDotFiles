@@ -1,5 +1,5 @@
 # i3 config file
-# Last modification: 2016-05-28
+# Last modification: 2016-05-29
 
 ####################
 # GLOBAL VARIABLES
@@ -48,6 +48,19 @@ mode "$mode_launcher" {
 	bindsym Return mode "default"
 }
 
+
+# A custom mode for layouts
+set $mode_layout [s]tacking  [t]abbed s[p]lit
+bindsym $mod+e mode "$mode_layout"
+mode "$mode_layout" {
+	bindsym s layout stacking; mode "default"
+	bindsym t layout tabbed; mode "default"
+	bindsym p layout toggle split; mode "default"
+
+	bindsym Escape mode "default"
+	bindsym Return mode "default"
+}
+
 # Applications
 ## dmenu
 bindsym $mod+space exec dmenu_run -l 50 -p '> ' -nb '$bg' -nf '$inactive_txt' -sb '$blue' -sf '$focused_txt'
@@ -84,11 +97,6 @@ bindsym $mod+s split v
 
 # Fullscreen mode
 bindsym $mod+f fullscreen
-
-# Change container layout (stacked, tabbed, toggle split)
-# bindsym $mod+s layout stacking
-bindsym $mod+z layout tabbed
-bindsym $mod+e layout toggle split
 
 # Toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
