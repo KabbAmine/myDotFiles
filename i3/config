@@ -63,7 +63,7 @@ mode "$mode_layout" {
 
 # Applications
 ## dmenu
-bindsym $mod+space exec dmenu_run -l 50 -p '> ' -nb '$bg' -nf '$inactive_txt' -sb '$blue' -sf '$focused_txt'
+# bindsym $mod+space exec dmenu_run -l 50 -p '> ' -nb '$bg' -nf '$inactive_txt' -sb '$blue' -sf '$focused_txt'
 ## xkill
 bindsym --release Control+Shift+Escape exec xkill
 ## cmus
@@ -276,6 +276,7 @@ exec_always compton -cCGf
 exec clipit
 exec nm-applet
 exec pasystray
+exec kupfer
 
 # Set background
 exec_always feh --bg-fill --no-fehbg ~/Images/Wallpapers/the-dune_1366x768.jpg
