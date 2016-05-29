@@ -270,7 +270,7 @@ exec bash /home/k-bag/Projects/Scripts/Divers/toggle_device_state.sh "AT Transla
 exec_always xrandr --output $monitor2 --mode 1280x1024 --pos 1366x0  --gamma 1.4:1.4:1.4 --brightness 1.1 --output $monitor1 --mode 1366x768 --pos 0x0
 
 # Compositor
-exec_always compton -c -C -f
+exec_always compton -cCGf
 
 # Applications
 exec clipit
