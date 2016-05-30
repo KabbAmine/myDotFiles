@@ -2,11 +2,12 @@
 
 ####################################################
 # CREATION     : 2016-05-26
-# MODIFICATION : 2016-05-26
+# MODIFICATION : 2016-05-30
 
 # I3block's blocklet which:
 # - Display current state & played song in cmus
 # - Control cmus via the mouse (m/l/r <=> pause/next/previous)
+# - Move in the track (wheel up/down)
 ####################################################
 
 getCmus() {
@@ -44,9 +45,11 @@ getCmus() {
 }
 
 case $BLOCK_BUTTON in
-    2) cmus-remote -u;;  # middle click, pause/unpause
-    1) cmus-remote -n;;  # left click, next
-    3) cmus-remote -r;;  # right down, previous
+    1) cmus-remote --next;;     # left click
+    2) cmus-remote --pause;;    # middle click
+    3) cmus-remote --prev;;     # right click
+    4) cmus-remote --seek +10;;  # wheel up
+    5) cmus-remote --seek -10;;  # wheel down
 esac
 
 cmus=$(getCmus)
