@@ -3,7 +3,7 @@
 #######################################################################
 # Author            : Kabbaj Amine
 # Date Creation     : 2014-06-21
-# Last modification : 2016-05-28
+# Last modification : 2016-05-30
 
 # DESCRIPTION
 # - Create symbolic links for my dotfiles.
@@ -168,6 +168,7 @@ createLink i3/config ~/.i3 &&
 createLink i3/i3blocks_primary.conf ~/.i3 &&
 createLink i3/i3blocks_secondary.conf ~/.i3 &&
 createLink i3/blocks/cmus ~/.i3/blocks &&
+createLink i3/i3bar_conkyrc ~/.i3 &&
 
 showTitle "Copy files" &&
 

@@ -1,5 +1,5 @@
 # i3 config file
-# Last modification: 2016-05-29
+# Last modification: 2016-05-30
 
 ####################
 # GLOBAL VARIABLES
@@ -251,7 +251,7 @@ bar {
 bar {
 	output $monitor2
 	position top
-	status_command i3blocks -c ~/.i3/i3blocks_secondary.conf
+	status_command conky -c ~/.i3/i3bar_conkyrc
 	tray_output none
 	colors {
 		background $bg
