@@ -21,4 +21,4 @@ use_spacer left
 # Stuff after 'TEXT' will be formatted on screen
 TEXT
 
- ${cpu cpu0}%   ${memperc}%   ${swapperc}% |  ${fs_free /}   ${fs_free /home} 
+ ${cpu cpu0}%  ${memperc}%  ${swapperc}% |  ${fs_free /}  ${fs_free /home} 
