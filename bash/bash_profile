@@ -7,3 +7,6 @@ export SDL_JOYSTICK_DEVICE=/dev/null
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
+
+# Use keychain for ssh
+eval `keychain --eval --quiet --agents ssh id_rsa`
