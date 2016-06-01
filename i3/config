@@ -1,9 +1,12 @@
 # i3 config file
-# Last modification: 2016-05-31
+# Last modification: 2016-06-01
 
 ####################
 # GLOBAL VARIABLES
 ####################
+
+# i3 config dir
+set $i3 "$HOME/.dotfiles/i3"
 
 # Keys
 set $mod Mod4
@@ -231,7 +234,7 @@ bindsym $mod+Shift+F12 move container to workspace $ws_terminal
 bar {
 	output $monitor1
 	position top
-	status_command i3blocks -c ~/.i3/i3blocks_primary.conf
+	status_command i3blocks -c $i3/i3blocks_primary.conf
 	tray_output $monitor1
 	tray_padding 0
 	colors {
@@ -251,7 +254,7 @@ bar {
 bar {
 	output $monitor2
 	position top
-	status_command conky -c ~/.i3/i3bar_conkyrc
+	status_command conky -c $i3/i3bar_conkyrc
 	tray_output none
 	colors {
 		background $bg
