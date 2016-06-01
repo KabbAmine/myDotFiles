@@ -3,7 +3,7 @@
 #######################################################################
 # Author            : Kabbaj Amine
 # Date Creation     : 2014-06-21
-# Last modification : 2016-05-30
+# Last modification : 2016-06-01
 
 # DESCRIPTION
 # - Create symbolic links for my dotfiles.
@@ -45,14 +45,18 @@ yellow="\033[33m"
 # #####################
 
 checkFile() {
+	# Check if $1 is a file,
+	# if not interrupt the process
 
 	if [ ! -e $1 ]; then
-		echo -e "$1 "$red"does not exist."$white
+		echo -e "${1}${red} does not exist${white}"
 		kill -SIGINT $$
 	fi
-
 }
 getProperties() {
+	# Get from $1 and $2 the file's name and location
+	# and return them in $file_name, $file_location
+	# (& $link if $3 exists)
 
 	file_name=$(echo $1 | rev | cut -d '/' -f 1 | rev) &&
 	file_location=$2 &&
@@ -64,41 +68,36 @@ getProperties() {
 			link="$2/$file_name"
 			;;
 	esac
-
 }
 createLink() {
+	file="${dotfiles_folder}${1}" &&
+	link="$2" &&
+	option="$3" &&
 
-	file=$dotfiles_folder"$1" &&
-	link=$2 &&
-	option=$3 &&
-
-	checkFile $file &&
-	getProperties $file $link $option &&
+	checkFile "$file" &&
+	getProperties "$file" "$link" "$option" &&
 
 	if [ ! -L "$link" ]; then
-		ln -s $file $link &&
-		echo -e "$link "$yellow"was successfully created"$white
+		ln -s "$file" "$link" &&
+		echo -e "$link ${yellow}was successfully created${white}"
 	else
-		echo -e "$link "$red"already exist"$white
+		echo -e "$link ${red}already exist${white}"
 	fi
-
 }
 copyFile() {
-
-	file=$dotfiles_folder"$1" &&
-	destination=$2 &&
-	option=$3 &&
+	file="${dotfiles_folder}${1}" &&
+	destination="$2" &&
+	option="$3" &&
 	
-	checkFile $file &&
-	getProperties $file $destination $option &&
+	checkFile "$file" &&
+	getProperties "$file" "$destination" "$option" &&
 
-	if [ ! -e $destination ] || [ $file -nt $link ]; then
-		cp $file $link
-		echo -e "$file "$yellow"was successfully copied to "$white" $link"
+	if [ ! -e "$destination" ] || [ "$file" -nt "$link" ]; then
+		cp "$file" "$link"
+		echo -e "$file ${yellow}was successfully copied to ${white} $link"
 	else
-		echo -e "$file "$red"is the same as"$white" $link"
+		echo -e "$file ${red}is the same as${white} $link"
 	fi
-
 }
 makeDir() {
 	if [ ! -d "$1" ]; then
@@ -113,11 +112,10 @@ showTitle () {
 	# showTitle "title" ["s" (Sub-title) ]
 
 	if [[ $2 = "sub" ]]; then
-		echo -e $yellow"********** $1 ***********\n"$white
+		echo -e "${yellow}********** $1 ***********${white}"
 	else
-		echo -e $green"\n~~~~~~~~~~ $1 ~~~~~~~~~~\n"$white
+		echo -e "${green}\n~~~~~~~~~~ $1 ~~~~~~~~~~\n${white}"
 	fi
-
 }
 
 
@@ -125,24 +123,23 @@ showTitle () {
 #		PROCESSING
 # #####################
 
-echo -e $red_bold"============================================================="
+echo -e "${red_bold}============================================================="
 echo -e "  _____   ____       _     "
-echo -e $green" |  __ \ / __ \     | |    "
-echo -e $yellow" | |  | | |  | | ___| |__  "
-echo -e $red_bold" | |  | | |  | |/ __| '_ \ "
-echo -e $green" | |__| | |__| |\__ \ | | |"
-echo -e $yellow" |_____/ \____(_)___/_| |_|"
+echo -e "${green} |  __ \ / __ \     | |    "
+echo -e "${yellow} | |  | | |  | | ___| |__  "
+echo -e "${red_bold} | |  | | |  | |/ __| '_ \ "
+echo -e "${green} | |__| | |__| |\__ \ | | |"
+echo -e "${yellow} |_____/ \____(_)___/_| |_|"
 echo -e "                           "
-echo -e $red_bold"Create or link my dotfiles in the right place"
+echo -e "${red_bold}Create or link my dotfiles in the right place"
 echo -e "============================================================="
-echo -e $white"                                                             "
+echo -e "${white}                                                             "
 
 showTitle "Creation of directories" &&
 
 makeDir ~/.config/xfce4/terminal &&
 makeDir ~/.config/zathura &&
 makeDir ~/.cmus &&
-makeDir ~/.i3/blocks &&
 
 showTitle "Creation of symbolic links" &&
 
@@ -165,10 +162,6 @@ createLink cmus/rc ~/.cmus &&
 createLink ag/agignore ~ h &&
 # i3
 createLink i3/config ~/.i3 &&
-createLink i3/i3blocks_primary.conf ~/.i3 &&
-createLink i3/i3blocks_secondary.conf ~/.i3 &&
-createLink i3/blocks/cmus ~/.i3/blocks &&
-createLink i3/i3bar_conkyrc ~/.i3 &&
 
 showTitle "Copy files" &&
 
