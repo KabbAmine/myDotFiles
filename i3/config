@@ -47,6 +47,7 @@ mode "$mode_launcher" {
 	bindsym t exec i3-sensible-terminal; mode "default"
 	bindsym v exec gvim; mode "default"
 
+	bindsym $mod+Return mode "default"
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
 }
@@ -59,6 +60,7 @@ mode "$mode_layout" {
 	bindsym t layout tabbed; mode "default"
 	bindsym p layout toggle split; mode "default"
 
+	bindsym $mod+e mode "default"
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
 }
@@ -125,16 +127,17 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Resize window
+bindsym $mod+r mode "resize"
 mode "resize" {
 	bindsym h resize shrink width 10 px or 10 ppt
 	bindsym j resize grow height 10 px or 10 ppt
 	bindsym k resize shrink height 10 px or 10 ppt
 	bindsym l resize grow width 10 px or 10 ppt
 
+	bindsym $mod+r mode "default"
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
-bindsym $mod+r mode "resize"
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+x move scratchpad
