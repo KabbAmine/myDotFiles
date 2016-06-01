@@ -182,6 +182,7 @@ set $ws_chat "5. "
 set $ws_news "6. "
 set $ws_dl "7. "
 set $ws_games "8. "
+set $ws_generic2 "9. "
 set $ws_terminal "F12. "
 # set $ws_media ""
 
@@ -195,6 +196,8 @@ assign [class="^Liferea$" instance="^liferea$"] $ws_news
 assign [class="^Qbittorrent$" instance="^qbittorrent$"] $ws_dl
 
 # Worspaces in 2nd monitor
+workspace $ws_generic output $monitor1
+workspace $ws_generic2 output $monitor2
 workspace $ws_mail output $monitor2
 workspace $ws_news output $monitor2
 workspace $ws_terminal output $monitor2
@@ -213,7 +216,7 @@ bindsym $mod+parenleft workspace $ws_chat
 bindsym $mod+minus workspace $ws_news
 bindsym $mod+egrave workspace $ws_dl
 bindsym $mod+underscore workspace $ws_games
-bindsym $mod+ccedilla workspace 9
+bindsym $mod+ccedilla workspace $ws_generic2
 bindsym F12 workspace $ws_terminal
 
 # Move focused container to workspace
@@ -225,9 +228,8 @@ bindsym $mod+Shift+5 move container to workspace $ws_chat
 bindsym $mod+Shift+minus move container to workspace $ws_news
 bindsym $mod+Shift+egrave move container to workspace $ws_dl
 bindsym $mod+Shift+underscore move container to workspace $ws_games
-bindsym $mod+Shift+ccedilla move container to workspace 9
+bindsym $mod+Shift+ccedilla move container to workspace $ws_generic2
 bindsym $mod+Shift+F12 move container to workspace $ws_terminal
-# bindsym $mod+Shift+agrave move container to workspace $ws_terminal
 
 #######
 # I3BAR
