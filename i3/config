@@ -51,7 +51,7 @@ mode "$mode_exit" {
 }
 
 # A custom mode for launching applications
-set $mode_launcher  [w]eb-browser  [m]ail  [f]ile-manager  g[v]im  [t]erminal
+set $mode_launcher  [w]eb-browser |  [m]ail |  [f]ile-manager |  g[v]im |  [t]erminal
 bindsym $mod+Return mode "$mode_launcher"
 mode "$mode_launcher" {
 	bindsym w exec x-www-browser; mode "default"
@@ -66,7 +66,7 @@ mode "$mode_launcher" {
 }
 
 # A custom mode for layouts
-set $mode_layout  [s]tacking  [t]abbed  s[p]lit
+set $mode_layout [s]tacking | [t]abbed | s[p]lit
 bindsym $mod+e mode "$mode_layout"
 mode "$mode_layout" {
 	bindsym s layout stacking; mode "default"
@@ -140,8 +140,9 @@ bindsym $mod+Shift+r restart
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Resize window
-bindsym $mod+r mode "resize"
-mode "resize" {
+set $mode_resize resize h | l | j | k
+bindsym $mod+r mode "$mode_resize"
+mode "$mode_resize" {
 	bindsym h resize shrink width 10 px or 10 ppt
 	bindsym j resize grow height 10 px or 10 ppt
 	bindsym k resize shrink height 10 px or 10 ppt
