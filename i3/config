@@ -1,5 +1,5 @@
 # i3 config file
-# Last modification: 2016-06-01
+# Last modification: 2016-06-02
 
 ####################
 # GLOBAL VARIABLES
@@ -36,6 +36,19 @@ set $pactl_mute exec pactl set-sink-mute 0 toggle
 
 # Mouse
 bindsym --border button2 kill
+
+# Exit i3
+set $mode_exit [l]ogout | [s]hutdown | [r]eboot
+bindsym $mod+shift+e mode "$mode_exit"
+mode "$mode_exit" {
+	bindsym l exec i3-msg exit
+	bindsym s exec --no-startup-id sudo $i3/do.sh shutdown
+	bindsym r exec --no-startup-id sudo $i3/do.sh reboot
+
+	bindsym $mod+shift+e mode "default"
+	bindsym Escape mode "default"
+	bindsym Return mode "default"
+}
 
 # A custom mode for launching applications
 set $mode_launcher  [w]eb-browser  [m]ail  [f]ile-manager  g[v]im  [t]erminal
@@ -123,8 +136,8 @@ bindsym $mod+Shift+c reload
 # Restart i3 inplace
 bindsym $mod+Shift+r restart
 
-# Exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# Keep it for reference
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Resize window
 bindsym $mod+r mode "resize"
