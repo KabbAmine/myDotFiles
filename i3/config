@@ -1,5 +1,5 @@
 # i3 config file
-# Last modification: 2016-06-02
+# Last modification: 2016-06-03
 
 ####################
 # GLOBAL VARIABLES
@@ -302,6 +302,8 @@ exec_always compton -cCGf
 exec clipit
 exec nm-applet
 exec pasystray
+exec xscreensaver -no-splash
+exec_always numlockx
 
 # Set background
 # exec_always feh --bg-fill --no-fehbg ~/Images/Wallpapers/the-dune_1366x768.jpg
