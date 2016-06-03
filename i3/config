@@ -85,9 +85,9 @@ bindsym $mod+space exec j4-dmenu-desktop --dmenu="dmenu -i -l 10 -p '> ' -nb '$b
 bindsym --release Control+Shift+Escape exec xkill
 
 # cmus
-bindsym Control+F12 exec --no-startup-id bash ~/Projects/Scripts/Multimedia/cmus-notify.sh "-u"
-bindsym Control+F10 exec --no-startup-id bash ~/Projects/Scripts/Multimedia/cmus-notify.sh "-n"
-bindsym Control+F11 exec --no-startup-id bash ~/Projects/Scripts/Multimedia/cmus-notify.sh "-r"
+bindsym Control+F12 exec --no-startup-id bash ~/Projects/Scripts/Multimedia/cmus-notify.sh "-u" && pkill -RTMIN+10 i3blocks
+bindsym Control+F10 exec --no-startup-id bash ~/Projects/Scripts/Multimedia/cmus-notify.sh "-n" && pkill -RTMIN+10 i3blocks
+bindsym Control+F11 exec --no-startup-id bash ~/Projects/Scripts/Multimedia/cmus-notify.sh "-r" && pkill -RTMIN+10 i3blocks
 
 # Xfce tools
 bindsym Print exec xfce4-screenshooter
@@ -310,7 +310,7 @@ exec_always numlockx
 exec_always --no-startup-id nitrogen --restore
 
 # Layouts (fr,eng,ru,ar), toggle it with alt+shift
-exec --no-startup-id setxkbmap -model pc105 -layout fr,us,ru,ar -option grp:alt_shift_toggle
+exec_always --no-startup-id setxkbmap -model pc105 -layout fr,us,ru,ar -option grp:alt_shift_toggle
 
 # Remap ¹ to <
 exec_always xmodmap -e "keycode 49 = less greater"
