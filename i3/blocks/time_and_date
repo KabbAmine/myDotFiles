@@ -1,0 +1,20 @@
+#!/bin/bash
+
+####################################################
+# CREATION     : 2016-06-03
+# MODIFICATION : 2016-06-03
+
+# I3block's blocklet which:
+# - Display date & time
+# - Display a calendar on left click using yad
+####################################################
+
+case $BLOCK_BUTTON in
+    1) yad --calendar --no-buttons --mouse --on-top --undecorated --skip-taskbar;;     # left click
+esac
+
+t=$(date '+%H:%M %a %d %b')
+
+echo "$t"
+echo "$t"
+echo
