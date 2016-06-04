@@ -1,5 +1,5 @@
 # i3 config file
-# Last modification: 2016-06-03
+# Last modification: 2016-06-04
 
 ####################
 # GLOBAL VARIABLES
@@ -313,4 +313,4 @@ exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id setxkbmap -model pc105 -layout fr,us,ru,ar -option grp:alt_shift_toggle
 
 # Remap ¹ to <
-exec_always xmodmap -e "keycode 49 = less greater"
+exec_always --no-startup-id xmodmap -e 'keycode 49 = less greater'
