@@ -3,7 +3,7 @@
 #######################################################################
 # Author            : Kabbaj Amine
 # Date Creation     : 2014-06-21
-# Last modification : 2016-06-01
+# Last modification : 2016-06-04
 
 # DESCRIPTION
 # - Create symbolic links for my dotfiles.
@@ -139,6 +139,7 @@ showTitle "Creation of directories" &&
 
 makeDir ~/.config/xfce4/terminal &&
 makeDir ~/.config/zathura &&
+makeDir ~/.config/Shiba &&
 makeDir ~/.cmus &&
 
 showTitle "Creation of symbolic links" &&
@@ -162,6 +163,8 @@ createLink cmus/rc ~/.cmus &&
 createLink ag/agignore ~ h &&
 # i3
 createLink i3/config ~/.i3 &&
+# Shiba
+createLink shiba/config.yml ~/.config/Shiba &&
 
 showTitle "Copy files" &&
 

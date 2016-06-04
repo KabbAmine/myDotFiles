@@ -1,0 +1,14 @@
+linter: none
+ignore_path_pattern: '/\\.git/'
+drawer:
+  responsive: false
+# menu:
+#   visible: false
+shortcuts:
+  "g g"  : "PageTop"
+  "G"    : "PageBottom"
+  "q"    : "QuitApp"
+  "/"    : "Search"
+  ", T"  : "Outline"
+  "L"    : "Lint"
+  "p"    : "Print"
