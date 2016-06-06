@@ -1,5 +1,5 @@
 # i3 config file
-# Last modification: 2016-06-04
+# Last modification: 2016-06-07
 
 ####################
 # GLOBAL VARIABLES
@@ -253,6 +253,7 @@ bindsym $mod+Shift+F12 move container to workspace $ws_terminal
 bar {
 	output $monitor1
 	position top
+	height 24
 	status_command i3blocks -c $i3/i3blocks_primary.conf
 	tray_output $monitor1
 	tray_padding 0
@@ -273,6 +274,7 @@ bar {
 bar {
 	output $monitor2
 	position top
+	height 24
 	status_command conky -c $i3/i3bar_conkyrc
 	tray_output none
 	colors {
@@ -284,6 +286,20 @@ bar {
 		urgent_workspace $red $red $focused_txt
 	}
 }
+
+######
+# GAPS
+######
+
+# Default values:
+## inner: Between windows
+## outer: Between the edge of the screen and a window
+gaps inner 10
+gaps outer 0
+
+# Gaps & borders only when we have more than 1 window
+smart_gaps on
+smart_borders on
 
 #########
 # STARTUP
