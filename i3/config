@@ -105,6 +105,7 @@ bindsym $mod+Up $pactl_increase
 bindsym $mod+Shift+Down $pactl_mute
 
 # Kill focused window
+bindsym $alt+F4 kill
 bindsym $mod+c kill
 
 # Change focus
