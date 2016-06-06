@@ -35,7 +35,13 @@ set $pactl_mute exec pactl set-sink-mute 0 toggle
 ####################
 
 # Mouse
+## Middle click
 bindsym --border button2 kill
+bindsym --whole-window $mod+button2 kill
+## Left click
+bindsym --whole-window $mod+button1 floating toggle
+## Right click
+bindsym --whole-window $mod+button3 fullscreen
 
 # Exit i3
 set $mode_exit [l]ogout | [s]hutdown | [r]eboot
