@@ -180,6 +180,7 @@ font pango:Ubuntu Mono derivative Powerline 11
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+
 new_window pixel 3
 mouse_warping none
 
@@ -223,6 +224,9 @@ workspace $ws_news output $monitor2
 workspace $ws_terminal output $monitor2
 workspace $ws_dl output $monitor2
 
+# Go back to previous workspace with the same keys
+workspace_auto_back_and_forth yes
+
 # Move the current workspace to the next output
 # (effectively toggles when you only have two outputs)
 bindsym $mod+asterisk move workspace to output right
@@ -254,6 +258,9 @@ bindsym $mod+Shift+F12 move container to workspace $ws_terminal
 #######
 # I3BAR
 #######
+
+# Hide/show the bar
+bindsym $mod+p bar mode toggle
 
 # Primary monitor
 bar {
