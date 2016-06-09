@@ -1,5 +1,5 @@
 # i3 config file
-# Last modification: 2016-06-07
+# Last modification: 2016-06-09
 
 ####################
 # GLOBAL VARIABLES
@@ -38,10 +38,6 @@ set $pactl_mute exec pactl set-sink-mute 0 toggle
 ## Middle click
 bindsym --border button2 kill
 bindsym --whole-window $mod+button2 kill
-## Left click
-bindsym --whole-window $mod+button1 floating toggle
-## Right click
-bindsym --whole-window $mod+button3 fullscreen
 
 # Exit i3
 set $mode_exit [l]ogout | [s]hutdown | [r]eboot
@@ -332,6 +328,7 @@ exec_always compton -cCGf
 exec clipit
 exec nm-applet
 exec pasystray
+exec --no-startup-id xfce4-volumed
 exec xscreensaver -no-splash
 exec_always numlockx
 
