@@ -10,5 +10,6 @@ node-sass
 npm
 npmlog
 pug-cli
+sass-lint
 shiba
 ungit
