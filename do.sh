@@ -3,7 +3,7 @@
 #######################################################################
 # Author            : Kabbaj Amine
 # Date Creation     : 2014-06-21
-# Last modification : 2016-06-04
+# Last modification : 2016-06-13
 
 # DESCRIPTION
 # - Create symbolic links for my dotfiles.
@@ -165,6 +165,8 @@ createLink ag/agignore ~ h &&
 createLink i3/config ~/.i3 &&
 # Shiba
 createLink shiba/config.yml ~/.config/Shiba &&
+# Xmodmap
+createLink xmodmap/xmodmaprc ~ h &&
 
 showTitle "Copy files" &&
 
