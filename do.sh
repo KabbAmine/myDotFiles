@@ -141,6 +141,7 @@ makeDir ~/.config/xfce4/terminal &&
 makeDir ~/.config/zathura &&
 makeDir ~/.config/Shiba &&
 makeDir ~/.cmus &&
+makeDir ~/.i3 &&
 
 showTitle "Creation of symbolic links" &&
 
@@ -162,7 +163,7 @@ createLink cmus/rc ~/.cmus &&
 # ag
 createLink ag/agignore ~ h &&
 # i3
-createLink i3/config ~/.i3 &&
+createLink i3 ~/.i3 &&
 # Shiba
 createLink shiba/config.yml ~/.config/Shiba &&
 # Xmodmap
