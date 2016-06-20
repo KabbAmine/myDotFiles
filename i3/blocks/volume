@@ -1,0 +1,33 @@
+#!/bin/bash
+
+####################################################
+# CREATION     : 2016-06-20
+# MODIFICATION : 2016-06-20
+
+# I3block's blocklet which:
+# - Display volume
+# - Increase/decrease volume with the mouse wheel
+# - Mute with a middle click
+####################################################
+
+case $BLOCK_BUTTON in
+	2) pactl set-sink-mute 0 toggle;;   # middle click
+    4) pactl set-sink-volume 0 '+5%';;  # wheel up
+    5) pactl set-sink-volume 0 '-5%';;  # wheel up
+esac
+
+# Use `let` to get an integer
+let vol=$(pactl list sinks | awk -F '/' '/^\s*Volume/{print $2}' | tr -d '% ' | head -n 1)
+mute=$(pactl list sinks | awk -F ':' '/^\s*Sourdine/{print $2}' | tr -d ' ')
+
+if [ "$vol" -eq 0 ] || [ "$mute" == "oui" ]; then
+	res=""
+elif [ $vol -le 45 ]; then
+	res=" $vol%"
+else
+	res=" $vol%"
+fi
+	
+echo "$res"
+echo "$res"
+echo
