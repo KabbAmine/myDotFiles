@@ -5,7 +5,6 @@
 ! ------------------------------------------------------------------------------
 
 rofi.modi: window,run
-rofi.auto-select:                    true
 !! Monitor id to show on
 rofi.m:                              -1
 
@@ -13,7 +12,7 @@ rofi.m:                              -1
 ! Appearance
 ! ----------
 
-rofi.opacity: 80
+!!rofi.opacity: 60
 rofi.lines:   10
 rofi.columns: 1
 rofi.font:    mono 12
@@ -28,7 +27,7 @@ rofi.line-margin:                    10
 rofi.separator-style:                none
 rofi.hide-scrollbar:                 true
 rofi.fullscreen:                     true
-!rofi.fake-transparency:              true
+rofi.fake-transparency:              true
 
 ! -----------
 ! Keybindings
@@ -44,7 +43,8 @@ rofi.kb-cancel:        Escape,mod4+space,Control+c
 ! Color theme
 ! -----------
 
-# define rofi_bg #2b2e37
+! rofi_bg: #2b2e37 with transparency cc
+# define rofi_bg argb:cc2b2e37
 # define rofi_fg #d6d6d6
 # define rofi_fg_hi #ffffff
 # define rofi_blue #4989d7
