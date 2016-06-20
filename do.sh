@@ -163,7 +163,7 @@ createLink cmus/rc ~/.cmus &&
 # ag
 createLink ag/agignore ~ h &&
 # i3
-createLink i3 ~/.i3 &&
+createLink i3/config ~/.i3 &&
 # Shiba
 createLink shiba/config.yml ~/.config/Shiba &&
 # X
