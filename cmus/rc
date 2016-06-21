@@ -8,9 +8,11 @@ set repeat=true
 # Play library bu default instead of playlist
 set play_library=true
 set show_current_bitrate=true
+set mouse=true
 
 set format_current=%a - %t%= %2n. %l [%y]
 set format_trackwin=%2n. %t%= %g %8d
 set format_playlist=%-15%A %-20l %2n. %t%= [%y] %-15%g %6d
+set format_treewin=  + %-30l [%y]
 
 colorscheme yowish
