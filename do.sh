@@ -3,7 +3,7 @@
 #######################################################################
 # Author            : Kabbaj Amine
 # Date Creation     : 2014-06-21
-# Last modification : 2016-06-14
+# Last modification : 2016-06-26
 
 # DESCRIPTION
 # - Create symbolic links for my dotfiles.
@@ -142,11 +142,12 @@ makeDir ~/.config/zathura &&
 makeDir ~/.config/Shiba &&
 makeDir ~/.cmus &&
 makeDir ~/.i3 &&
+makeDir ~/.config/dunst &&
 
 showTitle "Creation of symbolic links" &&
 
 # Bash.
-createLink bash/bash_profile ~ h &&
+createLink bash/profile ~ h &&
 createLink bash/bashrc ~ h &&
 # Tmux.
 createLink tmux/tmux.conf ~ h &&
@@ -169,6 +170,8 @@ createLink shiba/config.yml ~/.config/Shiba &&
 # X
 createLink X/Xresources ~ h &&
 createLink X/xmodmaprc ~ h &&
+# Dunst
+createLink dunst/dunstrc ~/.config/dunst &&
 
 showTitle "Copy files" &&
 
