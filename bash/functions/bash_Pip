@@ -1,28 +1,28 @@
 # #############################
-# Last modification: 2015-08-17
+# Last modification: 2016-06-25
 # #############################
 
 dotfiles_folder="/home/k-bag/.dotfiles/"
 
 Pip() {
-	# Personal pip:
-		# - upg : Upgrade pip
+	# Personal pip3:
+		# - upg : Upgrade pip3
 		# - l   : List local & followed packages
 		# - u   : Upgrade local & needed packages
 			#	* package : List specified package(s)
 
-	packages_file="$dotfiles_folder/install/pip/packages.txt"
+	packages_file="$dotfiles_folder/install/pip3/packages.txt"
 	packages=$(cat $packages_file)
 
 	case $1 in
 		"upg" )
-			sudo -H pip install --upgrade pip
+			sudo -H pip3 install --upgrade pip3
 			;;
 		"u" )
 			if [ -f $packages_file ]; then
 				for p in $packages; do
 					if [ ! -z $p ]; then
-						sudo -H pip install --upgrade $p
+						sudo -H pip3 install --upgrade $p
 					fi
 				done
 			fi
@@ -36,7 +36,7 @@ Pip() {
 			echo -e $green"Pip"
 			echo -e "++++++++++++++\n"$white
 			echo -e "Possible arguments are:"
-			echo -e $red"upg"$white" \t Upgrade pip"
+			echo -e $red"upg"$white" \t Upgrade pip3 (DO NOT USE IT)"
 			echo -e $red"l"$white" \t List local & needed packages"
 			echo -e $red"u"$white" \t Upgrade local & needed packages"
 			;;

@@ -12,3 +12,8 @@ export SDL_JOYSTICK_DEVICE=/dev/null
 if [ -x "/usr/bin/keychain" ]; then
 	eval `keychain --eval --quiet --agents ssh id_rsa`
 fi
+
+if [ -x "/usr/bin/qt5ct" ]; then
+	export QT_QPA_PLATFORMTHEME="qt5ct"
+fi
+export QT_STYLE_OVERRIDE=gtk+

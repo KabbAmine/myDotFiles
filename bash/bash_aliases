@@ -1,5 +1,5 @@
 # #############################
-# Last modification: 2016-04-14
+# Last modification: 2016-06-27
 # #############################
 
 # Pour Git
@@ -84,6 +84,7 @@ alias ll='ls -l'
 
 # Divers
 alias V='vim'
+alias zeal='zeal --style=gtk+'
 alias G='gvim'
 alias Size='df -h'
 alias RelB='source ~/.bashrc'
