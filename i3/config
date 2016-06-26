@@ -1,5 +1,5 @@
 # i3 config file
-# Last modification: 2016-06-13
+# Last modification: 2016-06-26
 
 ####################
 # GLOBAL VARIABLES
@@ -13,10 +13,10 @@ set $mod Mod4
 set $alt Mod1
 
 # Colors
-set $bg #333333
-set $bg_light #434343
-set $sl #F3F3F3
-set $blue #6793DB
+set $bg #383c4a
+set $bg_light #444752
+set $sl #d3dae3
+set $blue #5294e2
 set $red #CE3A3A
 set $focused_txt #F6F6F6
 set $inactive_txt #9D9D9D
@@ -26,9 +26,9 @@ set $monitor1 LVDS
 set $monitor2 VGA-0
 
 # Control volume with pactl
-set $pactl_decrease exec pactl set-sink-volume 0 -- '-5%'
-set $pactl_increase exec pactl set-sink-volume 0 -- '+5%'
-set $pactl_mute exec pactl set-sink-mute 0 toggle
+set $pactl_decrease exec pactl set-sink-volume 0 '-5%' && pkill -RTMIN+1 i3blocks
+set $pactl_increase exec pactl set-sink-volume 0 '+5%' && pkill -RTMIN+1 i3blocks
+set $pactl_mute exec pactl set-sink-mute 0 toggle && pkill -RTMIN+1 i3blocks
 
 ####################
 # GLOBAL KEYBINDINGS
@@ -44,8 +44,8 @@ set $mode_exit [l]ogout | [s]hutdown | [r]eboot
 bindsym $mod+shift+e mode "$mode_exit"
 mode "$mode_exit" {
 	bindsym l exec i3-msg exit
-	bindsym s exec --no-startup-id sudo $i3/do.sh shutdown
-	bindsym r exec --no-startup-id sudo $i3/do.sh reboot
+	bindsym s exec --no-startup-id sudo $i3/exit.sh shutdown
+	bindsym r exec --no-startup-id sudo $i3/exit.sh reboot
 
 	bindsym $mod+shift+e mode "default"
 	bindsym Escape mode "default"
@@ -81,7 +81,7 @@ mode "$mode_layout" {
 }
 
 # dmenu
-bindsym $mod+space exec j4-dmenu-desktop --dmenu="dmenu -i -l 10 -p '> ' -nb '$bg' -nf '$inactive_txt' -sb '$blue' -sf '$focused_txt'" --no-generic
+# bindsym $mod+space exec j4-dmenu-desktop --dmenu="dmenu -i -l 10 -p '> ' -nb '$bg' -nf '$inactive_txt' -sb '$blue' -sf '$focused_txt'" --no-generic
 
 # xkill
 bindsym --release Control+Shift+Escape exec xkill
@@ -165,15 +165,15 @@ bindsym $mod+x scratchpad show
 # WINDOWS
 #########
 
-client.focused $blue $blue $sl $sl $blue
-client.focused_inactive $bg $bg $inactive_txt $inactive_txt $bg
-client.unfocused $bg $bg $inactive_txt $inactive_txt $bg
-client.urgent $red $red $sl $red $red
-client.placeholder $blue $blue $sl $sl $sl
-client.background $blue
+client.focused          $blue $blue $sl           $focused_txt $blue
+client.focused_inactive $bg   $bg   $inactive_txt $focused_txt $bg
+client.unfocused        $bg   $bg   $inactive_txt $focused_txt $bg
+client.urgent           $red  $red  $sl           $focused_txt $red
+client.placeholder      $blue $blue $sl           $focused_txt $sl
+client.background       $blue
 
 # hide_edge_borders both
-font pango:Ubuntu Mono derivative Powerline 11
+font pango:InconsolataForPowerline NF Medium 11
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -182,6 +182,7 @@ new_window pixel 3
 mouse_warping none
 
 # Enable floating mode for some windows
+for_window [class="^(Yad|Xfce4-appfinder)$"] floating enable
 for_window [class="^Yad$"] floating enable
 for_window [window_type="notification"] floating enable; border none;
 for_window [window_role="pop-up"] floating enable
@@ -210,8 +211,9 @@ assign [class="^Firefox$" instance="^Navigator$"] $ws_web
 assign [class="^vivaldi-stable$" instance="^crx_mpognobbkildjkofajifpdfhcoklimli$"] $ws_web
 assign [class="^Gvim$" instance="^gvim$"] $ws_dev
 assign [class="^Turpial$" instance="^Turpial$"] $ws_news
+assign [class="^Corebird$" instance="^corebird$"] $ws_news
 assign [class="^Liferea$" instance="^liferea$"] $ws_news
-assign [class="^Qbittorrent$" instance="^qbittorrent$"] $ws_dl
+assign [class="^qBittorrent$" instance="^qbittorrent$"] $ws_dl
 
 # Worspaces in 2nd monitor
 workspace $ws_generic output $monitor1
@@ -316,28 +318,29 @@ smart_borders on
 #########
 
 # Disable notebook's keyboard
-exec bash /home/k-bag/Projects/Scripts/Divers/toggle_device_state.sh "AT Translated Set 2 Keyboard"
+exec --no-startup-id bash /home/k-bag/Projects/Scripts/Divers/toggle_device_state.sh "AT Translated Set 2 Keyboard"
 
 # Set resolution & monitors
-exec_always xrandr --output $monitor2 --mode 1280x1024 --pos 1366x0  --gamma 1.4:1.4:1.4 --brightness 1.1 --output $monitor1 --mode 1366x768 --pos 0x0
+exec_always --no-startup-id xrandr --output $monitor2 --mode 1280x1024 --pos 1366x0 --gamma 1.4:1.4:1.4 --brightness 1.1 --output $monitor1 --mode 1366x768 --pos 0x0
 
 # Compositor
-exec_always compton -cCGf
+exec --no-startup-id compton -bf -D 2
+
+# Polkit agent
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
 # Applications
-exec clipit
-exec nm-applet
-exec pasystray
-exec --no-startup-id xfce4-volumed
-exec xscreensaver -no-splash
-exec_always numlockx
+exec --no-startup-id rofi
+exec --no-startup-id clipit
+exec --no-startup-id nm-applet
+exec --no-startup-id xscreensaver -no-splash
+# exec_always numlockx
 
 # Set background
-# exec_always feh --bg-fill --no-fehbg ~/Images/Wallpapers/the-dune_1366x768.jpg
 exec_always --no-startup-id nitrogen --restore
 
 # Layouts (fr,eng,ru,ar), toggle it with alt+shift
-exec_always --no-startup-id setxkbmap -model pc105 -layout fr,us,ru,ar -option grp:alt_shift_toggle
+exec_always --no-startup-id setxkbmap -model pc106 -layout fr,us,ru,ar -option grp:alt_shift_toggle
 
 # Remap ¹ to <
-exec_always --no-startup-id xmodmap ~/.xmodmaprc
+exec_always --no-startup-id "sleep 1 && xmodmap ~/.xmodmaprc"
