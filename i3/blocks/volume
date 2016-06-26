@@ -2,7 +2,7 @@
 
 ####################################################
 # CREATION     : 2016-06-20
-# MODIFICATION : 2016-06-20
+# MODIFICATION : 2016-06-21
 
 # I3block's blocklet which:
 # - Display volume
@@ -11,6 +11,7 @@
 ####################################################
 
 case $BLOCK_BUTTON in
+	3) pavucontrol;;                    # left click
 	2) pactl set-sink-mute 0 toggle;;   # middle click
     4) pactl set-sink-volume 0 '+5%';;  # wheel up
     5) pactl set-sink-volume 0 '-5%';;  # wheel up
@@ -21,7 +22,7 @@ let vol=$(pactl list sinks | awk -F '/' '/^\s*Volume/{print $2}' | tr -d '% ' | 
 mute=$(pactl list sinks | awk -F ':' '/^\s*Sourdine/{print $2}' | tr -d ' ')
 
 if [ "$vol" -eq 0 ] || [ "$mute" == "oui" ]; then
-	res=""
+	res="⨯"
 elif [ $vol -le 45 ]; then
 	res=" $vol%"
 else

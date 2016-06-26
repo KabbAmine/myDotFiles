@@ -1,0 +1,23 @@
+#!/bin/bash
+
+####################################################
+# CREATION     : 2016-06-21
+# MODIFICATION : 2016-06-21
+
+# I3block's blocklet which:
+# - Display xfce4-appfinder with right click.
+# - Kill xfce4-appfinder with left click.
+
+# NEEDS:
+# - xfce4-appfinder
+# - xdotool
+####################################################
+
+case $BLOCK_BUTTON in
+	1) xdotool key Alt+F1;;   # right click
+	3) xfce4-appfinder -q;;   # left click
+esac
+
+echo ""
+echo ""
+echo
