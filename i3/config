@@ -1,5 +1,5 @@
 # i3 config file
-# Last modification: 2016-06-26
+# Last modification: 2016-06-27
 
 ####################
 # GLOBAL VARIABLES
@@ -29,6 +29,9 @@ set $monitor2 VGA-0
 set $pactl_decrease exec pactl set-sink-volume 0 '-5%' && pkill -RTMIN+1 i3blocks
 set $pactl_increase exec pactl set-sink-volume 0 '+5%' && pkill -RTMIN+1 i3blocks
 set $pactl_mute exec pactl set-sink-mute 0 toggle && pkill -RTMIN+1 i3blocks
+
+# Floating windows
+set $floating_windows "^(Yad|Xfce4-appfinder|Simplescreenrecorder|Blink)$"
 
 ####################
 # GLOBAL KEYBINDINGS
@@ -182,8 +185,7 @@ new_window pixel 3
 mouse_warping none
 
 # Enable floating mode for some windows
-for_window [class="^(Yad|Xfce4-appfinder)$"] floating enable
-for_window [class="^Yad$"] floating enable
+for_window [class=$floating_windows] floating enable
 for_window [window_type="notification"] floating enable; border none;
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
