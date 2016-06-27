@@ -30,6 +30,7 @@ c = {
 # Get datas from json files
 apt = loads(open('install/apt.json').read())
 packages = loads(open('install/packages.json').read())
+scripts = loads(open('install/scripts.json').read())
 
 ######################
 # Configuration
@@ -42,17 +43,7 @@ _ = {
     'npm': packages['npm'],
     'pip': packages['pip'],
     'ruby': packages['ruby'],
-    'scripts': [
-        'arc',
-        'blink',
-        'calibre',
-        'github_repos',
-        'i3',
-        'mkvtoolnix',
-        'nodejs',
-        'rvm',
-        'topmenu',
-    ],
+    'scripts': scripts,
 }
 
 #########
