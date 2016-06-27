@@ -6,7 +6,7 @@ My **GNU/Linux** main repository with:
 - Dot & configuration files for many different apps
 - Scripts for linking dotfiles, system installation and updating.
 
-*N.B: Frequently updated*
+*N.B: This repo is frequently updated*
 
 Content
 -------
@@ -54,8 +54,10 @@ Content
 │   │   ├── mkvtoolnix.sh
 │   │   ├── nodejs.sh
 │   │   ├── rvm.sh
+│   │   ├── tidy-html5.sh
 │   │   └── topmenu.sh
 │   ├── apt.json
+│   ├── scripts.json
 │   └── packages.json
 ├── quicktile
 │   └── quicktile.cfg
@@ -124,3 +126,10 @@ Use it to install all packages, ppa's and needed applications
 ### update.py
 
 Update all the system and the git repos defined in `update_scripts.sh`.
+
+TODO
+----
+
+- Convert remaining scripts to python.
+- Use a home-made sh/python framework to prevent code duplication.
+- More refactoring when I'll have time.
