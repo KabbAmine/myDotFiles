@@ -1,5 +1,5 @@
 # #############################
-# Last modification: 2015-11-12
+# Last modification: 2016-06-27
 # #############################
 
 DEFAULT_IFS=$IFS
@@ -15,17 +15,22 @@ white="\033[0m"
 green="\033[32m"
 yellow="\033[33m"
 
+######################
+#	Functions
+######################
 
-# General functions.
+GlobUpd() {
+	cd ~/.dotfiles/
+	./update.py
+	cd "$SC_DIR"
+}
+
 Ps() {
-	# Retourne un tableau d'informations sur le nom donné en argument, trié par les PID des processus (Le plus récent en 1er).
-	# N.B: Utilise les alias PsS et PsP.
+	# Return a table according to $1, sorted by PIDs (The most recent in first).
+	# N.B: Use PsS and PsP aliases
 
-	echo $(PsN nothing)		# Retourne le header du tableau.
-	if [ -z $1 ]
-	then
-		echo "Il faut préciser le nom d'un processus comme argument"
-	else
+	echo $(PsN nothing)		# Return header
+	if [ -n "$1" ]; then
 		for P in $(PsS "$1" | awk '{print $2}')
 		do
 			PsP $P | tail -n 1
@@ -33,10 +38,14 @@ Ps() {
 	fi | head -n -1 | uniq -u | sort -nrk 1
 }
 
-
-# Functions for external programs.
-for fun in $(ls -1 "$SC_DIR/functions/"bash_*); do
-	. $fun
-done
+# Source functions in functions/bash_* files
+funs=$(ls -1 "$SC_DIR/functions/"bash_* 2> /dev/null)
+if [ -n "$funs" ]; then
+	for f in $funs; do
+		. $f
+	done
+fi
 
 IFS=$DEFAULT_IFS
+
+# vim:ft=sh

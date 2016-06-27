@@ -2,7 +2,7 @@
 # Last modification: 2016-06-27
 # #############################
 
-# Pour Git
+# Git
 alias Gcl="git clone"
 alias Gi="git init"
 alias Gl="git log --pretty=oneline"
@@ -19,7 +19,7 @@ alias Gp="git push -u origin $1"
 alias Gst="git stash"
 alias Gtree="git log --graph --decorate --pretty=oneline --abbrev-commit"
 
-# Pour 'apt'
+# Apt & dpkg
 alias Upd='sudo apt update'
 alias Upg='sudo apt upgrade'
 alias Ins='sudo apt install'
@@ -28,76 +28,55 @@ alias AddRepo='sudo add-apt-repository'
 alias DelRepo='sudo add-apt-repository --remove'
 alias Ar='sudo apt-get autoremove'
 alias Ac='sudo apt-get autoclean'
-alias Search='apt search $1'
-alias List='apt list -a $1'
-alias Show='apt show $1'
+alias Search='apt search'
+alias List='apt list -a'
+alias Show='apt show'
+alias DIns='sudo dpkg -i'
 
-# Extraction & compression des archives tar et bzip2.
-alias ETarG='tar -zxvf $1' # Extraire Gzip.
-alias CTarG='tar -zcvf $1' # Compresser dans un Gzip.
-alias ETarB='tar -jxvf $1' # Extraire Bzip2.
-alias CTarB='tar -jcvf $1' # Compresser dans un Bzip2.
+# Gzip & bzip2 extraction & compression des archives tar et bzip2.
+alias ETarG='tar -zxvf' # Extract Gzip.
+alias CTarG='tar -zcvf' # Compress in a Gzip.
+alias ETarB='tar -jxvf' # Extract Bzip2.
+alias CTarB='tar -jcvf' # Compress in a Bzip2.
 
-# Applications
-alias Aard2='java -Dslobber.browse -jar ~/Scripts/aard2/aard2-web-0.7.jar ~/Scripts/aard2/*.slob'
-
-# Pour XAMPP/LAMPP
-alias Xampp='sudo /opt/lampp/lampp $1'
-
-# Dossiers spéciaux.
-alias www='cd /opt/lampp/htdocs/mesProjets/'
-alias ww='cd /opt/lampp/htdocs/mesProjets/ && cd $1'
-
-# Pour "InitWebProject"
-alias ISWP='. InitWebProject.sh '
-
-# Pour 'dpkg'
-alias DIns='sudo dpkg -i $1'
-# alias List='dpkg -l | grep -i '
-
-# Pout 'tmux'
+# Tmux
 alias tmux='tmux -2'
 alias TmL='tmux ls'
-alias TmK='tmux kill-session -t $1'
+alias TmK='tmux kill-session -t1'
 
-# Pour 'avconv'
+# Avconv
 alias AVC1366='avconv -f x11grab -s wxga -r 25 -i :0.0 ~/Vidéos/tuto.mp4'
 alias AVC720='avconv -f x11grab -s hd720 -r 25 -follow_mouse 50 -i :0.0 ~/Vidéos/tuto.mp4'
 
-# Pour 'ps'
-alias PsN='ps -o pid,comm,pcpu,rss,stat,etime,args -C ' # Par rapport au nom du processus.
-alias PsP='ps -o pid,comm,pcpu,rss,stat,etime,args -p ' # Par rapport au PID du processus.
+# Ps
+alias PsN='ps -o pid,comm,pcpu,rss,stat,etime,args -C ' # By name
+alias PsP='ps -o pid,comm,pcpu,rss,stat,etime,args -p ' # By PID
 alias PsS='ps -ef | grep -i '
 
 # Remettre l'icône monochrome de CherryTree dans le panel
-alias IcnCherry='sudo cp -v ~/.icons/CherryTree/* /usr/share/cherrytree/glade/'
-alias IcnKeePassx='sudo cp -v ~/.icons/KeePassX/keepass*[^OLD].png /usr/share/keepassx/icons/'
-alias IcnXfceNote='sudo cp -v ~/.icons/Xfce4-notes-panel/xfce4-notes-plugin.png /usr/share/icons/Faenza-Dark/status/22/'
-alias IcnPidgin='sudo cp -v ~/.icons/Pidgin-tray/* /usr/share/icons/Faenza-Dark/status/22/'
-alias IcnTurpial='cp -v ~/.icons/Turpial/turpial_icon.png /home/k-bag/Scripts/turpial/turpial/data/pixmaps/turpial-tray.png'
+# alias IcnCherry='sudo cp -v ~/.icons/CherryTree/* /usr/share/cherrytree/glade/'
+# alias IcnKeePassx='sudo cp -v ~/.icons/KeePassX/keepass*[^OLD].png /usr/share/keepassx/icons/'
+# alias IcnXfceNote='sudo cp -v ~/.icons/Xfce4-notes-panel/xfce4-notes-plugin.png /usr/share/icons/Faenza-Dark/status/22/'
+# alias IcnPidgin='sudo cp -v ~/.icons/Pidgin-tray/* /usr/share/icons/Faenza-Dark/status/22/'
+# alias IcnTurpial='cp -v ~/.icons/Turpial/turpial_icon.png /home/k-bag/Scripts/turpial/turpial/data/pixmaps/turpial-tray.png'
 
-# Pour 'ls'
-alias LsD='ls -F | grep "/$"'		   # Ne lister que les répértoires.
-alias LsF='ls -F | grep -e ".*[^\/]$"' # Ne lister que les fichiers..
-alias LsH='ls -A | grep "^\."'		   # Ne lister que les fichiers cachés.
+# Ls
+alias LsD='ls -F | grep "/$"'		   # Only directories
+alias LsF='ls -F | grep -e ".*[^\/]$"' # Only files
+alias LsH='ls -A | grep "^\."'		   # Only hidden files
 alias ll='ls -l'
 
-# Divers
-alias V='vim'
+# Misc
+alias Aard2='java -Dslobber.browse -jar ~/Scripts/aard2/aard2-web-0.7.jar ~/Scripts/aard2/*.slob'
 alias zeal='zeal --style=gtk+'
+alias V='vim'
 alias G='gvim'
 alias Size='df -h'
 alias RelB='source ~/.bashrc'
 alias Watch='watch -t --differences '
+alias Weather='curl wttr.in/novoazovsk'
 # Vim & gvim vanilla
 alias Vv='vim -Nu ~/.vimVanilla/vimrc'
 alias Gv='gvim -Nu ~/.vimVanilla/vimrc'
-alias Weather='curl wttr.in/novoazovsk'
 
-# Lazy lazy you are
-alias CompassInit='compass create --css-dir css --output-style nested --no-line-comments --bar -q'
-# Update & Upgrade
-alias RubyUpd='rvm get stable && gem update'
-alias ComposerUpd='composer selfupdate'
-alias GlobUpd='Upg -y && sudo npm update -g && Pip upg && Pip u && RubyUpd && ComposerUpd'
-alias UpdScr='. ~/.dotfiles/update_scripts.sh'
+# vim:ft=sh
