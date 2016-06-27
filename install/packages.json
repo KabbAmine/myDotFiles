@@ -1,0 +1,25 @@
+{
+    "ruby": [
+        "compass",
+        "sass"
+    ],
+    "npm": [
+        "browser-sync",
+        "coffee-script",
+        "csslint",
+        "gulp",
+        "js-beautify",
+        "jslint",
+        "jsonlint",
+        "live-server",
+        "node-sass",
+        "pug-cli",
+        "sass-lint",
+        "shiba"
+    ],
+    "pip": [
+        "flake8",
+        "vim-vint",
+        "youtube-dl"
+    ]
+}

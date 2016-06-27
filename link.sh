@@ -1,9 +1,9 @@
 #######################################################################
-#								do.sh
+#								link.sh
 #######################################################################
 # Author            : Kabbaj Amine
 # Date Creation     : 2014-06-21
-# Last modification : 2016-06-26
+# Last modification : 2016-06-27
 
 # DESCRIPTION
 # - Create symbolic links for my dotfiles.
@@ -30,7 +30,7 @@ IFS='
 
 # Folders.
 script_folder=$(cd $(dirname ${BASH_SOURCE[0]}) && pwd)
-dotfiles_folder="/home/k-bag/.dotfiles/"
+dotfiles_folder="$HOME/.dotfiles/"
 
 # Colors.
 red_bold='\033[01;31m'
@@ -123,17 +123,13 @@ showTitle () {
 #		PROCESSING
 # #####################
 
-echo -e "${red_bold}============================================================="
-echo -e "  _____   ____       _     "
-echo -e "${green} |  __ \ / __ \     | |    "
-echo -e "${yellow} | |  | | |  | | ___| |__  "
-echo -e "${red_bold} | |  | | |  | |/ __| '_ \ "
-echo -e "${green} | |__| | |__| |\__ \ | | |"
-echo -e "${yellow} |_____/ \____(_)___/_| |_|"
-echo -e "                           "
-echo -e "${red_bold}Create or link my dotfiles in the right place"
-echo -e "============================================================="
-echo -e "${white}                                                             "
+echo -e "${red_bold}  _      _____ _   _ _  __      _     "
+echo -e "${green} | |    |_   _| \ | | |/ /     | |    "
+echo -e "${yellow} | |      | | |  \| | ' /   ___| |__  "
+echo -e "${red_bold} | |      | | | . \` |  <   / __| '_ \ "
+echo -e "${green} | |____ _| |_| |\  | . \ _\__ \ | | |"
+echo -e "${yellow} |______|_____|_| \_|_|\_(_)___/_| |_|"
+echo -e "${white}                                      "
 
 showTitle "Creation of directories" &&
 
@@ -147,8 +143,9 @@ makeDir ~/.config/dunst &&
 showTitle "Creation of symbolic links" &&
 
 # Bash.
-createLink bash/profile ~ h &&
 createLink bash/bashrc ~ h &&
+createLink bash/bash_profile ~ h &&
+createLink bash/profile ~ h &&
 # Tmux.
 createLink tmux/tmux.conf ~ h &&
 # Quicktile.
