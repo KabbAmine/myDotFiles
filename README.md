@@ -1,38 +1,95 @@
 MyDotFiles
 ==========
 
-This repository contains dotfiles and configuration files that I'm using on my GNU/Linux systems plus some scripts for app & packages installation.
+My **GNU/Linux** main repository with:
 
-<div style="text-align:center"><img src=".img/term.png" alt="Basic terminal window" /></div>
+- Dot & configuration files for many different apps
+- Scripts for linking dotfiles, system installation and updating.
+
+*N.B: Frequently updated*
 
 Content
 -------
 
-- agignore
-- bash (rc, profile, aliases, functions...)
-- ctags
-- git:
-  * gitconfig
-  * A global gitignore
-- i3
-- quicktile.cfg
-- Script for displaying git branch name in the prompt.
-- tmux.conf
-- CLI & graphical applications:
-  * cmus: rc
-  * tudu: tudurc
-  * xfce4-terminal: terminal.rc
-  * zathura: zathurarc
-- Installation scripts:
-  * Nodejs modules (From `install/npm/packages.txt`)
-  * Pip packages (From `install/pip/packages.txt`)
+```
+├── ag
+│   └── agignore
+├── bash
+│   ├── functions
+│   │   └── bash_example
+│   ├── fzf
+│   │   └── functions.sh
+│   ├── bash_aliases
+│   ├── bash_functions
+│   ├── bash_profile
+│   ├── bashrc
+│   └── profile
+├── cmus
+│   └── rc
+├── ctags
+│   └── ctags
+├── dunst
+│   └── dunstrc
+├── git
+│   ├── gitconfig
+│   └── gitignore_global
+├── i3
+│   ├── blocks
+│   │   ├── cmus
+│   │   ├── layout
+│   │   ├── menu
+│   │   ├── time_and_date
+│   │   └── volume
+│   ├── config
+│   ├── exit.sh
+│   ├── i3bar_conkyrc
+│   └── i3blocks_primary.conf
+├── install
+│   ├── scripts
+│   │   ├── arc.sh
+│   │   ├── blink.sh
+│   │   ├── calibre.sh
+│   │   ├── github_repos.sh
+│   │   ├── i3.sh
+│   │   ├── mkvtoolnix.sh
+│   │   ├── nodejs.sh
+│   │   ├── rvm.sh
+│   │   └── topmenu.sh
+│   ├── apt.json
+│   └── packages.json
+├── quicktile
+│   └── quicktile.cfg
+├── shiba
+│   └── config.yml
+├── tmux
+│   ├── plugins
+│   │   └── tpm
+│   └── tmux.conf
+├── tudu
+│   └── tudurc
+├── X
+│   ├── xmodmaprc
+│   └── Xresources
+├── xfce4-terminal
+│   └── terminalrc
+├── zathura
+│   └── zathurarc
+├── install.py
+├── link.sh
+├── update.py
+└── update_scripts.sh
+```
 
-Usage
------
+Usage of scripts
+----------------
 
-### Dotfiles
+No arguments needed here, simply execute a script to get a visible output.
 
-First specify parameters in the `do.sh` script:
+### link.sh
+
+Create, link & copy configuration files to adequate places.
+
+First specify parameters:
 
 1. `dotfiles_folder` variable.
 
@@ -54,14 +111,16 @@ First specify parameters in the `do.sh` script:
   copyFile relative/path/to/file /absolute/path/to/destination [h(if hidden file)] &&
   ```
 
-Then simply execute the script in a terminal to have a visible output.
+### update_scripts.sh
 
-### Installation script
+Update all git repositories defined in the variable `proj_dirs`.
 
-Create a script in `install/` (e.g. `apt/apt.sh`) who need a password variable as 1st parameter, then add it to `install.sh`:
+### install.py
 
-```sh
-sourceFile 'apt\apt.sh' $pass &&	 #pass exists already in install.sh
-```
+Use it to install all packages, ppa's and needed applications
 
-Now, execute `install.sh` to have a visible output.
+**P.S:** The packages present in `install/apt.json` are intended to be used on `Xubuntu16`.
+
+### update.py
+
+Update all the system and the git repos defined in `update_scripts.sh`.
