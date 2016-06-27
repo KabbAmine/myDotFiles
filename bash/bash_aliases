@@ -72,7 +72,7 @@ alias zeal='zeal --style=gtk+'
 alias V='vim'
 alias G='gvim'
 alias Size='df -h'
-alias RelB='source ~/.bashrc'
+alias RelB='exec bash'
 alias Watch='watch -t --differences '
 alias Weather='curl wttr.in/novoazovsk'
 # Vim & gvim vanilla
