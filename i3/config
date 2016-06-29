@@ -1,5 +1,5 @@
 # i3 config file
-# Last modification: 2016-06-28
+# Last modification: 2016-06-29
 
 ####################
 # GLOBAL VARIABLES
@@ -244,17 +244,17 @@ bindsym $mod+underscore workspace $ws_games
 bindsym $mod+ccedilla workspace $ws_generic2
 bindsym F12 workspace $ws_terminal
 
-# Move focused container to workspace
-bindsym $mod+Shift+ampersand move container to workspace $ws_generic
-bindsym $mod+Shift+eacute move container to workspace $ws_mail
-bindsym $mod+Shift+quotedbl move container to workspace $ws_web
-bindsym $mod+Shift+apostrophe move container to workspace $ws_dev
-bindsym $mod+Shift+5 move container to workspace $ws_chat
-bindsym $mod+Shift+minus move container to workspace $ws_news
-bindsym $mod+Shift+egrave move container to workspace $ws_dl
-bindsym $mod+Shift+underscore move container to workspace $ws_games
-bindsym $mod+Shift+ccedilla move container to workspace $ws_generic2
-bindsym $mod+Shift+F12 move container to workspace $ws_terminal
+# Move focused container to workspace & move to it
+bindsym $mod+Shift+ampersand move container to workspace $ws_generic; workspace $ws_generic
+bindsym $mod+Shift+eacute move container to workspace $ws_mail; workspace $ws_mail
+bindsym $mod+Shift+quotedbl move container to workspace $ws_web; workspace $ws_web
+bindsym $mod+Shift+apostrophe move container to workspace $ws_dev; workspace $ws_dev
+bindsym $mod+Shift+5 move container to workspace $ws_chat; workspace $ws_chat
+bindsym $mod+Shift+minus move container to workspace $ws_news; workspace $ws_news
+bindsym $mod+Shift+egrave move container to workspace $ws_dl; workspace $ws_dl
+bindsym $mod+Shift+underscore move container to workspace $ws_games; workspace $ws_games
+bindsym $mod+Shift+ccedilla move container to workspace $ws_generic2; workspace $ws_generic2
+bindsym $mod+Shift+F12 move container to workspace $ws_terminal; workspaces $ws_terminal
 
 #######
 # I3BAR
