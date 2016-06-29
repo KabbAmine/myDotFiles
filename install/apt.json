@@ -18,7 +18,7 @@
         "multimedia": ["soundconverter", "mediainfo-gui", "cmus", "gmusicbrowser", "audacity"],
         "office"    : ["pdfshuffler", "xchm", "gnucash", "zathura", "cherrytree"],
         "pip"       : ["python3-pip"],
-        "system"    : ["testdisk", "qt4-qtconfig", "gufw", "gdebi", "synaptic", "gparted"],
+        "system"    : ["ntfs-config", "testdisk", "qt4-qtconfig", "gufw", "gdebi", "synaptic", "gparted"],
         "utilities" : ["thunar-dropbox-plugin", "keychain", "xscreensaver", "pyrenamer", "p7zip", "keepassx", "rofi", "alarm-clock-applet", "acetoneiso", "htop", "vim-gtk", "git", "tmux", "clipit"],
         "xfce4"     : ["xfce4-fsguard-plugin", "xfce4-genmon-plugin", "xubuntu-restricted-addons", "xubuntu-community-wallpapers-xenial", "tumbler-plugins-extra"]
     },

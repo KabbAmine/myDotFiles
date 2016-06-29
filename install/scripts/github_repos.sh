@@ -1,14 +1,15 @@
 #!/bin/bash
 
-# Last modification: 2016-06-25
+# Last modification: 2016-06-29
 
 # Clone or pull the following github repositories:
+#	- bash-git-prompt
 #	- byzanz-window
-# 	- fzf
-# 	- i3gaps
-# 	- i3block
-# 	- xkblayout-state
-# 	- bash-git-prompt
+#	- fzf
+#	- i3block
+#	- i3gaps
+#	- tidy-html5
+#	- xkblayout-state
 
 DEFAULT_IFS=$IFS
 IFS='
@@ -22,7 +23,7 @@ IFS='
 white="\033[0m"
 yellow="\033[33m"
 
-curr_dir=$(cd $(dirname ${BASH_SOURCE[0]}) && pwd)
+curr_dir=$(pwd)
 dir="$HOME/Scripts"
 
 #########
@@ -64,7 +65,38 @@ byzanzWindow() {
 	echo ""
 	chmod -v +x "$name"
 	echo ""
-	sudo ln -vsf "$dir/$name/$name" /usr/local/bin/
+	sudo ln -vsf "$dir/$name/$name" "/usr/local/bin/"
+}
+
+tidyHtml5() {
+	name="tidy-html5"
+	Log "$name"
+	cd "$dir"
+
+	if [ -d "$name" ]; then
+		cd "$name"
+		git pull origin master
+		echo ""
+	else
+		git clone https://github.com/htacg/tidy-html5 "$name" &&
+		cd "$name"
+		echo ""
+	fi
+
+	# Install requirement
+	sudo apt-get -q install -y cmake xsltproc
+	echo ""
+
+	# Compile
+	cd build/cmake
+	cmake ../..
+	make clean
+	make
+	echo ""
+
+	# Link
+	sudo ln -vfs "$dir/$name/build/cmake/tidy" "/usr/local/bin/tidy5"
+	echo ""
 }
 
 fzf() {
@@ -173,12 +205,13 @@ bashGitPrompt() {
 # Main process
 ##############
 
+bashGitPrompt
 byzanzWindow
 fzf
-i3gaps
 i3blocks
+i3gaps
+tidyHtml5
 xkblayoutState
-bashGitPrompt
 
 cd "$curr_dir"
 IFS=$DEFAULT_IFS
