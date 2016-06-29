@@ -1,5 +1,5 @@
 # i3 config file
-# Last modification: 2016-06-27
+# Last modification: 2016-06-28
 
 ####################
 # GLOBAL VARIABLES
@@ -31,7 +31,7 @@ set $pactl_increase exec pactl set-sink-volume 0 '+5%' && pkill -RTMIN+1 i3block
 set $pactl_mute exec pactl set-sink-mute 0 toggle && pkill -RTMIN+1 i3blocks
 
 # Floating windows
-set $floating_windows "^(Yad|Xfce4-appfinder|Simplescreenrecorder|Blink)$"
+set $floating_windows "^(Yad|Xfce4-appfinder|Simplescreenrecorder|smplayer|Blink)$"
 
 ####################
 # GLOBAL KEYBINDINGS
