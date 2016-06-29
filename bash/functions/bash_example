@@ -2,12 +2,6 @@
 
 # Just for reference
 
-DEFAULT_IFS=$IFS
-IFS='
-'
-
 Hello() {
 	echo "Hello world"
 }
-
-IFS=$DEFAULT_IFS

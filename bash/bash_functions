@@ -1,10 +1,6 @@
 # #############################
-# Last modification: 2016-06-27
+# Last modification: 2016-06-28
 # #############################
-
-DEFAULT_IFS=$IFS
-IFS="
-"
 
 # Current dir
 SC_DIR=$(cd $(dirname ${BASH_SOURCE[0]}) && pwd)
@@ -45,7 +41,5 @@ if [ -n "$funs" ]; then
 		. $f
 	done
 fi
-
-IFS=$DEFAULT_IFS
 
 # vim:ft=sh

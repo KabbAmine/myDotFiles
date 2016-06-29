@@ -1,6 +1,6 @@
 # ======== BASHRC ===================
 # Kabbaj Amine - amine.kabb@gmail.com
-# Last modification: 2016-06-27
+# Last modification: 2016-06-28
 # ===================================
 
 # ===================================
@@ -91,6 +91,10 @@ fi
 #		SOURCE OTHER FILES
 # ===================================
 
+DEFAULT_IFS=$IFS
+IFS="
+"
+
 # Personal aliases.
 if [ -f  ~/.dotfiles/bash/bash_aliases ]; then
 	. ~/.dotfiles/bash/bash_aliases
@@ -101,11 +105,14 @@ if [ -f  ~/.dotfiles/bash/bash_functions ]; then
 	. ~/.dotfiles/bash/bash_functions
 fi
 
+IFS=$DEFAULT_IFS
+
 # FZF
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 if [ -f  ~/.dotfiles/bash/fzf/functions.sh ]; then
 	. ~/.dotfiles/bash/fzf/functions.sh
 fi
+
 
 # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/.rvm/bin"
@@ -161,5 +168,7 @@ if [ -f  ~/.gitprompt.sh ]; then
    GIT_PROMPT_THEME=Default_Ubuntu
 	. ~/.gitprompt.sh
 fi
+
+IFS=$DEFAULT_IFS
 
 # vim:ft=sh

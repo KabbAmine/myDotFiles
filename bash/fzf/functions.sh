@@ -1,5 +1,5 @@
 # #############################
-# Last modification: 2016-06-27
+# Last modification: 2016-06-28
 # #############################
 
 # Taken from https://github.com/junegunn/fzf/wiki/Examples
@@ -35,7 +35,6 @@ FzfCd() {
 # Git
 # ##################
 
-# fbr - checkout git branch
 FzfGitCheckoutBranch() {
   local branches branch
   branches=$(git branch -vv) &&
@@ -43,7 +42,7 @@ FzfGitCheckoutBranch() {
   git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
-# fbr - checkout git branch (including remote branches)
+# Checkout git branch (including remote branches)
 FzfGitBranch() {
   local branches branch
   branches=$(git branch --all | grep -v HEAD) &&
@@ -52,7 +51,7 @@ FzfGitBranch() {
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
-# fco - checkout git branch/tag
+# Checkout git branch/tag
 FzfGitCheckoutBranchOrTag() {
   local tags branches target
   tags=$(
@@ -81,7 +80,7 @@ FzfGitShow() {
 # Tmux
 # ##################
 
-# fs [FUZZY PATTERN] - Select selected tmux session
+# Select selected tmux session
 #   - Bypass fuzzy finder if there's only one match (--select-1)
 #   - Exit if there's no match (--exit-0)
 FzfTmuxSession() {
@@ -121,4 +120,3 @@ FzfRvm() {
        awk '{print $1}' |
        fzf-tmux -l 30 +m --reverse) && rvm use $rb
 }
-
