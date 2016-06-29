@@ -1,9 +1,10 @@
 # #############################
-# Last modification: 2016-06-28
+# Last modification: 2016-06-29
 # #############################
 
 # Current dir
 SC_DIR=$(cd $(dirname ${BASH_SOURCE[0]}) && pwd)
+PWD=$(pwd)
 
 # Colors.
 red="\033[30m"
@@ -18,7 +19,7 @@ yellow="\033[33m"
 GlobUpd() {
 	cd ~/.dotfiles/
 	./update.py
-	cd "$SC_DIR"
+	cd "$PWD"
 }
 
 Ps() {
