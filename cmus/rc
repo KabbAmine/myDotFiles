@@ -15,4 +15,10 @@ set format_trackwin=%2n. %t%= %g %8d
 set format_playlist=%-15%A %-20l %2n. %t%= [%y] %-15%g %6d
 set format_treewin=  + %-30l [%y]
 
-colorscheme yowish
+# colorscheme yowish
+
+# More blueish
+set color_win_cur=blue
+set color_win_cur_sel_bg=blue
+set color_win_cur_sel_fg=white
+set color_win_inactive_cur_sel_fg=blue
