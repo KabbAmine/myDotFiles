@@ -1,5 +1,5 @@
 # #############################
-# Last modification: 2016-06-27
+# Last modification: 2016-06-30
 # #############################
 
 # Git
@@ -42,7 +42,7 @@ alias CTarB='tar -jcvf' # Compress in a Bzip2.
 # Tmux
 alias tmux='tmux -2'
 alias TmL='tmux ls'
-alias TmK='tmux kill-session -t1'
+alias TmK='tmux kill-session -t '
 
 # Avconv
 alias AVC1366='avconv -f x11grab -s wxga -r 25 -i :0.0 ~/Vidéos/tuto.mp4'
