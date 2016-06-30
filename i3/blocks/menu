@@ -2,7 +2,7 @@
 
 ####################################################
 # CREATION     : 2016-06-21
-# MODIFICATION : 2016-06-21
+# MODIFICATION : 2016-06-30
 
 # I3block's blocklet which:
 # - Display xfce4-appfinder with right click.
@@ -20,4 +20,4 @@ esac
 
 echo ""
 echo ""
-echo
+echo "#5294e2"
