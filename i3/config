@@ -1,5 +1,5 @@
 # i3 config file
-# Last modification: 2016-06-29
+# Last modification: 2016-06-30
 
 ####################
 # GLOBAL VARIABLES
@@ -254,7 +254,7 @@ bindsym $mod+Shift+minus move container to workspace $ws_news; workspace $ws_new
 bindsym $mod+Shift+egrave move container to workspace $ws_dl; workspace $ws_dl
 bindsym $mod+Shift+underscore move container to workspace $ws_games; workspace $ws_games
 bindsym $mod+Shift+ccedilla move container to workspace $ws_generic2; workspace $ws_generic2
-bindsym $mod+Shift+F12 move container to workspace $ws_terminal; workspaces $ws_terminal
+bindsym $mod+Shift+F12 move container to workspace $ws_terminal; workspace $ws_terminal
 
 #######
 # I3BAR
