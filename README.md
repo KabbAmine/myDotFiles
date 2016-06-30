@@ -6,6 +6,8 @@ My **GNU/Linux** main repository with:
 - Dot & configuration files for many different apps
 - Scripts for linking dotfiles, system installation and updating.
 
+![My terminal](.img/term.jpg "My terminal with tmux")
+
 *N.B: This repo is frequently updated*
 
 Content
@@ -54,11 +56,10 @@ Content
 │   │   ├── mkvtoolnix.sh
 │   │   ├── nodejs.sh
 │   │   ├── rvm.sh
-│   │   ├── tidy-html5.sh
 │   │   └── topmenu.sh
 │   ├── apt.json
-│   ├── scripts.json
-│   └── packages.json
+│   ├── packages.json
+│   └── scripts.json
 ├── quicktile
 │   └── quicktile.cfg
 ├── shiba
