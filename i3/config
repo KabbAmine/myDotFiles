@@ -1,5 +1,5 @@
 # i3 config file
-# Last modification: 2016-06-30
+# Last modification: 2016-07-03
 
 ####################
 # GLOBAL VARIABLES
@@ -168,6 +168,7 @@ bindsym $mod+x scratchpad show
 # WINDOWS
 #########
 
+# Theme
 client.focused          $blue $blue $sl           $focused_txt $blue
 client.focused_inactive $bg   $bg   $inactive_txt $focused_txt $bg
 client.unfocused        $bg   $bg   $inactive_txt $focused_txt $bg
@@ -265,6 +266,8 @@ bindsym $mod+p bar mode toggle
 
 # Primary monitor
 bar {
+	# Enable rgba colors & transparency (i3-gaps)
+	i3bar_command i3bar -t
 	output $monitor1
 	position top
 	height 24
@@ -272,32 +275,28 @@ bar {
 	tray_output $monitor1
 	tray_padding 0
 	colors {
-		background $bg
-		statusline $sl
-		separator $inactive_txt
-		focused_workspace $blue $blue $focused_txt
-		inactive_workspace $bg_light $bg_light $inactive_txt
-		urgent_workspace $red $red $focused_txt
+		background $bg00
+		statusline $sl00
+		separator $inactive_txt00
+		focused_workspace $blue00 $blueEE $focused_txt
+		inactive_workspace $bg_light00 $bg_light00 $inactive_txt
+		urgent_workspace $red00 $redEE $focused_txt
 	}
-
-	# Control volume with the mouse wheel
-	# bindsym button2 $pactl_mute
-	# bindsym button4 $pactl_increase
-	# bindsym button5 $pactl_decrease
 }
 bar {
+	i3bar_command i3bar -t
 	output $monitor2
 	position top
 	height 24
 	status_command conky -c $i3/i3bar_conkyrc
 	tray_output none
 	colors {
-		background $bg
-		statusline $sl
-		separator $inactive_txt
-		focused_workspace $blue $blue $focused_txt
-		inactive_workspace $bg_light $bg_light $inactive_txt
-		urgent_workspace $red $red $focused_txt
+		background $bg00
+		statusline $sl00
+		separator $inactive_txt00
+		focused_workspace $blue00 $blueEE $focused_txt
+		inactive_workspace $bg_light00 $bg_light00 $inactive_txt
+		urgent_workspace $red00 $redEE $focused_txt
 	}
 }
 
