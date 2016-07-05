@@ -1,2 +1,3 @@
+.agignore
 tmux/plugins/*
-!tmux/plugins/tpm
+!tmux/plugins/tpm/
