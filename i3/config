@@ -1,5 +1,5 @@
 # i3 config file
-# Last modification: 2016-07-03
+# Last modification: 2016-07-05
 
 ####################
 # GLOBAL VARIABLES
@@ -90,9 +90,9 @@ mode "$mode_layout" {
 bindsym --release Control+Shift+Escape exec xkill
 
 # cmus
-bindsym Control+F12 exec --no-startup-id bash ~/Projects/Scripts/Multimedia/cmus-notify.sh "-u" && pkill -RTMIN+10 i3blocks
-bindsym Control+F10 exec --no-startup-id bash ~/Projects/Scripts/Multimedia/cmus-notify.sh "-n" && pkill -RTMIN+10 i3blocks
-bindsym Control+F11 exec --no-startup-id bash ~/Projects/Scripts/Multimedia/cmus-notify.sh "-r" && pkill -RTMIN+10 i3blocks
+bindsym Control+F12 exec --no-startup-id cmus-remote --pause && pkill -RTMIN+10 i3blocks
+bindsym Control+F10 exec --no-startup-id cmus-remote --next && pkill -RTMIN+10 i3blocks
+bindsym Control+F11 exec --no-startup-id cmus-remote --prev && pkill -RTMIN+10 i3blocks
 
 # Xfce tools
 bindsym Print exec xfce4-screenshooter
@@ -133,8 +133,8 @@ bindsym $mod+Shift+space floating toggle
 # bindsym $mod+space focus mode_toggle
 
 # Focus the parent/child container
-# bindsym $mod+q focus parent
-# bindsym $mod+d focus child
+bindsym $mod+p focus parent
+bindsym $mod+d focus child
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
@@ -196,17 +196,17 @@ for_window [window_role="task_dialog"] floating enable
 ############
 
 # Custom workspaces
-set $ws_generic "1. "
-set $ws_mail "2. "
-set $ws_web "3. "
-set $ws_dev "4. "
-set $ws_chat "5. "
-set $ws_news "6. "
-set $ws_dl "7. "
-set $ws_games "8. "
-set $ws_generic2 "9. "
-set $ws_terminal "F12. "
-# set $ws_media ""
+set $ws_generic ""
+set $ws_mail ""
+set $ws_web ""
+set $ws_dev ""
+set $ws_chat ""
+set $ws_news ""
+set $ws_dl ""
+set $ws_games ""
+set $ws_generic2 ""
+set $ws_terminal ""
+set $ws_music ""
 
 # Assign applications to specific workspaces
 assign [class="^Thunderbird$" instance="^Mail$"] $ws_mail
@@ -225,6 +225,7 @@ workspace $ws_mail output $monitor2
 workspace $ws_news output $monitor2
 workspace $ws_terminal output $monitor2
 workspace $ws_dl output $monitor2
+workspace $ws_music output $monitor2
 
 # Go back to previous workspace with the same keys
 workspace_auto_back_and_forth yes
@@ -243,6 +244,7 @@ bindsym $mod+minus workspace $ws_news
 bindsym $mod+egrave workspace $ws_dl
 bindsym $mod+underscore workspace $ws_games
 bindsym $mod+ccedilla workspace $ws_generic2
+bindsym $mod+agrave workspace $ws_music
 bindsym F12 workspace $ws_terminal
 
 # Move focused container to workspace & move to it
@@ -255,6 +257,7 @@ bindsym $mod+Shift+minus move container to workspace $ws_news; workspace $ws_new
 bindsym $mod+Shift+egrave move container to workspace $ws_dl; workspace $ws_dl
 bindsym $mod+Shift+underscore move container to workspace $ws_games; workspace $ws_games
 bindsym $mod+Shift+ccedilla move container to workspace $ws_generic2; workspace $ws_generic2
+bindsym $mod+Shift+agrave move container to workspace $ws_music; workspace $ws_music
 bindsym $mod+Shift+F12 move container to workspace $ws_terminal; workspace $ws_terminal
 
 #######
@@ -262,7 +265,7 @@ bindsym $mod+Shift+F12 move container to workspace $ws_terminal; workspace $ws_t
 #######
 
 # Hide/show the bar
-bindsym $mod+p bar mode toggle
+bindsym $mod+shift+p bar mode toggle
 
 # Primary monitor
 bar {

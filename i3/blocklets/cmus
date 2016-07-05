@@ -2,7 +2,7 @@
 
 ####################################################
 # CREATION     : 2016-05-26
-# MODIFICATION : 2016-06-01
+# MODIFICATION : 2016-07-03
 
 # I3block's blocklet which:
 # - Display current state & played song in cmus
@@ -60,5 +60,6 @@ then
 else
 	echo $cmus
 	echo $cmus
+	echo "#f4f5f6"
 fi
 echo

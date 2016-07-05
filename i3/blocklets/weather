@@ -1,0 +1,41 @@
+#!/bin/bash
+
+####################################################
+# CREATION     : 2016-07-04
+# MODIFICATION : 2016-07-04
+
+# I3block's blocklet which:
+# - Show current temperature
+# - Show temperature for the next 3 days with a left click
+# - Update temperature with a middle click
+
+# Requirements:
+# - curl
+# - yad (For mouse interaction)
+#
+####################################################
+
+city="novoazovsk"
+
+getCurrWeather() {
+	local datas=$(curl --silent "wttr.in/${city}" | sed "s,\x1B\[[0-9;]*[a-zA-Z],,g")
+	local head=$(echo "$datas" | head -n 7)
+	# local state=$(echo "$head" | head -n 3 | tail -n 1 | awk '{print $NF}')
+	local temperature=$(echo "$head" | head -n 4 | tail -n 1 | awk '{print $3}')
+	local temperature=$(echo "$head" | grep -o "[0-9]*\ *°C")
+
+	# echo "${state} ${temperature}"
+	echo "${temperature}"
+}
+
+yad="yad --text-info --no-buttons --on-top --center --skip-taskbar --width 1015 --height 620"
+case $BLOCK_BUTTON in
+    1) curl --silent "wttr.in/${city}" | sed "s,\x1B\[[0-9;]*[a-zA-Z],,g" | $yad;;     # left click
+    2) pkill -RTMIN+2 i3blocks;;    # middle click
+esac
+
+t=$(getCurrWeather)
+
+echo $t
+echo $t
+echo
