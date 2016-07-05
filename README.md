@@ -14,6 +14,9 @@ Content
 -------
 
 ```
+> tree -L 3 --dirsfirst
+
+.
 ├── ag
 │   └── agignore
 ├── bash
@@ -27,6 +30,7 @@ Content
 │   ├── bashrc
 │   └── profile
 ├── cmus
+│   ├── cmus-status-display
 │   └── rc
 ├── ctags
 │   └── ctags
@@ -36,12 +40,13 @@ Content
 │   ├── gitconfig
 │   └── gitignore_global
 ├── i3
-│   ├── blocks
+│   ├── blocklets
 │   │   ├── cmus
 │   │   ├── layout
 │   │   ├── menu
 │   │   ├── time_and_date
-│   │   └── volume
+│   │   ├── volume
+│   │   └── weather
 │   ├── config
 │   ├── exit.sh
 │   ├── i3bar_conkyrc
@@ -58,10 +63,17 @@ Content
 │   │   ├── rvm.sh
 │   │   └── topmenu.sh
 │   ├── apt.json
+│   ├── dotfiles.json
 │   ├── packages.json
 │   └── scripts.json
 ├── quicktile
 │   └── quicktile.cfg
+├── scripts
+│   ├── do.py
+│   ├── install.py
+│   ├── link.py
+│   ├── update_github_scripts.sh
+│   └── update.py
 ├── shiba
 │   └── config.yml
 ├── tmux
@@ -73,64 +85,34 @@ Content
 ├── X
 │   ├── xmodmaprc
 │   └── Xresources
-├── xfce4-terminal
+├── xfce
 │   └── terminalrc
 ├── zathura
 │   └── zathurarc
-├── install.py
-├── link.sh
-├── update.py
-└── update_scripts.sh
+├── config.ini
+└── README.md
 ```
 
-Usage of scripts
-----------------
+Usage
+-----
 
-No arguments needed here, simply execute a script to get a visible output.
+`scripts/do.py` is the main script for installing, updating and linking/copying dotfiles.
 
-### link.sh
+The 1st time:
 
-Create, link & copy configuration files to adequate places.
+1. Specify the configuration in `config.ini`
+2. Set the correct path in line 18 in `scripts/do.py`
+4. Execute `scripts/do.py` and have fun :sunglasses:
 
-First specify parameters:
+After linking the dotfiles, you can use `Do` alias to invoke `do.py` directly.
 
-1. `dotfiles_folder` variable.
+**P.S:**
 
-2. Direcory(ies) to create if they does not exist:
-
-  ```sh
-  makeDir path/to/dir &&
-  ```
-
-3. Symbolic links to create using the following syntax:
-
-  ```sh
-  createLink relative/path/to/file /absolute/path/to/link [h(if hidden file)] &&
-  ```
-
-4. Where and what files need to be copied.
-
-  ```sh
-  copyFile relative/path/to/file /absolute/path/to/destination [h(if hidden file)] &&
-  ```
-
-### update_scripts.sh
-
-Update all git repositories defined in the variable `proj_dirs`.
-
-### install.py
-
-Use it to install all packages, ppa's and needed applications
-
-**P.S:** The packages present in `install/apt.json` are intended to be used on `Xubuntu16`.
-
-### update.py
-
-Update all the system and the git repos defined in `update_scripts.sh`.
+- The packages present in `install/apt.json` are intended to be used on `Xubuntu16`.
+- Be aware that `config.ini` is not used by the dotfiles, only by `scripts/*`.
 
 TODO
 ----
 
-- Convert remaining scripts to python.
 - Use a home-made sh/python framework to prevent code duplication.
-- More refactoring when I'll have time.
+- More refactoring
