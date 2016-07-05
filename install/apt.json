@@ -36,6 +36,7 @@
         "random-stuff/ppa"                   : ["snes9x-gtk", "mgba-qt", "mupen64plus-qt", "libmupen64plus2", "mupen64plus-input-sdl", "mupen64plus-audio-sdl", "mupen64plus-rsp-hle", "mupen64plus-video-glide64mk2", "mupen64plus-video-rice", "mupen64plus-ui-console"],
         "ravefinity-project/ppa"             : ["vibrancy-colors", "vivacious-colors", "ambiance-blackout-flat-colors"],
         "rvm/smplayer"                       : ["smplayer", "smplayer-themes", "smplayer-skins", "smtube"],
-        "stebbins/handbrake-releases"        : ["handbrake-gtk"]
+        "stebbins/handbrake-releases"        : ["handbrake-gtk"],
+        "varlesh-l/papirus-pack"             : ["papirus-gtk-icon-theme"]
     }
 }

@@ -1,9 +1,9 @@
 #######################################################################
-#							update_scripts.sh
+#							update_github_scripts.sh
 #######################################################################
 # Author            : Kabbaj Amine
 # Date Creation     : 2015-08-30
-# Last modification : 2016-06-27
+# Last modification : 2016-07-06
 
 # DESCRIPTION
 # - Update all git projects in the defined directories
@@ -11,6 +11,7 @@
 # USAGE
 # Define the directories in proj_dirs variable then execute the script:
 #	./update_scripts.sh
+# N.B: This scripts should be used with do.py on the same directory
 #######################################################################
 
 #!/bin/bash
@@ -24,7 +25,14 @@ IFS='
 
 # Folders
 curr_dir=$(pwd)
-proj_dirs=("$HOME/Scripts/misc/" "$HOME/Scripts/minetest/mods/" "$HOME/Scripts/minetest/textures/")
+
+# Get repos from ../config.ini file
+repos=($(cat ../config.ini | awk -F "=" '/git_dirs/{print $2}'))
+
+# Convert $repos string to an array
+new_ifs=$IFS
+IFS=' ' read -r -a proj_dirs <<< "$repos"
+IFS=$new_ifs
 
 # Colors.
 red_bold='\033[01;31m'
@@ -55,10 +63,6 @@ Echo () {
 # #####################
 #		PROCESSING
 # #####################
-
-echo -e "\n${green}####################################"
-echo -e "\tGIT REPOS UPDATE\t"
-echo -e "####################################${white}\n"
 
 for proj_dir in ${proj_dirs[*]}; do
 

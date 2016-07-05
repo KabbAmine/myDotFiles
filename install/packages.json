@@ -18,8 +18,10 @@
         "shiba"
     ],
     "pip": [
+        "autopep8",
         "flake8",
         "vim-vint",
         "youtube-dl"
-    ]
+    ],
+    "snap": []
 }
