@@ -1,5 +1,5 @@
 # #############################
-# Last modification: 2016-06-29
+# Last modification: 2016-07-06
 # #############################
 
 # Current dir
@@ -15,12 +15,6 @@ yellow="\033[33m"
 ######################
 #	Functions
 ######################
-
-GlobUpd() {
-	cd ~/.dotfiles/
-	./update.py
-	cd "$PWD"
-}
 
 Ps() {
 	# Return a table according to $1, sorted by PIDs (The most recent in first).

@@ -1,5 +1,5 @@
 # #############################
-# Last modification: 2016-06-30
+# Last modification: 2016-07-06
 # #############################
 
 # Git
@@ -67,6 +67,8 @@ alias LsH='ls -A | grep "^\."'		   # Only hidden files
 alias ll='ls -l'
 
 # Misc
+alias Do='python3 "$HOME/.dotfiles/scripts/do.py"'
+alias lyvi='python3 "$HOME/Scripts/lyvi/lyvi.py"'
 alias Aard2='java -Dslobber.browse -jar ~/Scripts/aard2/aard2-web-0.7.jar ~/Scripts/aard2/*.slob'
 alias zeal='zeal --style=gtk+'
 alias V='vim'
