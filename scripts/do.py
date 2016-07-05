@@ -55,6 +55,7 @@ def Init():
 
     # Print colorful ascii_name
     c2 = c.copy()
+    del c2['white']
     colors = list(c2.values())
     for l in ascii_name:
         random_color = colors[randint(0, len(colors) - 1)]
