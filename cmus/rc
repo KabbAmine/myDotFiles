@@ -1,3 +1,5 @@
+# Modification: 2016-07-05
+
 # Default library view mode
 set aaa_mode=all
 # Dont stop after finishing a song
@@ -9,6 +11,8 @@ set repeat=true
 set play_library=true
 set show_current_bitrate=true
 set mouse=true
+
+set status_display_program=~/.cmus/cmus-status-display
 
 set format_current=%a - %t%= %2n. %l [%y]
 set format_trackwin=%2n. %t%= %g %8d
