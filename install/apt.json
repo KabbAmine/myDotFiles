@@ -23,20 +23,21 @@
         "xfce4"     : ["xfce4-fsguard-plugin", "xfce4-genmon-plugin", "xubuntu-restricted-addons", "xubuntu-community-wallpapers-xenial", "tumbler-plugins-extra"]
     },
     "ppa": {
-        "dockbar-main/ppa"                   : ["dockbarx", "xfce4-dockbarx-plugin", "dockbarx-themes-extra"],
-        "haraldhv/shotcut"                   : ["shotcut"],
-        "hda-me/qt5ct"                       : ["qt5ct"],
-        "inkscape.dev/stable"                : ["inkscape"],
-        "leolik/leolik"                      : ["notify-osd "],
-        "maarten-baert/simplescreenrecorder" : ["simplescreenrecorder"],
-        "minetestdevs/stable"                : ["minetest"],
-        "nilarimogard/webupd8"               : ["puddletag", "yad", "mcomix", "screenkey", "notifyosdconfig"],
-        "otto-kesselgulasch/gimp"            : ["gimp"],
-        "qbittorrent-team/qbittorrent-stable": ["qbittorrent"],
-        "random-stuff/ppa"                   : ["snes9x-gtk", "mgba-qt", "mupen64plus-qt", "libmupen64plus2", "mupen64plus-input-sdl", "mupen64plus-audio-sdl", "mupen64plus-rsp-hle", "mupen64plus-video-glide64mk2", "mupen64plus-video-rice", "mupen64plus-ui-console"],
-        "ravefinity-project/ppa"             : ["vibrancy-colors", "vivacious-colors", "ambiance-blackout-flat-colors"],
-        "rvm/smplayer"                       : ["smplayer", "smplayer-themes", "smplayer-skins", "smtube"],
-        "stebbins/handbrake-releases"        : ["handbrake-gtk"],
-        "varlesh-l/papirus-pack"             : ["papirus-gtk-icon-theme"]
+        "dockbar-main/ppa"                    : ["dockbarx", "xfce4-dockbarx-plugin", "dockbarx-themes-extra"],
+        "haraldhv/shotcut"                    : ["shotcut"],
+        "hda-me/qt5ct"                        : ["qt5ct"],
+        "inkscape.dev/stable"                 : ["inkscape"],
+        "leolik/leolik"                       : ["notify-osd "],
+        "maarten-baert/simplescreenrecorder"  : ["simplescreenrecorder"],
+        "minetestdevs/stable"                 : ["minetest"],
+        "nilarimogard/webupd8"                : ["puddletag", "yad", "mcomix", "screenkey", "notifyosdconfig"],
+        "otto-kesselgulasch/gimp"             : ["gimp"],
+        "qbittorrent-team/qbittorrent-stable" : ["qbittorrent"],
+        "random-stuff/ppa"                    : ["snes9x-gtk", "mgba-qt", "mupen64plus-qt", "libmupen64plus2", "mupen64plus-input-sdl", "mupen64plus-audio-sdl", "mupen64plus-rsp-hle", "mupen64plus-video-glide64mk2", "mupen64plus-video-rice", "mupen64plus-ui-console"],
+        "ravefinity-project/ppa"              : ["vibrancy-colors", "vivacious-colors"],
+        "rvm/smplayer"                        : ["smplayer", "smplayer-themes", "smplayer-skins", "smtube"],
+        "stebbins/handbrake-releases"         : ["handbrake-gtk"],
+        "tista/adapta"                        : ["adapta-gtk-theme"],
+        "varlesh-l/papirus-pack"              : ["papirus-gtk-icon-theme"]
     }
 }
