@@ -1,5 +1,5 @@
 # i3 config file
-# Last modification: 2016-07-05
+# Last modification: 2016-07-06
 
 ####################
 # GLOBAL VARIABLES
@@ -348,3 +348,6 @@ exec_always --no-startup-id setxkbmap -model pc106 -layout fr,us,ru,ar -option g
 
 # Remap ¹ to <
 exec_always --no-startup-id "sleep 1 && xmodmap ~/.xmodmaprc"
+
+# Execute main terminal in $ws_terminal
+exec --no-startup-id i3-msg 'workspace $ws_terminal; exec i3-sensible-terminal'
