@@ -38,6 +38,6 @@
         "rvm/smplayer"                        : ["smplayer", "smplayer-themes", "smplayer-skins", "smtube"],
         "stebbins/handbrake-releases"         : ["handbrake-gtk"],
         "tista/adapta"                        : ["adapta-gtk-theme"],
-        "varlesh-l/papirus-pack"              : ["papirus-gtk-icon-theme"]
+        "varlesh-l/papirus-pack"              : ["papirus-gtk-icon-theme", "libreoffice-style-papirus"]
     }
 }
