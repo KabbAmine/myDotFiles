@@ -1,0 +1,38 @@
+#!/bin/bash
+
+####################################################
+# CREATION     : 2016-07-06
+# MODIFICATION : 2016-07-06
+
+# I3block's blocklet:
+# - Allows to log out/shutdown/reboot the system on right click
+# via a dialog
+
+# NEEDS:
+# - yad
+# - The script .dotfiles/i3/exit.sh script
+####################################################
+
+script="$HOME/.dotfiles/i3/exit.sh"
+
+exit() {
+	local action=$(yad --width 300 --center --on-top --no-taskbar --entry --title "Exit" \
+		--image=gnome-shutdown \
+		--button="gtk-ok:0" --button="gtk-close:1" \
+		--entry-text \
+		"Se déconnecter" "Éteindre" "Redémarrer")
+
+	case $action in
+		"Se déconnecter") i3-msg exit;;
+		"Éteindre") sudo "$script" shutdown;;
+		"Redémarrer") sudo "$script" reboot;;
+	esac
+}
+
+case $BLOCK_BUTTON in
+	1) exit;;   # right click
+esac
+
+echo ""
+echo ""
+echo "#e74c3c"
