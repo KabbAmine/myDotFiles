@@ -1,5 +1,5 @@
 # i3 config file
-# Last modification: 2016-07-06
+# Last modification: 2016-07-05
 
 ####################
 # GLOBAL VARIABLES
@@ -71,7 +71,7 @@ mode "$mode_launcher" {
 }
 
 # A custom mode for layouts
-set $mode_layout [s]tacking | [t]abbed | s[p]lit
+set $mode_layout  [s]tacking |  [t]abbed |   s[p]lit
 bindsym $mod+e mode "$mode_layout"
 mode "$mode_layout" {
 	bindsym s layout stacking; mode "default"
@@ -82,9 +82,6 @@ mode "$mode_layout" {
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
 }
-
-# dmenu
-# bindsym $mod+space exec j4-dmenu-desktop --dmenu="dmenu -i -l 10 -p '> ' -nb '$bg' -nf '$inactive_txt' -sb '$blue' -sf '$focused_txt'" --no-generic
 
 # xkill
 bindsym --release Control+Shift+Escape exec xkill
@@ -276,7 +273,7 @@ bar {
 	height 24
 	status_command i3blocks -c $i3/i3blocks_primary.conf
 	tray_output $monitor1
-	tray_padding 0
+	tray_padding 3
 	colors {
 		background $bg00
 		statusline $sl00
