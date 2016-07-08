@@ -10,7 +10,7 @@
     "packages": {
         "cli"       : ["tree", "apt-file", "curl", "byzanz", "conky", "wmctrl", "imagemagick", "ncdu", "silversearcher-ag", "unrar"],
         "dev"       : ["exuberant-ctags", "zeal", "markdown", "shellcheck"],
-        "fonts"     : ["fonts-octicons", "fonts-materialdesignicons-webfont", "fonts-font-awesome"],
+        "fonts"     : ["fonts-font-awesome"],
         "games"     : ["assaultcube", "aisleriot", "hedgewars", "pokerth", "supertux", "supertuxkart"],
         "graphics"  : ["feh", "screenruler", "gpicview", "agave"],
         "internet"  : ["corebird", "skype", "liferea"],
@@ -31,13 +31,14 @@
         "maarten-baert/simplescreenrecorder"  : ["simplescreenrecorder"],
         "minetestdevs/stable"                 : ["minetest"],
         "nilarimogard/webupd8"                : ["puddletag", "yad", "mcomix", "screenkey", "notifyosdconfig"],
+        "obsproject/obs-studio"               : ["obs-studio"],
         "otto-kesselgulasch/gimp"             : ["gimp"],
         "qbittorrent-team/qbittorrent-stable" : ["qbittorrent"],
         "random-stuff/ppa"                    : ["snes9x-gtk", "mgba-qt", "mupen64plus-qt", "libmupen64plus2", "mupen64plus-input-sdl", "mupen64plus-audio-sdl", "mupen64plus-rsp-hle", "mupen64plus-video-glide64mk2", "mupen64plus-video-rice", "mupen64plus-ui-console"],
         "ravefinity-project/ppa"              : ["vibrancy-colors", "vivacious-colors"],
-        "rvm/smplayer"                        : ["smplayer", "smplayer-themes", "smplayer-skins", "smtube"],
+        "rvm/smplayer"                        : ["smplayer", "smtube"],
         "stebbins/handbrake-releases"         : ["handbrake-gtk"],
         "tista/adapta"                        : ["adapta-gtk-theme"],
-        "varlesh-l/papirus-pack"              : ["papirus-gtk-icon-theme", "libreoffice-style-papirus"]
+        "varlesh-l/papirus-pack"              : ["papirus-gtk-icon-theme", "smplayer-skin-papirus", "libreoffice-style-papirus"]
     }
 }
