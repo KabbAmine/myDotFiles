@@ -2,7 +2,7 @@
 
 ####################################################
 # CREATION     : 2016-06-20
-# MODIFICATION : 2016-06-30
+# MODIFICATION : 2016-07-08
 
 # I3block's blocklet which:
 # - Display volume
@@ -14,7 +14,7 @@ case $BLOCK_BUTTON in
 	3) pavucontrol;;                    # left click
 	2) pactl set-sink-mute 0 toggle;;   # middle click
     4) pactl set-sink-volume 0 '+5%';;  # wheel up
-    5) pactl set-sink-volume 0 '-5%';;  # wheel up
+    5) pactl set-sink-volume 0 '-5%';;  # wheel down
 esac
 
 # Use `let` to get an integer

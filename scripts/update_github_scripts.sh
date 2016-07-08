@@ -27,7 +27,7 @@ IFS='
 curr_dir=$(pwd)
 
 # Get repos from ../config.ini file
-repos=($(cat ../config.ini | awk '/git_dirs/{print $2}'))
+repos=($(cat ../config.ini | awk -F "=" '/git_dirs/{print $2}'))
 
 # Convert $repos string to an array
 new_ifs=$IFS
