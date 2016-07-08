@@ -16,7 +16,6 @@ Content
 ```
 > tree -L 3 --dirsfirst
 
-.
 ├── ag
 │   └── agignore
 ├── bash
@@ -42,6 +41,7 @@ Content
 ├── i3
 │   ├── blocklets
 │   │   ├── cmus
+│   │   ├── exit
 │   │   ├── layout
 │   │   ├── menu
 │   │   ├── time_and_date
@@ -56,6 +56,7 @@ Content
 │   │   ├── arc.sh
 │   │   ├── blink.sh
 │   │   ├── calibre.sh
+│   │   ├── font.sh
 │   │   ├── github_repos.sh
 │   │   ├── i3.sh
 │   │   ├── mkvtoolnix.sh
@@ -96,9 +97,32 @@ Content
 Usage
 -----
 
-`scripts/do.py` is the main script for installing, updating and linking/copying dotfiles.
+### What to install?
 
-The 1st time:
+- Define dotfiles to link & copy in `install/dotfiles.json` with the syntax:
+
+  ```json
+  {
+    "toLink": [
+      "path/to/dotfile relative/path/to/link hidden=(True|False)",
+    ],
+    "toCopy": [
+      "path/to/dotfile where/to/copy hidden=(True|False)",
+    ]
+  }
+  ```
+
+- Define apt packages and ppa's in `install/apt.json`.
+
+- Put installation scripts in `install/scripts/` and define them in `install/scripts.json`.
+
+- Define other packages in `install/packages.json` (gems, npm modules, pip packages & snap apps).
+
+### How to install, update & link?
+
+`scripts/do.py` is the main script.  
+
+After cloning the repo the 1<sup>st</sup> time:
 
 1. Specify the configuration in `config.ini`
 2. Set the correct path in line 18 in `scripts/do.py`
@@ -114,5 +138,12 @@ After linking the dotfiles, you can use `Do` alias to invoke `do.py` directly.
 TODO
 ----
 
-- Use a home-made sh/python framework to prevent code duplication.
-- More refactoring
+- [ ] Use a home-made sh/python framework to prevent code duplication.
+- [ ] Convert `scripts/update_github_scripts.sh` to python?
+- [ ] More refactoring
+- [ ] A better logic?
+
+NOTES
+-----
+
+Even if the repo is very personel, its quite easy to adapt it to other configurations.
