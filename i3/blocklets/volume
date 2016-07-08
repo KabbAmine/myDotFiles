@@ -22,8 +22,8 @@ let vol=$(pactl list sinks | awk -F '/' '/^\s*Volume/{print $2}' | tr -d '% ' | 
 mute=$(pactl list sinks | awk -F ':' '/^\s*Sourdine/{print $2}' | tr -d ' ')
 
 if [ "$vol" -eq 0 ] || [ "$mute" == "oui" ]; then
-	echo "⨯"
-	echo "⨯"
+	echo ""
+	echo ""
 	echo "#e74c3c"
 elif [ $vol -le 45 ]; then
 	echo " $vol%"

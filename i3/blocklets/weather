@@ -2,7 +2,7 @@
 
 ####################################################
 # CREATION     : 2016-07-04
-# MODIFICATION : 2016-07-04
+# MODIFICATION : 2016-07-08
 
 # I3block's blocklet which:
 # - Show current temperature
@@ -17,15 +17,35 @@
 
 city="novoazovsk"
 
+declare -A state_icons=( \
+	["Cloudy"]="" \
+	["Fog"]="" \
+	["Heavy_Rain"]="" \
+	["Heavy_Showers"]="" \
+	["Heavy_Snow"]="" \
+	["Heavy_Snow_Showers"]="" \
+	["Light_Rain"]="" \
+	["Light_Showers"]="" \
+	["Light_Sleet"]="" \
+	["Light_Sleet_Showers"]="" \
+	["Light_Snow"]="" \
+	["Light_Snow_Showers"]="" \
+	["Partly_Cloudy"]="" \
+	["Sunny"]="" \
+	["Thundery_Heavy_Rain"]="" \
+	["Thundery_Showers"]=""  \
+	["Thundery_Snow_Showers"]="" \
+	["Very_Cloudy"]="" \
+	["generic"]="" \
+)
+
 getCurrWeather() {
 	local datas=$(curl --silent "wttr.in/${city}" | sed "s,\x1B\[[0-9;]*[a-zA-Z],,g")
 	local head=$(echo "$datas" | head -n 7)
-	# local state=$(echo "$head" | head -n 3 | tail -n 1 | awk '{print $NF}')
-	local temperature=$(echo "$head" | head -n 4 | tail -n 1 | awk '{print $3}')
+	local state=$(echo "$head" | head -n 3 | tail -n 1 | awk '{print $NF}')
 	local temperature=$(echo "$head" | grep -o "[0-9]*\ *°C")
 
-	# echo "${state} ${temperature}"
-	echo "${temperature}"
+	echo "${state} ${temperature}"
 }
 
 yad="yad --text-info --no-buttons --on-top --center --skip-taskbar --width 1015 --height 620"
@@ -34,8 +54,17 @@ case $BLOCK_BUTTON in
     2) pkill -RTMIN+2 i3blocks;;    # middle click
 esac
 
-t=$(getCurrWeather)
+w=$(getCurrWeather)
 
-echo $t
-echo $t
+state=$(echo "$w" | cut -d " " -f 1 | tr " " "_")
+temp=$(echo "$w" | awk '{print $2 $3}')
+
+if [[ "${!state_icons[*]}" =~ $state ]]; then
+	icon=${state_icons[$state]}
+else
+	icon=${state_icons["generic"]}
+fi
+
+echo "$icon $temp"
+echo "$icon $temp"
 echo

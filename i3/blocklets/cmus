@@ -29,7 +29,7 @@ getCmus() {
 
 	case $status in
 		"playing" )
-			icon="";;
+			icon="";;
 		"paused" )
 			icon="";;
 		"stopped" )

@@ -35,4 +35,5 @@ esac
 
 echo ""
 echo ""
-echo "#e74c3c"
+echo
+# echo "#e74c3c"
