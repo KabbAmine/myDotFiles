@@ -3,7 +3,7 @@
 #######################################################################
 # Author            : Kabbaj Amine
 # Date Creation     : 2015-08-30
-# Last modification : 2016-07-06
+# Last modification : 2016-07-08
 
 # DESCRIPTION
 # - Update all git projects in the defined directories
@@ -27,7 +27,7 @@ IFS='
 curr_dir=$(pwd)
 
 # Get repos from ../config.ini file
-repos=($(cat ../config.ini | awk -F "=" '/git_dirs/{print $2}'))
+repos=($(cat ../config.ini | awk '/git_dirs/{print $2}'))
 
 # Convert $repos string to an array
 new_ifs=$IFS
