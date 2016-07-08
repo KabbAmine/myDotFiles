@@ -1,59 +1,66 @@
+
+! ##############################################################################
+!
+! Modification: 2016-07-08
+!
+! ##############################################################################
+
 ! ------------------------------------------------------------------------------
 !
 ! ROFI
 !
 ! ------------------------------------------------------------------------------
 
-rofi.modi: window,run,drun
+rofi.modi: run,window,drun
 !! Monitor id to show on
-rofi.m:                              -1
+rofi.m:    -1
 
 ! ----------
 ! Appearance
 ! ----------
 
-! rofi.opacity: 50
-rofi.lines:   10
-rofi.columns: 1
-rofi.font:    mono 12
-! Border width
-rofi.bw: 0
-rofi.location:                       0
-!! rofi.padding:                        300
-rofi.sidebar-mode: false
-!! Margin between rows
-rofi.line-margin:                    10
-!! Separator style (none, dash, solid)
-rofi.separator-style: none
-rofi.hide-scrollbar: false
-!! rofi.fullscreen: true
-!! rofi.fake-transparency: true
+!! Border width
+rofi.bw:                0
+rofi.columns:           1
+rofi.fake-transparency: true
+rofi.font:              mono 12
+rofi.fullscreen:        true
+rofi.fuzzy:             true
+rofi.hide-scrollbar:    false
+rofi.line-margin:       10
+rofi.lines:             15
+rofi.location:          0
+rofi.opacity:           50
+rofi.padding:           250
+!! Style: none, dash, solid
+rofi.separator-style:   none
+rofi.sidebar-mode:      false
 
 ! -----------
 ! Keybindings
 ! -----------
 
-rofi.key-run:          mod4+space
-rofi.kb-mode-next:     Tab
+rofi.key-run: mod4+space
+rofi.kb-mode-next: Tab
 rofi.kb-mode-previous: Shift+Tab
-rofi.kb-accept-entry:  Return,KP_Enter
-rofi.kb-cancel:        Escape,mod4+space,Control+c
+rofi.kb-accept-entry: Return,KP_Enter
+rofi.kb-cancel: Escape,mod4+space,Control+c
 
 ! -----------
 ! Color theme
 ! -----------
 
-! rofi_bg: #2b2e37 with transparency cc
-# define rofi_bg argb:ee2b2e37
+! For transparency e.g. argb:ee2b2e37
+# define rofi_bg #2b2e37
 # define rofi_fg #c1c1c1
-!! # define rofi_border #161619
+! # define rofi_border #161619
 # define rofi_fg_hi #ffffff
 # define rofi_blue #4989d7
 # define rofi_blue2 #4d6b8e
 # define rofi_red #dc322f
 
 rofi.color-enabled: true
-rofi.color-window: rofi_bg, rofi_bg, rofi_blue
-rofi.color-normal: rofi_bg, rofi_fg, rofi_bg, rofi_bg, rofi_blue
+rofi.color-window: rofi_bg, rofi_bg   , rofi_blue
+rofi.color-normal: rofi_bg, rofi_fg   , rofi_bg, rofi_bg, rofi_blue
 rofi.color-active: rofi_bg, rofi_fg_hi, rofi_bg, rofi_bg, rofi_blue2
-rofi.color-urgent: rofi_bg, rofi_red, rofi_bg, rofi_bg, rofi_red
+rofi.color-urgent: rofi_bg, rofi_red  , rofi_bg, rofi_bg, rofi_red
