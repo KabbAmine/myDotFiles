@@ -1,16 +1,17 @@
+#!/bin/bash
+
 ####################################################
 #			cmus-status-display
 ####################################################
 
 # CREATION     : 2016-07-05
-# MODIFICATION : 2016-07-05
+# MODIFICATION : 2016-07-11
 # MAINTAINER   : Kabbaj Amine <amine.kabb@gmail.com>
 
 # DESCRIPTION
 # ###########
 # This scripts is executed by cmus when status changes:
 #	cmus-status-display key1 val1 key2 val2 ...
-#
 # All keys contain only chars a-z. Values are UTF-8 strings.
 #
 # Keys: status file url artist album discnumber tracknumber title date
@@ -18,17 +19,23 @@
 #	- $2 file or url is given only if track is 'loaded' in cmus
 #	- $3 other keys/values are given only if they are available
 #
+# In each changes it:
+# - Shows a notification with cover
+# - Display cover
+#
 # REQUIREMENTS
 # ############
 # - ffmpeg
-# - imagemacick (convert)
 # - notify-send
+# - geeqie (temporary), feh or display/convert (from imagemagick)
 #
 # USAGE
 # #####
 # In cmus command ":set status_display_program=path/to/cmus-status-display"
-#	(You can specify the notification daemon to use in $notif)
-#
+# You can specify:
+#	- $notif: Notification daemon to use
+#	- $cover_size: Size of cover displayed
+#	- $cover_coordinates: Coordinates of cover (Used only with feh)
 ####################################################
 
 ##############
@@ -36,6 +43,8 @@
 ##############
 
 notif="notify-osd"
+cover_size="280x280"
+feh_cover_coordinates="2335+700"
 
 # Set current datas in variables ($_file, $_status, $_title...)
 while test $# -ge 2
@@ -56,23 +65,19 @@ getCover() {
 	# - cover (true/false)
 	# - cover_file (Cover_path or icon)
 
-	if [ -x "/usr/bin/ffmpeg" ]; then
-		cover=true &&
-		ffmpeg -i "$1" /tmp/cover.png &&
-		convert /tmp/cover.png -resize 100 /tmp/cover.png
-	else
-		cover=false
+	local cover="/tmp/cover-cmus.png"
+
+	if [ ! -x "/usr/bin/ffmpeg" ]; then
+		exit
 	fi
 
-	if [ $? -eq 1 ]; then
-		cover=false
+	if [ -f "$cover" ]; then
+		rm "$cover"
 	fi
 
-	if [ $cover = true ]; then
-		cover_file="/tmp/cover.png"
-	else
-		cover_file="folder-music-symbolic"
-	fi
+	ffmpeg -i "$1" "$cover"
+
+	echo "$cover"
 }
 
 notify() {
@@ -81,10 +86,31 @@ notify() {
 	# - $2 as a header
 	# - $3 as a body
 
-	killall -q "$notif" &&
+	killall -q "$notif"
 	notify-send -t 10000 -i "$1" \
 		"$2" \
 		"$3"
+}
+
+displayCover() {
+	# Display cover using:
+
+	# Geeqie
+	geeqie -r -t "$1"
+
+	# Feh
+	# local feh="feh \
+	# 	--image-bg black \
+	# 	--no-menus \
+	# # --geometry "${cover_size}+${feh_cover_coordinates}" \
+	# 	--scale-down"
+	# killall -q feh
+	# $feh --title "cover" "$1"
+
+	# Display (imagemagick)
+	# local height=$(echo $cover_size | cut -d "x" -f 2)
+	# convert "$1" -resize "x${height}" "$1"
+	# display -background black -remote "$1"
 }
 
 ##############
@@ -95,12 +121,7 @@ if [ -n "$_file" ] || [ -n "$_url" ]; then
 	nHeader="$_artist - $_title" &&
 	nBody="$_tracknumber - $_album ($_date)\n\n\n~ $_status ~" &&
 
-	getCover "$_file" &&
-	nIcon=$cover_file &&
-
-	notify "$nIcon" "$nHeader" "$nBody" &&
-
-	if [ $cover = true ]; then
-		rm "/tmp/cover.png"
-	fi
+	cover_file=$(getCover "$_file") &&
+	notify "$cover_file" "$nHeader" "$nBody"
+	displayCover "$cover_file"
 fi
