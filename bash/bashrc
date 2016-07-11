@@ -1,6 +1,6 @@
 # ======== BASHRC ===================
 # Kabbaj Amine - amine.kabb@gmail.com
-# Last modification: 2016-06-28
+# Last modification: 2016-07-11
 # ===================================
 
 # ===================================
@@ -113,7 +113,6 @@ if [ -f  ~/.dotfiles/bash/fzf/functions.sh ]; then
 	. ~/.dotfiles/bash/fzf/functions.sh
 fi
 
-
 # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/.rvm/bin"
 
@@ -122,28 +121,18 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # ===================================
 
 # Colors.
-default='\033[00m'
-bold='\033[01m'
-red='\033[01;31m'
-green='\033[01;32m'
-yellow='\033[01;33m'
+default='\[\033[00m\]'
+red='\[\033[01;31m\]'
+green='\[\033[01;32m\]'
+yellow='\[\033[01;33m\]'
+blue='\[\033[01;34m\]'
 
 # Personal prompt.
-if [ $TERM == "linux" ]; then
-	sym1=">"
-	sym2="<"
-	sym3="+"
-	sym4="."
-else
-	sym1="⟩"
-	sym2="⟨"
-	sym3="⦁"
-	sym4="⬞"
-fi
-PS1_start="\n\[$red\]$sym1\[$green\]$sym1\[$yellow\]$sym1 \w\[$green\]"
-PS1_end="[\D{%H:%M}] $sym2\[$yellow\]$sym2\[$red\]$sym2\n\[$red\]$sym3\[$green\]$sym3\[$yellow\]$sym3 \[$default\]"
-PS1="${PS1_start} ${PS1_end}"
-PS2="\[$yellow\]    "${sym4}${sym4}${sym4}" \[$default\] "
+sym="➟"
+PS1_start="\n${yellow}[ \w ]${default}"
+PS1_end="\n${yellow}${sym}${default} "
+PS1="${PS1_start}${PS1_end}"
+PS2="${yellow}    ${sym}${default} "
 
 # Execute a main tmux session only for 1st instance of terminal.
 if [ -z "$TMUX" ]; then
