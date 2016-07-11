@@ -1,11 +1,4 @@
 [Configuration]
-ColorForeground=#ececf0f0f1f1
-ColorBackground=#2f2f34343f3f
-ColorCursor=#2e2ecccc7171
-ColorSelection=#163b59
-ColorSelectionUseDefault=FALSE
-ColorBoldUseDefault=FALSE
-ColorPalette=#000000000000;#e7e74c4c3c3c;#2e2ecccc7171;#e6e67e7e2222;#29298080b9b9;#9b9b5959b6b6;#1a1a9292aaaa;#aaaaaaaaaaaa;#777777777777;#ffff87878787;#4c4ce6e64c4c;#f1f1c4c40f0f;#29295f5fcccc;#cccc5858cccc;#4c4ccccce6e6;#ffffffffffff
 FontName=InconsolataForPowerline NF Medium 13
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
@@ -24,7 +17,6 @@ MiscTabCloseMiddleClick=TRUE
 MiscTabPosition=GTK_POS_TOP
 MiscHighlightUrls=TRUE
 MiscScrollAlternateScreen=TRUE
-TabActivityColor=#2727aeae6060
 DropdownWidth=100
 DropdownHeight=97
 DropdownAlwaysShowTabs=FALSE
@@ -35,4 +27,13 @@ DropdownStatusIcon=FALSE
 DropdownAnimationTime=250
 DropdownMoveToActive=FALSE
 BackgroundDarkness=0,800000
+TitleInitial=
+TitleMode=TERMINAL_TITLE_REPLACE
+ColorPalette=#18c618c618c6;#c0c039392b2b;#2727aeae6060;#f3f39c9c1212;#52529494e2e2;#8e8e4444adad;#29298080b9b9;#bdbdc3c3c7c7;#444447475252;#e7e74c4c3c3c;#2e2ecccc7171;#f1f1c4c40f0f;#7878a0a0cfcf;#9b9b5959b6b6;#34349898dbdb;#ececf0f0f1f1
+ColorBackground=#2f2f34343f3f
+ColorForeground=#f6f6f6f6f6f6
+ColorCursor=#52529494e2e2
+TabActivityColor=#cece3a3a3a3a
+ColorSelectionUseDefault=FALSE
+ColorSelection=#444447475252
 
