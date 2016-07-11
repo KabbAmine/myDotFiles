@@ -47,8 +47,12 @@ Content
 │   │   ├── time_and_date
 │   │   ├── volume
 │   │   └── weather
+│   ├── scripts
+│   │   ├── exit.sh
+│   │   ├── helpers.sh
+│   │   ├── ws_music_init.sh
+│   │   └── ws_news_init.sh
 │   ├── config
-│   ├── exit.sh
 │   ├── i3bar_conkyrc
 │   └── i3blocks_primary.conf
 ├── install
@@ -67,6 +71,8 @@ Content
 │   ├── dotfiles.json
 │   ├── packages.json
 │   └── scripts.json
+├── lyvi
+│   └── lyvi.conf
 ├── quicktile
 │   └── quicktile.cfg
 ├── scripts
