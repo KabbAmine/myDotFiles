@@ -1,25 +1,40 @@
 # i3 config file
-# Last modification: 2016-07-05
+# Last modification: 2016-07-11
 
 ####################
 # GLOBAL VARIABLES
 ####################
 
-# i3 config dir
 set $i3 "$HOME/.dotfiles/i3"
+set $scripts "$HOME/.dotfiles/i3/scripts"
+set $terminal "i3-sensible-terminal"
 
 # Keys
 set $mod Mod4
 set $alt Mod1
+
+# Workspaces
+set $ws_generic ""
+set $ws_mail ""
+set $ws_web ""
+set $ws_dev ""
+set $ws_chat ""
+set $ws_news ""
+set $ws_dl ""
+set $ws_games ""
+set $ws_generic2 ""
+set $ws_terminal ""
+set $ws_music ""
 
 # Colors
 set $bg #383c4a
 set $bg_light #444752
 set $sl #d3dae3
 set $blue #5294e2
-set $red #CE3A3A
-set $focused_txt #F6F6F6
-set $inactive_txt #9D9D9D
+set $blue_light #78a0cf
+set $red #ce3a3a
+set $focused_txt #f6f6f6
+set $inactive_txt #9d9d9d
 
 # Outputs (Monitors)
 set $monitor1 LVDS
@@ -47,8 +62,8 @@ set $mode_exit [l]ogout | [s]hutdown | [r]eboot
 bindsym $mod+shift+e mode "$mode_exit"
 mode "$mode_exit" {
 	bindsym l exec i3-msg exit
-	bindsym s exec --no-startup-id sudo $i3/exit.sh shutdown
-	bindsym r exec --no-startup-id sudo $i3/exit.sh reboot
+	bindsym s exec --no-startup-id sudo $scripts/exit.sh shutdown
+	bindsym r exec --no-startup-id sudo $scripts/exit.sh reboot
 
 	bindsym $mod+shift+e mode "default"
 	bindsym Escape mode "default"
@@ -62,7 +77,8 @@ mode "$mode_launcher" {
 	bindsym w exec x-www-browser; mode "default"
 	bindsym m exec exo-open --launch MailReader; mode "default"
 	bindsym f exec exo-open --launch FileManager; mode "default"
-	bindsym t exec i3-sensible-terminal; mode "default"
+
+	bindsym t exec $terminal; mode "default"
 	bindsym v exec gvim; mode "default"
 
 	bindsym $mod+Return mode "default"
@@ -79,6 +95,18 @@ mode "$mode_layout" {
 	bindsym p layout toggle split; mode "default"
 
 	bindsym $mod+e mode "default"
+	bindsym Escape mode "default"
+	bindsym Return mode "default"
+}
+
+# A custom mode for initializing workspaces
+set $mode_init_ws Init: [m]usic  | [n]ews 
+bindsym $mod+i mode "$mode_init_ws"
+mode "$mode_init_ws" {
+	bindsym m exec --no-startup-id bash $scripts/ws_music_init.sh $ws_music; mode default
+	bindsym n exec --no-startup-id bash $scripts/ws_news_init.sh $ws_news; mode default
+
+	bindsym $mod+i mode "default"
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
 }
@@ -170,7 +198,7 @@ client.focused          $blue $blue $sl           $focused_txt $blue
 client.focused_inactive $bg   $bg   $inactive_txt $focused_txt $bg
 client.unfocused        $bg   $bg   $inactive_txt $focused_txt $bg
 client.urgent           $red  $red  $sl           $focused_txt $red
-client.placeholder      $blue $blue $sl           $focused_txt $sl
+client.placeholder      $blue_light $blue_light   $sl          $focused_txt $sl
 client.background       $blue
 
 # hide_edge_borders both
@@ -184,6 +212,7 @@ mouse_warping none
 
 # Enable floating mode for some windows
 for_window [class=$floating_windows] floating enable
+
 for_window [window_type="notification"] floating enable; border none;
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
@@ -191,19 +220,6 @@ for_window [window_role="task_dialog"] floating enable
 ############
 # WORKSPACES
 ############
-
-# Custom workspaces
-set $ws_generic ""
-set $ws_mail ""
-set $ws_web ""
-set $ws_dev ""
-set $ws_chat ""
-set $ws_news ""
-set $ws_dl ""
-set $ws_games ""
-set $ws_generic2 ""
-set $ws_terminal ""
-set $ws_music ""
 
 # Assign applications to specific workspaces
 assign [class="^Thunderbird$" instance="^Mail$"] $ws_mail
@@ -214,6 +230,8 @@ assign [class="^Turpial$" instance="^Turpial$"] $ws_news
 assign [class="^Corebird$" instance="^corebird$"] $ws_news
 assign [class="^Liferea$" instance="^liferea$"] $ws_news
 assign [class="^qBittorrent$" instance="^qbittorrent$"] $ws_dl
+# I only use geeqie as a cover viewer for cmus (temporary)
+assign [class="Geeqie" instance="geeqie" title="^cover"] $ws_music
 
 # Worspaces in 2nd monitor
 workspace $ws_generic output $monitor1
@@ -347,4 +365,4 @@ exec_always --no-startup-id setxkbmap -model pc106 -layout fr,us,ru,ar -option g
 exec_always --no-startup-id "sleep 1 && xmodmap ~/.xmodmaprc"
 
 # Execute main terminal in $ws_terminal
-exec --no-startup-id i3-msg 'workspace $ws_terminal; exec i3-sensible-terminal'
+exec --no-startup-id i3-msg 'workspace $ws_terminal; exec $terminal'

@@ -2,7 +2,7 @@
 
 ####################################################
 # CREATION     : 2016-07-04
-# MODIFICATION : 2016-07-08
+# MODIFICATION : 2016-07-11
 
 # I3block's blocklet which:
 # - Show current temperature
@@ -18,24 +18,14 @@
 city="novoazovsk"
 
 declare -A state_icons=( \
-	["Cloudy"]="" \
-	["Fog"]="" \
-	["Heavy_Rain"]="" \
-	["Heavy_Showers"]="" \
-	["Heavy_Snow"]="" \
-	["Heavy_Snow_Showers"]="" \
-	["Light_Rain"]="" \
-	["Light_Showers"]="" \
-	["Light_Sleet"]="" \
-	["Light_Sleet_Showers"]="" \
-	["Light_Snow"]="" \
-	["Light_Snow_Showers"]="" \
-	["Partly_Cloudy"]="" \
-	["Sunny"]="" \
-	["Thundery_Heavy_Rain"]="" \
-	["Thundery_Showers"]=""  \
-	["Thundery_Snow_Showers"]="" \
-	["Very_Cloudy"]="" \
+	["rain"]="" \
+	["fog"]="" \
+	["showers"]="" \
+	["snow"]="" \
+	["sleet"]="" \
+	["cloud"]="" \
+	["sun"]="" \
+	["thunder"]="" \
 	["generic"]="" \
 )
 
@@ -59,11 +49,17 @@ w=$(getCurrWeather)
 state=$(echo "$w" | cut -d " " -f 1 | tr " " "_")
 temp=$(echo "$w" | awk '{print $2 $3}')
 
-if [[ "${!state_icons[*]}" =~ $state ]]; then
-	icon=${state_icons[$state]}
-else
-	icon=${state_icons["generic"]}
-fi
+# Ignore case
+shopt -s nocasematch
+
+# Get the appropriate icon glyph
+icon=${state_icons["generic"]}
+for s in ${!state_icons[*]}; do
+	if [[ $state =~ $s ]]; then
+		icon=${state_icons[$s]}
+		break
+	fi
+done
 
 echo "$icon $temp"
 echo "$icon $temp"

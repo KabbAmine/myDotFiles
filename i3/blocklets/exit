@@ -2,7 +2,7 @@
 
 ####################################################
 # CREATION     : 2016-07-06
-# MODIFICATION : 2016-07-06
+# MODIFICATION : 2016-07-09
 
 # I3block's blocklet:
 # - Allows to log out/shutdown/reboot the system on right click
@@ -13,7 +13,7 @@
 # - The script .dotfiles/i3/exit.sh script
 ####################################################
 
-script="$HOME/.dotfiles/i3/exit.sh"
+script="$HOME/.dotfiles/i3/scripts/exit.sh"
 
 exit() {
 	local action=$(yad --width 300 --center --on-top --no-taskbar --entry --title "Exit" \
