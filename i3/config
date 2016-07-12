@@ -1,5 +1,5 @@
 # i3 config file
-# Last modification: 2016-07-11
+# Last modification: 2016-07-12
 
 ####################
 # GLOBAL VARIABLES
@@ -47,6 +47,9 @@ set $pactl_mute exec pactl set-sink-mute 0 toggle && pkill -RTMIN+1 i3blocks
 
 # Floating windows
 set $floating_windows "^(Yad|Xfce4-appfinder|Simplescreenrecorder|smplayer|Blink)$"
+
+# Game classes
+set $games "^(Mupen64Plus-Qt|supertux2|Hedgewars|info-mineshafter-Bootstrap|Minecraft|Minetest|Snes9x-gtk|mGBA|assaultcube)"
 
 ####################
 # GLOBAL KEYBINDINGS
@@ -230,6 +233,7 @@ assign [class="^Turpial$" instance="^Turpial$"] $ws_news
 assign [class="^Corebird$" instance="^corebird$"] $ws_news
 assign [class="^Liferea$" instance="^liferea$"] $ws_news
 assign [class="^qBittorrent$" instance="^qbittorrent$"] $ws_dl
+assign [class=$games] $ws_games
 # I only use geeqie as a cover viewer for cmus (temporary)
 assign [class="Geeqie" instance="geeqie" title="^cover"] $ws_music
 
