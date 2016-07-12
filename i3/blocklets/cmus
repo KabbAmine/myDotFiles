@@ -2,7 +2,7 @@
 
 ####################################################
 # CREATION     : 2016-05-26
-# MODIFICATION : 2016-07-03
+# MODIFICATION : 2016-07-14
 
 # I3block's blocklet which:
 # - Display current state & played song in cmus
@@ -44,10 +44,11 @@ getCmus() {
 	fi
 }
 
+goto_track="cmus-remote -C win-sel-cur"
 case $BLOCK_BUTTON in
-    1) cmus-remote --next;;     # left click
-    2) cmus-remote --pause;;    # middle click
-    3) cmus-remote --prev;;     # right click
+    1) cmus-remote --next && $goto_track;;     # left click
+    2) cmus-remote --pause && $goto_track;;    # middle click
+    3) cmus-remote --prev && $goto_track;;     # right click
     4) cmus-remote --seek +10;;  # wheel up
     5) cmus-remote --seek -10;;  # wheel down
 esac

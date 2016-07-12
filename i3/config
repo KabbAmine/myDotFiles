@@ -1,5 +1,5 @@
 # i3 config file
-# Last modification: 2016-07-12
+# Last modification: 2016-07-13
 
 ####################
 # GLOBAL VARIABLES
@@ -118,9 +118,9 @@ mode "$mode_init_ws" {
 bindsym --release Control+Shift+Escape exec xkill
 
 # cmus
-bindsym Control+F12 exec --no-startup-id cmus-remote --pause && pkill -RTMIN+10 i3blocks
-bindsym Control+F10 exec --no-startup-id cmus-remote --next && pkill -RTMIN+10 i3blocks
-bindsym Control+F11 exec --no-startup-id cmus-remote --prev && pkill -RTMIN+10 i3blocks
+bindsym Control+F12 exec --no-startup-id cmus-remote --pause && cmus-remote -C win-sel-cur && pkill -RTMIN+10 i3blocks
+bindsym Control+F10 exec --no-startup-id cmus-remote --next && cmus-remote -C win-sel-cur && pkill -RTMIN+10 i3blocks
+bindsym Control+F11 exec --no-startup-id cmus-remote --prev && cmus-remote -C win-sel-cur && pkill -RTMIN+10 i3blocks
 
 # Xfce tools
 bindsym Print exec xfce4-screenshooter
@@ -237,7 +237,10 @@ assign [class=$games] $ws_games
 # I only use geeqie as a cover viewer for cmus (temporary)
 assign [class="Geeqie" instance="geeqie" title="^cover"] $ws_music
 
-# Worspaces in 2nd monitor
+# Monitors for workspaces
+workspace $ws_games output $monitor1
+workspace $ws_dev output $monitor1
+workspace $ws_web output $monitor1
 workspace $ws_generic output $monitor1
 workspace $ws_generic2 output $monitor2
 workspace $ws_mail output $monitor2
