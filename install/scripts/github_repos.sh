@@ -1,13 +1,13 @@
 #!/bin/bash
 
 ###############################
-# Modification: 2016-07-06
+# Modification: 2016-07-12
 #
 # Download, clone or pull github releases/repositories.
 #	- bash-git-prompt
 #	- byzanz-window
 #	- fzf
-#	- i3block
+#	- i3blocks-gaps
 #	- i3gaps
 #	- tidy-html5
 #	- xkblayout-state
@@ -179,8 +179,8 @@ i3gaps() {
 	fi
 }
 
-i3blocks() {
-	local name="i3blocks"
+i3blocksGaps() {
+	local name="i3blocks-gaps"
 	Log "$name"
 	cd "$dir"
 
@@ -189,7 +189,7 @@ i3blocks() {
 		local state=$(git pull origin master)
 		echo ""
 	else
-		git clone https://github.com/vivien/i3blocks "$name" &&
+		git clone https://github.com/Airblader/i3blocks-gaps "$name" &&
 		cd "$name"
 		echo ""
 	fi
@@ -318,7 +318,7 @@ lyvi() {
 bashGitPrompt
 byzanzWindow
 fzf
-i3blocks
+i3blocksGaps
 i3gaps
 tidyHtml5
 xkblayoutState

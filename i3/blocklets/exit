@@ -2,7 +2,7 @@
 
 ####################################################
 # CREATION     : 2016-07-06
-# MODIFICATION : 2016-07-09
+# MODIFICATION : 2016-07-12
 
 # I3block's blocklet:
 # - Allows to log out/shutdown/reboot the system on right click
@@ -33,7 +33,8 @@ case $BLOCK_BUTTON in
 	1) exit;;   # right click
 esac
 
-echo ""
-echo ""
+# Surrounded by spaces to render a button-style like
+echo "  "
+echo "  "
 echo
 # echo "#e74c3c"
