@@ -26,7 +26,6 @@ BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
 DropdownStatusIcon=FALSE
 DropdownAnimationTime=250
 DropdownMoveToActive=FALSE
-BackgroundDarkness=0,800000
 TitleInitial=
 TitleMode=TERMINAL_TITLE_REPLACE
 ColorPalette=#18c618c618c6;#c0c039392b2b;#2727aeae6060;#f3f39c9c1212;#52529494e2e2;#8e8e4444adad;#29298080b9b9;#bdbdc3c3c7c7;#444447475252;#e7e74c4c3c3c;#2e2ecccc7171;#f1f1c4c40f0f;#7878a0a0cfcf;#9b9b5959b6b6;#34349898dbdb;#ececf0f0f1f1
@@ -36,4 +35,5 @@ ColorCursor=#52529494e2e2
 TabActivityColor=#cece3a3a3a3a
 ColorSelectionUseDefault=FALSE
 ColorSelection=#444447475252
+BackgroundDarkness=0,700000
 
