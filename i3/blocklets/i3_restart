@@ -1,0 +1,14 @@
+#!/bin/bash
+
+####################################################
+# CREATION     : 2016-07-15
+# MODIFICATION : 2016-07-15
+####################################################
+
+case $BLOCK_BUTTON in
+	1) i3-msg restart;;   # right click
+esac
+
+echo ""
+echo ""
+echo
