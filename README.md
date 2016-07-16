@@ -42,6 +42,7 @@ Content
 │   ├── blocklets
 │   │   ├── cmus
 │   │   ├── exit
+│   │   ├── i3_restart
 │   │   ├── layout
 │   │   ├── menu
 │   │   ├── time_and_date
@@ -63,6 +64,7 @@ Content
 │   │   ├── font.sh
 │   │   ├── github_repos.sh
 │   │   ├── i3.sh
+│   │   ├── mineshafter.sh
 │   │   ├── mkvtoolnix.sh
 │   │   ├── nodejs.sh
 │   │   ├── rvm.sh
