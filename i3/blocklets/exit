@@ -2,7 +2,7 @@
 
 ####################################################
 # CREATION     : 2016-07-06
-# MODIFICATION : 2016-07-12
+# MODIFICATION : 2016-07-17
 
 # I3block's blocklet:
 # - Allows to log out/shutdown/reboot the system on right click
@@ -37,4 +37,3 @@ esac
 echo "  "
 echo "  "
 echo
-# echo "#e74c3c"
