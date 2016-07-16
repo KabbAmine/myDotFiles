@@ -20,6 +20,7 @@
     "pip": [
         "autopep8",
         "flake8",
+        "rtv",
         "vim-vint",
         "youtube-dl"
     ],
