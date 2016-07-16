@@ -1,7 +1,7 @@
 
 ! ##############################################################################
 !
-! Modification: 2016-07-08
+! Modification: 2016-07-16
 !
 ! ##############################################################################
 
@@ -25,7 +25,7 @@ rofi.columns:           1
 rofi.fake-transparency: true
 rofi.font:              mono 12
 rofi.fullscreen:        true
-rofi.fuzzy:             true
+! rofi.fuzzy:             true
 rofi.hide-scrollbar:    false
 rofi.line-margin:       10
 rofi.lines:             15
