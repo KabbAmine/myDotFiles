@@ -1,5 +1,5 @@
 # i3 config file
-# Last modification: 2016-07-13
+# Last modification: 2016-07-17
 
 ####################
 # GLOBAL VARIABLES
@@ -40,13 +40,17 @@ set $inactive_txt #9d9d9d
 set $monitor1 LVDS
 set $monitor2 VGA-0
 
+# Gaps
+set $gaps_inner 10
+set $gaps_outer 5
+
 # Control volume with pactl
 set $pactl_decrease exec pactl set-sink-volume 0 '-5%' && pkill -RTMIN+1 i3blocks
 set $pactl_increase exec pactl set-sink-volume 0 '+5%' && pkill -RTMIN+1 i3blocks
 set $pactl_mute exec pactl set-sink-mute 0 toggle && pkill -RTMIN+1 i3blocks
 
 # Floating windows
-set $floating_windows "^(Yad|Xfce4-appfinder|Simplescreenrecorder|smplayer|Blink)$"
+set $floating_windows "^(Nitrogen|Yad|Xfce4-appfinder|Simplescreenrecorder|smplayer|Blink)$"
 
 # Game classes
 set $games "^(Mupen64Plus-Qt|supertux2|Hedgewars|info-mineshafter-Bootstrap|Minecraft|Minetest|Snes9x-gtk|mGBA|assaultcube)"
@@ -112,6 +116,17 @@ mode "$mode_init_ws" {
 	bindsym $mod+i mode "default"
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
+}
+
+set $mode_gaps Gaps: [t]rue, [f]alse
+bindsym $mod+g mode "$mode_gaps"
+mode "$mode_gaps" {
+	bindsym t mode "default", gaps inner all set $gaps_inner, gaps outer all set $gaps_outer
+	bindsym f mode "default", gaps inner all set 1, gaps outer all set 1
+
+	bindsym $mod+g mode "default"
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
 }
 
 # xkill
@@ -210,7 +225,7 @@ font pango:InconsolataForPowerline NF Medium 11
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-new_window pixel 3
+new_window pixel 4
 mouse_warping none
 
 # Enable floating mode for some windows
@@ -332,8 +347,8 @@ bar {
 # Default values:
 ## inner: Between windows
 ## outer: Between the edge of the screen and a window
-gaps inner 10
-gaps outer 0
+gaps inner $gaps_inner
+gaps outer $gaps_outer
 
 # Gaps & borders only when we have more than 1 window
 smart_gaps on
