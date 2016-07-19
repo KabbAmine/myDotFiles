@@ -2,7 +2,7 @@
 
 ####################################################
 # CREATION     : 2016-06-20
-# MODIFICATION : 2016-07-08
+# MODIFICATION : 2016-07-20
 
 # I3block's blocklet which:
 # - Display volume
@@ -22,15 +22,29 @@ let vol=$(pactl list sinks | awk -F '/' '/^\s*Volume/{print $2}' | tr -d '% ' | 
 mute=$(pactl list sinks | awk -F ':' '/^\s*Sourdine/{print $2}' | tr -d ' ')
 
 if [ "$vol" -eq 0 ] || [ "$mute" == "oui" ]; then
-	echo ""
-	echo ""
-	echo "#e74c3c"
+	text=" $vol%"
+	background="#e74c3c"
+	border="#d3dae3"
 elif [ $vol -le 45 ]; then
-	echo " $vol%"
-	echo " $vol%"
-	echo
+	text=" $vol%"
+	background=""
+	border=""
 else
-	echo " $vol%"
-	echo " $vol%"
-	echo
+	text=" $vol%"
+	background=""
+	border=""
 fi
+
+# Output in json
+cat <<EOF
+{
+	"full_text": " ${text} ",
+	"color": "",
+	"background": "${background}",
+	"border": "${border}",
+	"border_left": 0,
+	"border_right": 0,
+	"border_up": 0,
+	"border_bottom": 2
+}
+EOF

@@ -2,18 +2,19 @@
 
 ####################################################
 # CREATION     : 2016-06-03
-# MODIFICATION : 2016-07-12
+# MODIFICATION : 2016-07-20
 
 # I3block's blocklet which:
 # - Display time.
-# - Display a calendar on left click using yad
+# - Display date in a notification using notify-send on left click
+# - Display a calendar using yad on right click 
 ####################################################
 
 case $BLOCK_BUTTON in
-    1) yad --calendar --no-buttons --mouse --on-top --undecorated --skip-taskbar;;     # left click
+	1) notify-send -i "date" "$(date '+%A %d %B %Y')";;     # left click
+    3) yad --calendar --no-buttons --mouse --on-top --undecorated --skip-taskbar;;     # right click
 esac
 
-# t=$(date '+%H:%M %a %d %b')
 t=$(date '+%H:%M')
 
 echo "$t"
