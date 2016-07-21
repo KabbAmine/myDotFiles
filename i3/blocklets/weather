@@ -2,7 +2,7 @@
 
 ####################################################
 # CREATION     : 2016-07-04
-# MODIFICATION : 2016-07-20
+# MODIFICATION : 2016-07-21
 
 # I3block's blocklet which:
 # - Show current temperature
@@ -33,7 +33,7 @@ declare -A state_icons=( \
 getCurrWeather() {
 	local datas=$(curl --silent "wttr.in/${city}" | sed "s,\x1B\[[0-9;]*[a-zA-Z],,g")
 	local head=$(echo "$datas" | head -n 7)
-	local state=$(echo "$head" | head -n 3 | tail -n 1 | awk '{print $NF}')
+	local state=$(echo "$head" | head -n 3 | tail -n 1 | sed -e 's=.*\([A-Z].*\)=\1=')
 	local temperature=$(echo "$head" | grep -o "[0-9]*\ *°C")
 
 	echo "${state} ${temperature}"
@@ -47,8 +47,8 @@ esac
 
 w=$(getCurrWeather)
 
-state=$(echo "$w" | cut -d " " -f 1 | tr " " "_")
-temp=$(echo "$w" | awk '{print $2 $3}')
+state=$(echo "$w" | sed -e 's=\(.*\)[0-9]+=\1=')
+temp=$(echo "$w" | awk '{print $(NF-1) $NF}')
 
 # Ignore case
 shopt -s nocasematch
