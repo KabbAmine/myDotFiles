@@ -1,5 +1,5 @@
 # i3 config file
-# Last modification: 2016-07-17
+# Last modification: 2016-07-21
 
 ####################
 # GLOBAL VARIABLES
@@ -43,6 +43,9 @@ set $monitor2 VGA-0
 # Gaps
 set $gaps_inner 10
 set $gaps_outer 5
+
+# Border
+set $border 4
 
 # Control volume with pactl
 set $pactl_decrease exec pactl set-sink-volume 0 '-5%' && pkill -RTMIN+1 i3blocks
@@ -225,7 +228,7 @@ font pango:InconsolataForPowerline NF Medium 11
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-new_window pixel 4
+new_window pixel $border
 mouse_warping none
 
 # Enable floating mode for some windows
