@@ -1,6 +1,6 @@
 # ======== BASHRC ===================
 # Kabbaj Amine - amine.kabb@gmail.com
-# Last modification: 2016-07-11
+# Last modification: 2016-07-22
 # ===================================
 
 # ===================================
@@ -26,23 +26,6 @@ if ! shopt -oq posix; then
 	elif [ -f /etc/bash_completion ]; then
 		. /etc/bash_completion
 	fi
-fi
-
-# If the command-not-found package is installed, use it
-if [ -x /usr/lib/command-not-found -o -x /usr/share/command-not-found/command-not-found ]; then
-	function command_not_found_handle {
-	# check because c-n-f could've been removed in the meantime
-	if [ -x /usr/lib/command-not-found ]; then
-		/usr/lib/command-not-found -- "$1"
-		return $?
-	elif [ -x /usr/share/command-not-found/command-not-found ]; then
-		/usr/share/command-not-found/command-not-found -- "$1"
-		return $?
-	else
-		printf "%s: command not found\n" "$1" >&2
-		return 127
-	fi
-}
 fi
 
 # Disable XON/XOFF protocol (No more Ctrl-S :D)
@@ -127,18 +110,19 @@ green='\[\033[01;32m\]'
 yellow='\[\033[01;33m\]'
 blue='\[\033[01;34m\]'
 
-# Personal prompt.
+# Prompt.
 sym="➟"
 PS1_start="\n${yellow}[ \w ]${default}"
 PS1_end="\n${yellow}${sym}${default} "
 PS1="${PS1_start}${PS1_end}"
 PS2="${yellow}    ${sym}${default} "
 
-# Execute a main tmux session only for 1st instance of terminal.
+# Execute a main tmux session only for the 1st instance of terminal.
 if [ -z "$TMUX" ]; then
-	session_name="HaHoKo"
+	session_name="_"
 	tmux has-session -t $session_name 2> /dev/null
 	if [ $? -eq 1 ]; then
+		sleep 0.5 &&
 		tmux attach -t $session_name || tmux new -s $session_name
 	fi
 fi
@@ -151,13 +135,11 @@ if [ -f  ~/.gitprompt.sh ]; then
 	GIT_PROMPT_ONLY_IN_REPO=1
 	GIT_PROMPT_FETCH_REMOTE_STATUS=0
 	# Counting of untracked file (no, normal or all)
-   GIT_PROMPT_SHOW_UNTRACKED_FILES=no
-   GIT_PROMPT_START="$PS1_start"
-   GIT_PROMPT_END=" $PS1_end"
-   GIT_PROMPT_THEME=Default_Ubuntu
+	GIT_PROMPT_SHOW_UNTRACKED_FILES=no
+	GIT_PROMPT_START="$PS1_start"
+	GIT_PROMPT_END=" $PS1_end"
+	GIT_PROMPT_THEME=Default_Ubuntu
 	. ~/.gitprompt.sh
 fi
-
-IFS=$DEFAULT_IFS
 
 # vim:ft=sh
