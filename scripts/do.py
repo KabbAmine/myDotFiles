@@ -3,10 +3,10 @@
 
 #################################
 # Creation         : 2016-07-02
-# Last modification: 2016-07-06
+# Last modification: 2016-07-22
 #
 # USAGE:
-# Execute it from the dofiles
+# Execute it from the dotfiles
 # repository.
 #################################
 
@@ -64,7 +64,7 @@ def Init():
     # Choices
     print('{}- {}[i]{}nstall'.format(white, green, white))
     print('- {}[u]{}pdate'.format(green, white))
-    print('- {}[l]{}ink & copy dofiles'.format(green, white))
+    print('- {}[l]{}ink & copy dotfiles'.format(green, white))
     print('\n- {}[q]{}uit'.format(green, white))
 
     inp = input(yellow + '\n> ' + white)
