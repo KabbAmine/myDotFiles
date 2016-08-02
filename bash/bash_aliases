@@ -1,22 +1,8 @@
 # #############################
-# Last modification: 2016-07-06
+# Last modification: 2016-08-02
 # #############################
 
 # Git
-alias Gcl="git clone"
-alias Gi="git init"
-alias Gl="git log --pretty=oneline"
-alias Gb="git branch"
-alias Gch="git checkout"
-alias Gpl="git pull"
-alias Ga="git add"
-alias Gs="git status"
-alias Gco="git commit"
-alias Gd="git diff"
-alias Gt="git tag"
-alias Gm="git merge $1"
-alias Gp="git push -u origin $1"
-alias Gst="git stash"
 alias Gtree="git log --graph --decorate --pretty=oneline --abbrev-commit"
 
 # Apt & dpkg

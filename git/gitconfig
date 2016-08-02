@@ -8,4 +8,21 @@
 	ui = auto
 [core]
 	excludesfile = /home/k-bag/.gitignore_global
+[alias]
+	a = add
+	b = branch
+	ch = checkout
+	cl = clone
+	co = commit
+	d = diff
+	i = init
+	ll = log
+	l = log --pretty=oneline
+	m = merge
+	pl = pull
+	p = push -u origin
+	s = status
+	st = stash
+	t = tag
 
+# vim:ft=gitconfig
