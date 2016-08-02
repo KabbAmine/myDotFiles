@@ -7,9 +7,9 @@
         "browser-sync",
         "coffee-script",
         "csslint",
+        "eslint",
         "gulp",
         "js-beautify",
-        "jslint",
         "jsonlint",
         "live-server",
         "node-sass",
@@ -22,6 +22,7 @@
         "flake8",
         "rtv",
         "vim-vint",
+        "yamllint",
         "youtube-dl"
     ],
     "snap": []
