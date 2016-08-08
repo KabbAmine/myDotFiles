@@ -314,7 +314,7 @@ bar {
 	output $monitor1
 	position top
 	height 24
-	status_command i3blocks -c $i3/i3blocks_primary.conf
+	status_command i3blocks -c $i3/i3blocks.conf
 	tray_output $monitor1
 	tray_padding 3
 	colors {
