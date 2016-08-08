@@ -55,7 +55,7 @@ Content
 │   │   └── ws_news_init.sh
 │   ├── config
 │   ├── i3bar_conkyrc
-│   └── i3blocks_primary.conf
+│   └── i3blocks.conf
 ├── install
 │   ├── scripts
 │   │   ├── arc.sh
@@ -149,7 +149,7 @@ TODO
 - [ ] Use a home-made sh/python framework to prevent code duplication.
 - [ ] Convert `scripts/update_github_scripts.sh` to python?
 - [ ] More refactoring
-- [ ] A better logic?
+- [ ] A better (python) logic?
 
 NOTES
 -----
