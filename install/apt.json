@@ -9,7 +9,7 @@
     ],
     "packages": {
         "cli"       : ["tree", "apt-file", "curl", "byzanz", "conky", "wmctrl", "imagemagick", "ncdu", "silversearcher-ag", "unrar"],
-        "dev"       : ["exuberant-ctags", "zeal", "markdown", "shellcheck"],
+        "dev"       : ["php", "exuberant-ctags", "zeal", "markdown", "shellcheck"],
         "fonts"     : ["fonts-font-awesome"],
         "fori3"     : ["libanyevent-i3-perl"],
         "games"     : ["assaultcube", "aisleriot", "hedgewars", "pokerth", "supertux", "supertuxkart"],
