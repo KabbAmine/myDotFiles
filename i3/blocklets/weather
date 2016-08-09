@@ -2,7 +2,7 @@
 
 ####################################################
 # CREATION     : 2016-07-04
-# MODIFICATION : 2016-08-05
+# MODIFICATION : 2016-08-10
 
 # I3block's blocklet which:
 # - Show current temperature
@@ -45,13 +45,13 @@ parseDatas() {
 	echo "${state} ${temperature}"
 }
 
-
 datas=$(getCurrWeather)
-w=$(parseDatas "$datas")
 
 # Quit if no datas were found
-check=$(echo "$w" | grep 'Not Found')
+check=$(echo "$datas" | grep 'Not Found')
 if [ -n "$check" ]; then exit; fi
+
+w=$(parseDatas "$datas")
 
 yad="yad --text-info --no-buttons --on-top --center --skip-taskbar --width 1015 --height 620"
 case $BLOCK_BUTTON in
