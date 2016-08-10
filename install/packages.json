@@ -7,7 +7,7 @@
         "browser-sync",
         "coffee-script",
         "csslint",
-        "eslint",
+        "eslint_d",
         "gulp",
         "js-beautify",
         "jsonlint",
