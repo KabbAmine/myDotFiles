@@ -1,5 +1,5 @@
 # i3 config file
-# Last modification: 2016-07-21
+# Last modification: 2016-08-14
 
 ####################
 # GLOBAL VARIABLES
@@ -176,7 +176,7 @@ bindsym $mod+f fullscreen
 bindsym $mod+Shift+space floating toggle
 
 # Change focus between tiling / floating windows
-# bindsym $mod+space focus mode_toggle
+bindsym $mod+Shift+f focus mode_toggle
 
 # Focus the parent/child container
 bindsym $mod+p focus parent
