@@ -1,6 +1,7 @@
 {
     "ruby": [
         "compass",
+        "jekyll", "jekyll-sitemap",
         "sass"
     ],
     "npm": [
