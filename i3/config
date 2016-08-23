@@ -1,5 +1,5 @@
 # i3 config file
-# Last modification: 2016-08-14
+# Last modification: 2016-08-24
 
 ####################
 # GLOBAL VARIABLES
@@ -374,7 +374,7 @@ exec --no-startup-id compton -bf -D 2
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
 # Applications
-exec --no-startup-id rofi
+exec_always --no-startup-id rofi
 exec --no-startup-id clipit
 exec --no-startup-id nm-applet
 exec --no-startup-id xscreensaver -no-splash
@@ -391,3 +391,10 @@ exec_always --no-startup-id "sleep 1 && xmodmap ~/.xmodmaprc"
 
 # Execute main terminal in $ws_terminal
 exec --no-startup-id i3-msg 'workspace $ws_terminal; exec $terminal'
+
+##################
+# MORE KEYBINDINGS
+##################
+
+# Rofi for windows
+bindsym --release $mod+Tab exec rofi -show window
