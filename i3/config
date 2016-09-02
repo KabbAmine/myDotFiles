@@ -1,5 +1,5 @@
 # i3 config file
-# Last modification: 2016-08-24
+# Last modification: 2016-09-02
 
 ####################
 # GLOBAL VARIABLES
@@ -374,7 +374,7 @@ exec --no-startup-id compton -bf -D 2
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
 # Applications
-exec_always --no-startup-id rofi
+exec --no-startup-id rofi
 exec --no-startup-id clipit
 exec --no-startup-id nm-applet
 exec --no-startup-id xscreensaver -no-splash
