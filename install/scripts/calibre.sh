@@ -14,7 +14,7 @@ if [ ! -x '/usr/bin/calibre' ]; then
 	install
 else
 	current_version=$(calibre --version | awk '{print $3}' | tr -d ')')
-	last_version=$(curl -s $url | grep 'tag_name' | cut -d '"' -f 4 | tr -d 'v')
+	last_version=$(curl -s $url | grep 'tag_name' | cut -d '"' -f 4 | tr -d 'v' | awk -F "." '{print $1"."$2}')
 
 	if [ "$current_version" == "$last_version" ]; then
 		echo "Already up-to-date"
