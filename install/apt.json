@@ -34,6 +34,7 @@
         "nilarimogard/webupd8"               : ["puddletag", "yad", "mcomix", "screenkey", "notifyosdconfig"],
         "obsproject/obs-studio"              : ["obs-studio"],
         "otto-kesselgulasch/gimp"            : ["gimp"],
+        "jonathonf/vim"                      : ["vim"],
         "qbittorrent-team/qbittorrent-stable": ["qbittorrent"],
         "random-stuff/ppa"                   : ["snes9x-gtk", "mgba-qt", "mupen64plus-qt", "libmupen64plus2", "mupen64plus-input-sdl", "mupen64plus-audio-sdl", "mupen64plus-rsp-hle", "mupen64plus-video-glide64mk2", "mupen64plus-video-rice", "mupen64plus-ui-console"],
         "ravefinity-project/ppa"             : ["vibrancy-colors", "vivacious-colors"],
