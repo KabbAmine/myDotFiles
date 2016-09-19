@@ -1,5 +1,5 @@
 # i3 config file
-# Last modification: 2016-09-12
+# Last modification: 2016-09-19
 
 ####################
 # GLOBAL VARIABLES
@@ -41,7 +41,7 @@ set $monitor1 LVDS
 set $monitor2 VGA-0
 
 # Gaps
-set $gaps_inner 10
+set $gaps_inner 5
 set $gaps_outer 5
 
 # Border
