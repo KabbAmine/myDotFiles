@@ -3,7 +3,7 @@
 
 #################################
 # Creation         : 2016-07-02
-# Last modification: 2016-07-05
+# Last modification: 2016-09-21
 #################################
 
 # Import variables
@@ -40,7 +40,7 @@ dotfiles = loads(open(config['INSTALL']['dotfiles']).read())
 
 
 def Echo(msg, type=1):
-    ''' 1 is success, 1 is error and 3 is warning '''
+    ''' 1 is success, 2 is error and 3 is warning '''
 
     if type == 1:
         print(c['green'] + msg + c['white'])
