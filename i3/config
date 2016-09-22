@@ -1,5 +1,5 @@
 # i3 config file
-# Last modification: 2016-09-19
+# Last modification: 2016-09-22
 
 ####################
 # GLOBAL VARIABLES
@@ -53,7 +53,7 @@ set $pactl_increase exec pactl set-sink-volume 0 '+5%' && pkill -RTMIN+1 i3block
 set $pactl_mute exec pactl set-sink-mute 0 toggle && pkill -RTMIN+1 i3blocks
 
 # Floating windows
-set $floating_windows "^(Nitrogen|Yad|Xfce4-appfinder|Simplescreenrecorder|Smplayer|Blink)$"
+set $floating_windows "^(Peek|Nitrogen|Yad|Xfce4-appfinder|Simplescreenrecorder|Smplayer|Blink)$"
 
 # Game classes
 set $games "^(Mupen64Plus-Qt|supertux2|Hedgewars|info-mineshafter-Bootstrap|Minecraft|Minetest|Snes9x-gtk|mGBA|assaultcube)"
