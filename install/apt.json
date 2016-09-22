@@ -12,7 +12,7 @@
         "dev"       : ["lua5.2", "php", "exuberant-ctags", "zeal", "markdown", "shellcheck"],
         "fonts"     : ["fonts-font-awesome"],
         "fori3"     : ["libanyevent-i3-perl"],
-        "games"     : ["assaultcube", "aisleriot", "hedgewars", "pokerth", "supertux", "supertuxkart"],
+        "games"     : ["desmume", "assaultcube", "aisleriot", "hedgewars", "pokerth", "supertux", "supertuxkart"],
         "graphics"  : ["geeqie", "feh", "screenruler", "gpicview", "agave"],
         "internet"  : ["corebird", "skype", "liferea"],
         "misc"      : ["nitrogen", "lxappearance", "compton", "verbiste-gnome", "speedcrunch", "kiki", "klavaro", "convertall", "jargoninformatique"],
