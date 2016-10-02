@@ -1,5 +1,5 @@
 # #############################
-# Last modification: 2016-08-02
+# Last modification: 2016-09-28
 # #############################
 
 # Git
@@ -55,8 +55,6 @@ alias ll='ls -l'
 # Misc
 alias Do='python3 "$HOME/.dotfiles/scripts/do.py"'
 alias lyvi='python3 "$HOME/Scripts/lyvi/lyvi.py"'
-alias Aard2='java -Dslobber.browse -jar ~/Scripts/aard2/aard2-web-0.7.jar ~/Scripts/aard2/*.slob'
-alias zeal='zeal --style=gtk+'
 alias V='vim'
 alias G='gvim'
 alias Size='df -h'
