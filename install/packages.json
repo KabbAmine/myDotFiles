@@ -21,6 +21,8 @@
     "pip": [
         "autopep8",
         "flake8",
+        "mock",
+        "pytest",
         "rtv",
         "vim-vint",
         "yamllint",
