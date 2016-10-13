@@ -6,10 +6,12 @@
     ],
     "npm": [
         "browser-sync",
+        "coffeelint",
         "coffee-script",
         "csslint",
         "eslint_d",
         "gulp",
+        "htmlhint",
         "js-beautify",
         "jsonlint",
         "live-server",
@@ -21,9 +23,6 @@
     "pip": [
         "autopep8",
         "flake8",
-        "mock",
-        "pytest",
-        "rtv",
         "vim-vint",
         "yamllint",
         "youtube-dl"
