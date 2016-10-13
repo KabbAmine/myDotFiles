@@ -14,7 +14,7 @@
         "fori3"     : ["libanyevent-i3-perl"],
         "games"     : ["desmume", "assaultcube", "aisleriot", "hedgewars", "pokerth", "supertux", "supertuxkart"],
         "graphics"  : ["geeqie", "feh", "screenruler", "gpicview", "agave"],
-        "internet"  : ["corebird", "skype", "liferea"],
+        "internet"  : ["skype", "liferea"],
         "misc"      : ["nitrogen", "lxappearance", "compton", "verbiste-gnome", "speedcrunch", "kiki", "klavaro", "convertall", "jargoninformatique"],
         "multimedia": ["soundconverter", "mediainfo-gui", "cmus", "gmusicbrowser", "audacity"],
         "office"    : ["pdfshuffler", "xchm", "gnucash", "zathura", "cherrytree"],
@@ -40,6 +40,7 @@
         "ravefinity-project/ppa"             : ["vibrancy-colors", "vivacious-colors"],
         "rvm/smplayer"                       : ["smplayer", "smtube"],
         "stebbins/handbrake-releases"        : ["handbrake-gtk"],
+        "ubuntuhandbook1/corebird"           : ["corebird"],
         "varlesh-l/papirus-pack"             : ["papirus-gtk-icon-theme", "smplayer-skin-papirus", "libreoffice-style-papirus"],
         "zeal-developers/ppa"                : ["zeal"]
     }
