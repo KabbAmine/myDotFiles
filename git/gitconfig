@@ -15,6 +15,7 @@
 	cl = clone
 	co = commit
 	d = diff
+	f = fetch
 	i = init
 	ll = log
 	l = log --pretty=oneline
