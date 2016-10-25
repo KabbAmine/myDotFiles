@@ -2,6 +2,7 @@
     "ruby": [
         "compass",
         "jekyll", "jekyll-sitemap",
+        "mdl",
         "sass"
     ],
     "npm": [
