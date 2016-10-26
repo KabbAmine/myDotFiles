@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ###############################
-# Modification: 2016-07-12
+# Modification: 2016-10-26
 #
 # Download, clone or pull github releases/repositories.
 #	- bash-git-prompt
@@ -173,6 +173,11 @@ i3gaps() {
 		echo "$state"
 	else
 		# Compile & install
+		autoreconf --force --install
+		rm -rfv build/
+		mkdir -p build && cd build/
+
+		../configure --prefix=/usr --sysconfdir=/etc
 		make
 		sudo make install
 		echo ""
