@@ -2,7 +2,7 @@
 
 ####################################################
 # CREATION     : 2016-07-04
-# MODIFICATION : 2016-08-10
+# MODIFICATION : 2016-10-26
 
 # I3block's blocklet which:
 # - Show current temperature
@@ -40,7 +40,7 @@ getCurrWeather() {
 parseDatas() {
 	local head=$(echo "$1" | head -n 7)
 	local state=$(echo "$head" | head -n 3 | tail -n 1 | sed -e 's=.*\([A-Z].*\)=\1=')
-	local temperature=$(echo "$head" | grep -o "[0-9]*\ *°C")
+	local temperature=$(echo "$head" | grep -o "[-0-9]*\ *°C")
 
 	echo "${state} ${temperature}"
 }
