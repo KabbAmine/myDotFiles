@@ -9,6 +9,7 @@
         "dunst/dunstrc ~/.config/dunst",
         "i3/config ~/.i3",
         "lyvi/lyvi.conf ~/.config/lyvi",
+        "mdl/mdlrc ~ hidden=True",
         "quicktile/quicktile.cfg ~/.config hidden=True",
         "shiba/config.yml ~/.config/Shiba",
         "tmux/tmux.conf ~ hidden=True",

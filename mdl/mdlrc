@@ -1,0 +1,6 @@
+# RULES
+# 009: Trailing spaces
+# 033: Inline HTML
+# Use ~ to disable a rule
+
+rules "~MD009", "~MD033"
