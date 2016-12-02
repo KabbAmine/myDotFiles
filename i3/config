@@ -1,5 +1,5 @@
 # i3 config file
-# Last modification: 2016-09-22
+# Last modification: 2016-12-02
 
 ####################
 # GLOBAL VARIABLES
@@ -8,6 +8,8 @@
 set $i3 "$HOME/.dotfiles/i3"
 set $scripts "$HOME/.dotfiles/i3/scripts"
 set $terminal "i3-sensible-terminal"
+
+set $font "pango:InconsolataForPowerline NF Medium 11"
 
 # Keys
 set $mod Mod4
@@ -25,6 +27,8 @@ set $ws_games ""
 set $ws_generic2 ""
 set $ws_terminal ""
 set $ws_music ""
+set $ws_medis ""
+set $ws_graphics ""
 
 # Colors
 set $bg #383c4a
@@ -53,10 +57,17 @@ set $pactl_increase exec pactl set-sink-volume 0 '+5%' && pkill -RTMIN+1 i3block
 set $pactl_mute exec pactl set-sink-mute 0 toggle && pkill -RTMIN+1 i3blocks
 
 # Floating windows
-set $floating_windows "^(Peek|Nitrogen|Yad|Xfce4-appfinder|Simplescreenrecorder|Smplayer|Blink)$"
+set $floating_windows "^(Speedcrunch|Peek|Nitrogen|Yad|Xfce4-appfinder|Simplescreenrecorder|Smplayer|Blink)$"
 
-# Game classes
-set $games "^(Mupen64Plus-Qt|supertux2|Hedgewars|info-mineshafter-Bootstrap|Minecraft|Minetest|Snes9x-gtk|mGBA|assaultcube)"
+# Window classes
+set $mail "^(Thunderbird)$"
+set $web "^(Firefox)$"
+set $dev "^(Gvim|Zeal)$"
+set $dl "^(qBittorrent)$"
+set $games "^(Mupen64Plus-Qt|supertux2|Hedgewars|info-mineshafter-Bootstrap|Minecraft|Minetest|Snes9x-gtk|mGBA|assaultcube)$"
+set $medis "^(Ghb|Puddletag|obs|Smtube|Shotcut|Simplescreenrecorder)$"
+set $graphics "^(Inkscape|Gimp|Agave)$"
+set $news "^(Liferea|Corebird)$"
 
 ####################
 # GLOBAL KEYBINDINGS
@@ -223,13 +234,16 @@ client.placeholder      $blue_light $blue_light   $sl          $focused_txt $sl
 client.background       $blue
 
 # hide_edge_borders both
-font pango:InconsolataForPowerline NF Medium 11
+font $font
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 new_window pixel $border
 mouse_warping none
+
+# Ensure that all windows have borders by default
+for_window [class=".*"] border pixel $border
 
 # Enable floating mode for some windows
 for_window [class=$floating_windows] floating enable
@@ -243,15 +257,14 @@ for_window [window_role="task_dialog"] floating enable
 ############
 
 # Assign applications to specific workspaces
-assign [class="^Thunderbird$" instance="^Mail$"] $ws_mail
-assign [class="^Firefox$" instance="^Navigator$"] $ws_web
-assign [class="^vivaldi-stable$" instance="^crx_mpognobbkildjkofajifpdfhcoklimli$"] $ws_web
-assign [class="^Gvim$" instance="^gvim$"] $ws_dev
-assign [class="^Turpial$" instance="^Turpial$"] $ws_news
-assign [class="^Corebird$" instance="^corebird$"] $ws_news
-assign [class="^Liferea$" instance="^liferea$"] $ws_news
-assign [class="^qBittorrent$" instance="^qbittorrent$"] $ws_dl
+assign [class=$mail] $ws_mail
+assign [class=$web] $ws_web
+assign [class=$dev] $ws_dev
+assign [class=$dl] $ws_dl
+assign [class=$news] $ws_news
 assign [class=$games] $ws_games
+assign [class=$medis] $ws_medis
+assign [class=$graphics] $ws_graphics
 # I only use geeqie as a cover viewer for cmus (temporary)
 assign [class="Geeqie" instance="geeqie" title="^cover"] $ws_music
 
@@ -285,6 +298,8 @@ bindsym $mod+egrave workspace $ws_dl
 bindsym $mod+underscore workspace $ws_games
 bindsym $mod+ccedilla workspace $ws_generic2
 bindsym $mod+agrave workspace $ws_music
+bindsym $mod+parenright workspace $ws_medis
+bindsym $mod+equal workspace $ws_graphics
 bindsym F12 workspace $ws_terminal
 
 # Move focused container to workspace & move to it
@@ -298,6 +313,8 @@ bindsym $mod+Shift+egrave move container to workspace $ws_dl; workspace $ws_dl
 bindsym $mod+Shift+underscore move container to workspace $ws_games; workspace $ws_games
 bindsym $mod+Shift+ccedilla move container to workspace $ws_generic2; workspace $ws_generic2
 bindsym $mod+Shift+agrave move container to workspace $ws_music; workspace $ws_music
+bindsym $mod+Shift+parenright move container to workspace $ws_medis; workspace $ws_medis
+bindsym $mod+Shift+equal move container to workspace $ws_graphics; workspace $ws_graphics
 bindsym $mod+Shift+F12 move container to workspace $ws_terminal; workspace $ws_terminal
 
 #######
@@ -319,7 +336,7 @@ bar {
 	tray_padding 3
 	colors {
 		background $bg00
-		statusline $sl00
+		# statusline $sl00
 		separator $inactive_txt00
 		focused_workspace $blue00 $blueEE $focused_txt
 		inactive_workspace $bg_light00 $bg_light00 $inactive_txt
@@ -335,7 +352,7 @@ bar {
 	tray_output none
 	colors {
 		background $bg00
-		statusline $sl00
+		# statusline $sl00
 		separator $inactive_txt00
 		focused_workspace $blue00 $blueEE $focused_txt
 		inactive_workspace $bg_light00 $bg_light00 $inactive_txt
@@ -364,9 +381,6 @@ smart_borders on
 # Disable notebook's keyboard
 exec --no-startup-id bash /home/k-bag/Projects/Scripts/Divers/toggle_device_state.sh "AT Translated Set 2 Keyboard"
 
-# Set resolution & monitors
-exec_always --no-startup-id xrandr --output $monitor2 --mode 1280x1024 --pos 1366x0 --gamma 1.4:1.4:1.4 --brightness 1.1 --output $monitor1 --mode 1366x768 --pos 0x0
-
 # Compositor
 exec --no-startup-id compton -bf -D 2
 
@@ -391,6 +405,10 @@ exec_always --no-startup-id "sleep 1 && xmodmap ~/.xmodmaprc"
 
 # Execute main terminal in $ws_terminal
 exec --no-startup-id i3-msg 'workspace $ws_terminal; exec $terminal'
+
+# Set resolution & monitors
+# exec_always --no-startup-id xrandr --output $monitor2 --mode 1280x1024 --pos 1366x0 --gamma 1.4:1.4:1.4 --brightness 1.1 --output $monitor1 --mode 1366x768 --pos 0x0
+exec_always --no-startup xrandr --output $monitor2 --mode 1280x1024 --pos 1366x0 --rotate normal --output $monitor1 --primary --mode 1366x768 --pos 0x0 --rotate normal --brightness 1.1
 
 ##################
 # MORE KEYBINDINGS
