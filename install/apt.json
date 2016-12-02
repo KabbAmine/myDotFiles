@@ -41,7 +41,6 @@
         "rvm/smplayer"                       : ["smplayer", "smtube"],
         "stebbins/handbrake-releases"        : ["handbrake-gtk"],
         "ubuntuhandbook1/corebird"           : ["corebird"],
-        "varlesh-l/papirus-pack"             : ["papirus-gtk-icon-theme", "smplayer-skin-papirus", "libreoffice-style-papirus"],
         "zeal-developers/ppa"                : ["zeal"]
     }
 }
