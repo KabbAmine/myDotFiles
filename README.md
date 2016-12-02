@@ -75,6 +75,8 @@ Content
 │   └── scripts.json
 ├── lyvi
 │   └── lyvi.conf
+├── mdl
+│   └── mdlrc
 ├── quicktile
 │   └── quicktile.cfg
 ├── scripts
@@ -149,7 +151,7 @@ TODO
 - [ ] Use a home-made sh/python framework to prevent code duplication.
 - [ ] Convert `scripts/update_github_scripts.sh` to python?
 - [ ] More refactoring
-- [ ] A better (python) logic?
+- [ ] A better (python) logic
 
 NOTES
 -----
