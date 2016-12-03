@@ -59,7 +59,6 @@ Content
 ├── install
 │   ├── scripts
 │   │   ├── arc.sh
-│   │   ├── blink.sh
 │   │   ├── calibre.sh
 │   │   ├── font.sh
 │   │   ├── github_repos.sh
@@ -67,6 +66,7 @@ Content
 │   │   ├── mineshafter.sh
 │   │   ├── mkvtoolnix.sh
 │   │   ├── nodejs.sh
+│   │   ├── papirus.sh
 │   │   ├── rvm.sh
 │   │   └── topmenu.sh
 │   ├── apt.json
