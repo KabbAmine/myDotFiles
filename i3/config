@@ -1,5 +1,5 @@
 # i3 config file
-# Last modification: 2016-12-02
+# Last modification: 2017-01-01
 
 ####################
 # GLOBAL VARIABLES
@@ -41,7 +41,7 @@ set $focused_txt #f6f6f6
 set $inactive_txt #9d9d9d
 
 # Outputs (Monitors)
-set $monitor1 LVDS
+# set $monitor1 LVDS
 set $monitor2 VGA-0
 
 # Gaps
@@ -269,10 +269,14 @@ assign [class=$graphics] $ws_graphics
 assign [class="Geeqie" instance="geeqie" title="^cover"] $ws_music
 
 # Monitors for workspaces
-workspace $ws_games output $monitor1
-workspace $ws_dev output $monitor1
-workspace $ws_web output $monitor1
-workspace $ws_generic output $monitor1
+# workspace $ws_games output $monitor1
+# workspace $ws_dev output $monitor1
+# workspace $ws_web output $monitor1
+# workspace $ws_generic output $monitor1
+workspace $ws_games output $monitor2
+workspace $ws_dev output $monitor2
+workspace $ws_web output $monitor2
+workspace $ws_generic output $monitor2
 workspace $ws_generic2 output $monitor2
 workspace $ws_mail output $monitor2
 workspace $ws_news output $monitor2
@@ -328,11 +332,13 @@ bindsym $mod+shift+p bar mode toggle
 bar {
 	# Enable rgba colors & transparency (i3-gaps)
 	i3bar_command i3bar -t
-	output $monitor1
+	# output $monitor1
+	output $monitor2
 	position top
 	height 24
 	status_command i3blocks -c $i3/i3blocks.conf
-	tray_output $monitor1
+	# tray_output $monitor1
+	tray_output $monitor2
 	tray_padding 3
 	colors {
 		background $bg00
@@ -343,22 +349,22 @@ bar {
 		urgent_workspace $red00 $redEE $focused_txt
 	}
 }
-bar {
-	i3bar_command i3bar -t
-	output $monitor2
-	position top
-	height 24
-	status_command conky -c $i3/i3bar_conkyrc
-	tray_output none
-	colors {
-		background $bg00
-		# statusline $sl00
-		separator $inactive_txt00
-		focused_workspace $blue00 $blueEE $focused_txt
-		inactive_workspace $bg_light00 $bg_light00 $inactive_txt
-		urgent_workspace $red00 $redEE $focused_txt
-	}
-}
+# bar {
+# 	i3bar_command i3bar -t
+# 	output $monitor2
+# 	position top
+# 	height 24
+# 	status_command conky -c $i3/i3bar_conkyrc
+# 	tray_output none
+# 	colors {
+# 		background $bg00
+# 		# statusline $sl00
+# 		separator $inactive_txt00
+# 		focused_workspace $blue00 $blueEE $focused_txt
+# 		inactive_workspace $bg_light00 $bg_light00 $inactive_txt
+# 		urgent_workspace $red00 $redEE $focused_txt
+# 	}
+# }
 
 ######
 # GAPS
@@ -408,7 +414,8 @@ exec --no-startup-id i3-msg 'workspace $ws_terminal; exec $terminal'
 
 # Set resolution & monitors
 # exec_always --no-startup-id xrandr --output $monitor2 --mode 1280x1024 --pos 1366x0 --gamma 1.4:1.4:1.4 --brightness 1.1 --output $monitor1 --mode 1366x768 --pos 0x0
-exec_always --no-startup xrandr --output $monitor2 --mode 1280x1024 --pos 1366x0 --rotate normal --output $monitor1 --primary --mode 1366x768 --pos 0x0 --rotate normal --brightness 1.1
+# exec_always --no-startup-id xrandr --output $monitor2 --mode 1280x1024 --pos 1366x0 --rotate normal --output $monitor1 --primary --mode 1366x768 --pos 0x0 --rotate normal --brightness 1.1
+exec_always --no-startup-id xrandr --output VGA-0 --primary --mode 1280x1024 --pos 0x0 --rotate normal --output LVDS --off --output HDMI-0 --off
 
 ##################
 # MORE KEYBINDINGS
