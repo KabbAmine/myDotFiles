@@ -4,10 +4,13 @@ DEFAULT_IFS=$IFS
 IFS='
 '
 
-url="http://mineshafter.info/s/Mineshafter-launcher.jar"
+url="http://mineshafter.info/files/Mineshafter-launcher.jar"
 name="Mineshafter-launcher.jar"
 path="$HOME/.minecraft"
 file="${path}/${name}"
+
+# Create the path in all cases
+mkdir -vp "$path"
 
 # Backup old jar file
 if [ -f "$file" ]; then
