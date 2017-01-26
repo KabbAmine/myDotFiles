@@ -3,7 +3,7 @@
 
 #################################
 # Creation         : 2016-06-27
-# Last modification: 2016-07-06
+# Last modification: 2017-01-13
 #################################
 
 from json import loads
@@ -36,6 +36,7 @@ scripts = loads(open(config['INSTALL']['scripts']).read())
 _ = {
     'pip': packages['pip'],
     'snap': packages['snap'],
+    'gems': packages['ruby'],
     'scripts': scripts,
 }
 
@@ -78,7 +79,11 @@ def UpdateNpm():
 
 def UpdateRuby():
     Log('Rvm & Gems')
-    system('rvm get stable && gem update')
+    system('rvm get stable')
+    gems = _['gems']
+    for g in gems:
+        Log('Gem: ' + g, 2)
+        system('gem update ' + g)
 
 
 def UpdatePip():
@@ -170,5 +175,6 @@ def Main():
 ##############
 # Main process
 ##############
+
 
 Main()
