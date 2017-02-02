@@ -42,6 +42,7 @@
         "rvm/smplayer"                        : ["smplayer", "smtube"],
         "stebbins/handbrake-releases"         : ["handbrake-gtk"],
         "ubuntuhandbook1/corebird"            : ["corebird"],
+        "webupd8team/java"                    : ["oracle-java8-installer"],
         "zeal-developers/ppa"                 : ["zeal"]
     }
 }
