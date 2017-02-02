@@ -4,7 +4,7 @@ DEFAULT_IFS=$IFS
 IFS='
 '
 
-url="http://mineshafter.info/files/Mineshafter-launcher.jar"
+url="https://mineshafter.info/files/jars/Mineshafter-launcher.jar"
 name="Mineshafter-launcher.jar"
 path="$HOME/.minecraft"
 file="${path}/${name}"
