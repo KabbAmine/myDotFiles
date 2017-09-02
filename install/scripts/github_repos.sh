@@ -43,7 +43,7 @@ Log() {
 ###################
 
 byzanzWindow() {
-	local local name="byzanz-window"
+	local name="byzanz-window"
 	Log "$name"
 	cd "$dir"
 
